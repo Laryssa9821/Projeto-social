@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Well - Cadastro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho padrão -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <div class="logo-text">Sleep Well</div>
+                <div class="logo-sub">Colchonetes Recicláveis</div>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="sobre.html">SOBRE NÓS</a></li>
+                <li><a href="compre.html">COMPRE E AJUDE</a></li>
+                <li><a href="impacto.html">IMPACTO SOCIAL</a></li>
+                <li><a href="index.html">LOGIN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção de Cadastro -->
+    <main class="register-section">
+        <div class="register-box">
+            
+            <!-- Cabeçalho do formulário -->
+            <div class="register-header">
+                <h2>Sleep Well</h2>
+                <p class="subtitle">Crie sua conta e faça parte dessa rede de cuidado</p>
+                <p class="reference">  Cadastro de Usuário</p>
+            </div>
+
+            <!-- Formulário -->
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <label>Nome completo *</label>
+                    <input type="text" placeholder="Digite seu nome" required>
+                </div>
+                
+                <div class="input-group">
+                    <label>E-mail *</label>
+                    <input type="email" placeholder="seu@email.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Senha *</label>
+                    <input type="password" placeholder="Mínimo 6 caracteres" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Confirmar senha *</label>
+                    <input type="password" placeholder="Digite a senha novamente" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Telefone</label>
+                    <input type="tel" placeholder="(00) 00000-0000">
+                </div>
+
+                <div class="input-group">
+                    <label>Tipo de conta</label>
+                    <select name="tipo_conta">
+                        <option value="gerente">Administrativo</option>
+                        <option value="credenciado">Financeiro </option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-register">CADASTRAR</button>
+            </form>
+
+            <p class="login-link">Já tem uma conta? <a href="index.html">Faça login</a></p>
+        </div>
+    </main>
+
+</body>
+</html>

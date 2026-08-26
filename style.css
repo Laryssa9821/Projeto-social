@@ -1,0 +1,742 @@
+/* Variáveis de Cores */
+:root {
+    --bg-cream: #f4f1e9;
+    --dark-blue: #142a4a;
+    --earth-green: #3b5030;
+    --text-dark: #333333;
+    --text-gray: #666666;
+    --white: #ffffff;
+}
+
+/* Reset e Configurações Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================
+   CABEÇALHO (HEADER)
+   ========================================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--bg-cream);
+    border-bottom: 2px solid #e5e0d3;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-text {
+    color: var(--dark-blue);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.logo-sub {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-gray);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    align-items: center;
+}
+
+nav ul li a {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--earth-green);
+}
+
+.active-link {
+    color: var(--earth-green) !important;
+    border-bottom: 2px solid var(--earth-green);
+    padding-bottom: 5px;
+}
+
+/* =========================================
+   ESTILOS DA PÁGINA: LOGIN (index.html)
+   ========================================= */
+.hero-section {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background-image: url('tela_de_tras2.jpg');         
+    background-size: cover;
+    background-position: center;
+    min-height: 600px;
+}
+
+.login-box {
+    background-color: var(--bg-cream);
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.login-box h2 {
+    color: var(--dark-blue);
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.tabs-container {
+    display: flex;
+    margin-bottom: 25px;
+    background-color: #e5e0d3;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px 5px;
+    border: none;
+    background: transparent;
+    color: var(--text-gray);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    color: var(--white);
+}
+
+.tab-btn.credenciado-tab.active {
+    background-color: var(--earth-green);
+}
+
+.tab-btn.gerente-tab.active {
+    background-color: var(--dark-blue);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: transparent;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: var(--earth-green);
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    font-size: 13px;
+    color: var(--text-gray);
+    margin-top: -10px;
+    margin-bottom: 25px;
+    text-decoration: underline;
+}
+
+.btn-login {
+    width: 100%;
+    background-color: var(--earth-green);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+    opacity: 0.9;
+}
+
+.social-login {
+    margin-top: 25px;
+}
+
+.social-login p {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.register-link {
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+.register-link span {
+    color: var(--dark-blue);
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* =========================================
+   ESTILOS DA PÁGINA: SOBRE NÓS
+   ========================================= */
+.about-section {
+    flex-grow: 1;
+    padding: 60px 20px;
+    background-color: var(--bg-cream);
+    display: flex;
+    justify-content: center;
+}
+
+.about-container {
+    max-width: 900px;
+    width: 100%;
+}
+
+.about-container h1 {
+    color: var(--dark-blue);
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.lead-text {
+    text-align: center;
+    color: var(--earth-green);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.about-content {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.about-text p {
+    color: var(--text-gray);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align: justify;
+}
+
+.mission-vision-container {
+    display: flex;
+    gap: 30px;
+}
+
+.mv-box {
+    flex: 1;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.mv-box h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: var(--bg-cream);
+}
+
+.mv-box p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #e5e0d3;
+}
+
+/* =========================================
+   ESTILOS DA PÁGINA: COMPRE E AJUDE
+   ========================================= */
+.store-section {
+    flex-grow: 1;
+    padding: 60px 5%;
+    background-color: var(--bg-cream);
+}
+
+.store-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+}
+
+.store-header h1 {
+    color: var(--dark-blue);
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.store-header p {
+    color: var(--earth-green);
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background-color: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 330px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-info h3 {
+    color: var(--dark-blue);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.product-desc {
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.product-price {
+    color: var(--earth-green);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.btn-buy {
+    width: 100%;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-buy:hover {
+    background-color: var(--earth-green);
+}
+
+/* =========================================
+   ANIMAÇÃO DAS FOTOS DOS PRODUTOS
+   ========================================= */
+.image-slider {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border-bottom: 1px solid #e5e0d3;
+}
+
+.image-slider img {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    top: 0;
+    left: 0;
+}
+
+.image-slider .img-top {
+    animation: fadeFotos 6s infinite ease-in-out;
+}
+
+@keyframes fadeFotos {
+    0%, 35% { opacity: 1; }
+    50%, 85% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* =========================================
+   ESTILOS DA PÁGINA: IMPACTO SOCIAL
+   ========================================= */
+.impact-section {
+    flex-grow: 1;
+    padding: 60px 5%;
+    background-color: var(--white); 
+}
+
+.impact-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+.impact-header h1 {
+    color: var(--dark-blue);
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.impact-header p {
+    color: var(--text-gray);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.metrics-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto 60px auto;
+}
+
+.metric-card {
+    background-color: var(--bg-cream);
+    padding: 40px 20px;
+    border-radius: 15px;
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--earth-green);
+    transition: transform 0.3s;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+}
+
+.metric-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.metric-number {
+    color: var(--dark-blue);
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.metric-text {
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.impact-call-to-action {
+    background-color: var(--dark-blue);
+    color: var(--bg-cream);
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.impact-call-to-action h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+.impact-call-to-action p {
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: #e5e0d3;
+}
+
+.btn-action {
+    display: inline-block;
+    background-color: var(--earth-green);
+    color: var(--white);
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-action:hover {
+    background-color: #4a663b;
+}
+
+/* =========================================
+   ESTILOS DA PÁGINA: CADASTRO
+  
+   ========================================= */
+.register-section {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background-image: linear-gradient(rgba(183, 199, 174, 0.2), rgba(215, 228, 215, 0.2)), url('tela_de_tras2.jpg');      
+    background-size: cover;
+    background-position: center;
+    min-height: 600px;
+}
+
+.register-box {
+   
+    background-color: #ebf5ec; /* Verde bem clarinho */
+    padding: 30px; 
+    border-radius: 15px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(105, 97, 97, 0.08);
+}
+
+
+.register-header {
+    text-align: center;
+    margin-bottom: 20px; /* Reduzido */
+}
+
+.register-header h2 {
+    color: var(--dark-blue);
+    font-size: 24px; /* Letra um pouco menor */
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.register-header .subtitle {
+    color: var(--text-gray);
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.register-header .reference {
+    font-size: 12px;
+    color: #999;
+}
+
+.register-header .reference span {
+    color: #f27a24;
+    font-weight: 700;
+}
+
+.input-group {
+    margin-bottom: 12px; /* Reduzido espaço entre os campos */
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 5px;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 10px 12px; /* Reduzido o "recheio" do campo */
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    color: var(--text-dark);
+    background-color: var(--white);
+}
+
+.input-group input:focus, .input-group select:focus {
+    border-color: #f27a24; 
+}
+
+.btn-register {
+    width: 100%;
+    background-color:var(--earth-green)
+    color: var(--white);
+    border: none;
+    padding: 12px; /* Botão ligeiramente mais fino */
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 5px;
+}
+
+.btn-register:hover {
+    background-color:var(--earth-green); 
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 15px; /* Reduzido */
+    font-size: 13px;
+    color: var(--text-gray);
+}
+
+.login-link a {
+    color: var(--dark-blue);
+    font-weight: 700;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   RESPONSIVIDADE (CELULARES) - OBRIGATÓRIO SER NO FINAL
+   ========================================= */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .mission-vision-container {
+        flex-direction: column;
+    }
+}
+/* =========================================
+   ESTILOS DA PÁGINA: RECUPERAR SENHA
+   ========================================= */
+.recovery-section {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--bg-cream); /* Fundo creme do site */
+}
+
+.recovery-box {
+    background-color: var(--white); 
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.recovery-header {
+    margin-bottom: 25px;
+}
+
+.recovery-header h2 {
+    color: var(--dark-blue);
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.recovery-header p {
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.btn-recovery {
+    width: 100%;
+    background-color: var(--dark-blue); /* Botão azul escuro */
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn-recovery:hover {
+    background-color: var(--earth-green); /* Fica verde ao passar o mouse */
+}
