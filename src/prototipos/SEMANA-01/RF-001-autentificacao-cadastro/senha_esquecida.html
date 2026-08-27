@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sleep Well - Recuperar Senha</title>
+    <title>Sleep Well - Alteração de Senha</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -27,27 +27,44 @@
         </nav>
     </header>
 
-    <!-- Seção de Recuperação de Senha -->
+    <!-- Seção de Alteração de Senha -->
     <main class="recovery-section">
         <div class="recovery-box">
             
             <div class="recovery-header">
-                <h2>🔒 Recuperar Senha</h2>
-                <p>Esqueceu sua senha? Não se preocupe! Digite seu e-mail abaixo e enviaremos um link para você criar uma nova.</p>
+                <h2>Alteração de Senha</h2>
+                <p>Sua senha deve conter no mínimo 8 e no máximo 70 caracteres.</p>
             </div>
 
             <!-- Formulário -->
             <form action="#" method="POST">
                 <!-- Reutilizando a classe input-group que já criamos no cadastro -->
                 <div class="input-group">
-                    <label>E-mail cadastrado</label>
-                    <input type="email" placeholder="seu@email.com" required>
+                    <label>CPF</label>
+                    <input type="text" placeholder="000.000.000-00" required>
                 </div>
 
-                <button type="submit" class="btn-recovery">ENVIAR LINK</button>
+                <div class="input-group">
+                    <label>Digite a senha atual</label>
+                    <input type="password" placeholder="Digite a senha atual" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Nova senha</label>
+                    <input type="password" placeholder="Digite a nova senha" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Confirme a senha</label>
+                    <input type="password" placeholder="Repita a senha" required>
+                </div>
+
+                <button type="submit" class="btn-recovery">CONFIRMAR</button>
             </form>
 
-            <!-- Link para voltar usando a mesma classe que já temos -->
+            <!-- JS -->
+            <!-- Link para limpar/voltar, usando a mesma classe já criada para os links da página -->
+            <p class="login-link"><a href="#" onclick="document.querySelector('form').reset(); return false;">Limpar</a></p>
             <p class="login-link"><a href="index.html">← Voltar para o login</a></p>
         </div>
     </main>
