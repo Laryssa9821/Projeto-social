@@ -12,7 +12,7 @@
 
 ## ⚙️ ESTRUTURA DE DIRETÓRIOS
 
-```text
+```
 sleep-well-arquitetura/
 ├── docs/
 │   ├── requisitos-semanais/
@@ -32,7 +32,7 @@ sleep-well-arquitetura/
 │   │   │   │   ├── impacto_social.html
 │   │   │   │   └── style.css (CSS compartilhado entre as telas)
 │   │   └── ... (SEMANA-XX)
-
+```
 **Localização deste arquivo:**
 `docs/requisitos-semanais/SEMANA-01/RF-001-autenticacao-cadastro.md`[cite: 1]
 
@@ -197,7 +197,7 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 **Arquivos entregues:** `index.html`, `cadastre-se.html`, `senha_esquecida.html` (com `style.css` compartilhado)
 
 ### Tela 1: Login (`index.html`) — Estado Inicial
-```text
+```
 ┌─────────────────────────────────────┐
 │         ACESSE SUA CONTA             │
 ├─────────────────────────────────────┤
@@ -212,10 +212,11 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 │  Ou entre com:  (G) (f)              │
 │                                       │
 └─────────────────────────────────────┘
-
+```
 *Aba ativa por padrão; botão em verde (`--earth-green`); link "CADASTRE-SE" oculto (`visibility: hidden`).*[cite: 1]
 
 ### Tela 2: Login — Aba "Acesso Gerente" Selecionada
+```
 ┌─────────────────────────────────────┐
 │         ACESSE SUA CONTA             │
 ├─────────────────────────────────────┤
@@ -229,10 +230,12 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 │                                       │
 │  Ainda não tem conta? CADASTRE-SE    │
 └─────────────────────────────────────┘
+```
 
 *Botão muda para azul escuro (`--dark-blue`); link de cadastro torna-se visível (regra RN-06), implementado via `mudarAcesso()` em JavaScript.*[cite: 1]
 
 ### Tela 3: Cadastro de Usuário (`cadastre-se.html`)
+```
 ┌─────────────────────────────────────┐
 │   Crie sua conta e faça parte da     │
 │         rede de cuidado              │
@@ -248,10 +251,12 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 │                                       │
 │  Já tem uma conta? Faça login        │
 └─────────────────────────────────────┘
+```
 
 *Campos obrigatórios marcados com `*`; `select` "Tipo de conta" mapeia para `perfil_id` (Administrativo/Financeiro) na tabela `perfis`.*[cite: 1]
 
 ### Tela 4: Recuperação de Senha (`senha_esquecida.html`)
+```
 ┌─────────────────────────────────────┐
 │        Alteração de Senha            │
 │ Senha entre 8 e 70 caracteres        │
@@ -264,6 +269,7 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 │                                       │
 │  Limpar   |   ← Voltar para o login  │
 └─────────────────────────────────────┘
+```
 
 *Identificação e validação via E-mail; campos "Nova senha"/"Confirme a senha" validados pela RN-04 e RN-03.*
 
@@ -283,6 +289,7 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 ## Arquitetura da Solução
 
 ### Diagrama de Componentes
+```
 
 ┌────────────────────┐
 │      Frontend      │ (HTML5 + CSS3 + JS)
@@ -305,6 +312,7 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 │ permissoes, recursos,     │
 │ recuperacao_senha         │
 └───────────────────────────┘
+```
 
 ### ADR-001: MySQL como Banco de Dados
 
@@ -368,7 +376,6 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 
 ### Checklist de Qualidade
 
-```markdown
 - [x] Sem erros ortográficos (revisado)
 - [x] Sem erros gramaticais
 - [x] Markdown renderiza corretamente no GitHub
