@@ -28,6 +28,8 @@ Field Name         |       Data Type       |           Description              
 doador_nome        |       VARCHAR(150)    |    nome da pessoa que doou            |        máximo 150 caracteres               |   Not Null
 doador_email       |        VARCHAR(150)   |       e-mail de contato do doador     |            formato padrão de e-mail        |   Unique, Not Null
     quantia        |      DECIMAL(10,2)    |       valor financeiro arrecado       |          valores monetários positivos      |   Not Null
+    mensagem       |       TEXT            |        Quarda um recado do usuário    |           Usado para textos longos         |   Not null
+    Status         |        Varchar(30)    |       Nome da coluna                  |     máxima de coluna de 30 característica  |  DFAULT CURRENT_TIMESTAMP
 
 Tabela: usuarios  
 Field Name         |       Data Type       |           Description                 |           Allowed Values/Range             |     Notes
