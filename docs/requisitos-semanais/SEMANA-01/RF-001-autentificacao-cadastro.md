@@ -12,6 +12,7 @@
 
 ## ⚙️ ESTRUTURA DE DIRETÓRIOS
 
+```text
 sleep-well-arquitetura/
 ├── docs/
 │   ├── requisitos-semanais/
