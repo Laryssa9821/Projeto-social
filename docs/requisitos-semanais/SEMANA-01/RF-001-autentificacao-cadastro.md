@@ -193,17 +193,17 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 
 ## 4️⃣ PROTÓTIPOS/FLUXOS DE TELAS (HTML+CSS) (20%)
 
-**Arquivos entregues:** `index.html`, `cadastre-se.html`, `senha_esquecida.html` (com `style.css` compartilhado)[cite: 1]
+**Arquivos entregues:** `index.html`, `cadastre-se.html`, `senha_esquecida.html` (com `style.css` compartilhado)
 
 ### Tela 1: Login (`index.html`) — Estado Inicial
-
+```text
 ┌─────────────────────────────────────┐
 │         ACESSE SUA CONTA             │
 ├─────────────────────────────────────┤
 │ [Acesso Credenciado*] [Acesso Gerente]│
 │                                       │
-│ E-mail ou Usuário: []  │
-│ Senha:             []  │
+│ E-mail ou Usuário: [______________]  │
+│ Senha:             [______________]  │
 │                        Esqueceu a senha?│
 │                                       │
 │        [ ENTRAR - CREDENCIADO ]      │
@@ -220,8 +220,8 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 ├─────────────────────────────────────┤
 │ [Acesso Credenciado] [Acesso Gerente*]│
 │                                       │
-│ E-mail ou Usuário: []  │
-│ Senha:             []  │
+│ E-mail ou Usuário: [______________]  │
+│ Senha:             [______________]  │
 │                        Esqueceu a senha?│
 │                                       │
 │         [ ENTRAR - GERENTE ]         │
@@ -236,10 +236,10 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 │   Crie sua conta e faça parte da     │
 │         rede de cuidado              │
 ├─────────────────────────────────────┤
-│ Nome completo *      []  │
-│ E-mail *             []  │
-│ Senha *              []  │
-│ Confirmar senha *    []  │
+│ Nome completo *      [____________]  │
+│ E-mail *             [____________]  │
+│ Senha *              [____________]  │
+│ Confirmar senha *    [____________]  │
 │ Telefone             [____________]  │
 │ Tipo de conta   [Administrativo ▾]   │
 │                                       │
@@ -255,8 +255,8 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 │        Alteração de Senha            │
 │ Senha entre 8 e 70 caracteres        │
 ├─────────────────────────────────────┤
-│ E-mail               []  │
-│ Nova senha            [] │
+│ E-mail               [____________]  │
+│ Nova senha            [____________] │
 │ Confirme a senha      [____________] │
 │                                       │
 │           [ CONFIRMAR ]              │
@@ -284,25 +284,25 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 ### Diagrama de Componentes
 
 ┌────────────────────┐
-│      Frontend       │ (HTML5 + CSS3 + JS)
-│ index / cadastre-se │
-│ / senha_esquecida   │
-└─────────┬───────────┘
-│ HTTPS
-▼
+│      Frontend      │ (HTML5 + CSS3 + JS)
+│ index / cadastre-se│
+│ / senha_esquecida  │
+└─────────┬──────────┘
+          │ HTTPS
+          ▼
 ┌──────────────────────┐
-│  API REST Backend     │ (Express.js)
-│  POST /login          │
-│  POST /usuarios       │
+│  API REST Backend    │ (Express.js)
+│  POST /login         │
+│  POST /usuarios      │
 │  POST /recuperar-senha│
-└─────────┬─────────────┘
-│ Validações + bcrypt
-▼
+└─────────┬────────────┘
+          │ Validações + bcrypt
+          ▼
 ┌───────────────────────────┐
 │        MySQL BD           │ (ACID Transactions)
-│ Tabelas: usuarios, perfis, │
-│ permissoes, recursos,      │
-│ recuperacao_senha          │
+│ Tabelas: usuarios, perfis,│
+│ permissoes, recursos,     │
+│ recuperacao_senha         │
 └───────────────────────────┘
 
 ### ADR-001: MySQL como Banco de Dados
