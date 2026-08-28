@@ -9,7 +9,6 @@
 </head>
 <body>
 
-    <!-- Cabeçalho padrão -->
     <header>
         <div class="logo-container">
             <a href="index.html">
@@ -22,12 +21,10 @@
                 <li><a href="sobre_nos.html">SOBRE NÓS</a></li>
                 <li><a href="compre_e_ajude.html">COMPRE E AJUDE</a></li>
                 <li><a href="impacto_social.html">IMPACTO SOCIAL</a></li>
-                
             </ul>
         </nav>
     </header>
 
-    <!-- Seção de Alteração de Senha -->
     <main class="recovery-section">
         <div class="recovery-box">
             
@@ -36,36 +33,27 @@
                 <p>Sua senha deve conter no mínimo 8 e no máximo 70 caracteres.</p>
             </div>
 
-            <!-- Formulário -->
             <form action="#" method="POST">
-                <!-- Reutilizando a classe input-group que já criamos no cadastro -->
                 <div class="input-group">
-                    <label>CPF</label>
-                    <input type="text" placeholder="000.000.000-00" required>
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
                 </div>
 
                 <div class="input-group">
-                    <label>Digite a senha atual</label>
-                    <input type="password" placeholder="Digite a senha atual" required>
+                    <label for="nova-senha">Nova senha</label>
+                    <input type="password" id="nova-senha" placeholder="Digite a nova senha" required minlength="8" maxlength="70">
                 </div>
 
                 <div class="input-group">
-                    <label>Nova senha</label>
-                    <input type="password" placeholder="Digite a nova senha" required>
-                </div>
-
-                <div class="input-group">
-                    <label>Confirme a senha</label>
-                    <input type="password" placeholder="Repita a senha" required>
+                    <label for="confirma-senha">Confirme a senha</label>
+                    <input type="password" id="confirma-senha" placeholder="Repita a senha" required minlength="8" maxlength="70">
                 </div>
 
                 <button type="submit" class="btn-recovery">CONFIRMAR</button>
             </form>
 
-            <!-- JS -->
-            <!-- Link para limpar/voltar, usando a mesma classe já criada para os links da página -->
             <p class="login-link"><a href="#" onclick="document.querySelector('form').reset(); return false;">Limpar</a></p>
-            <p class="login-link"><a href="index.html">← Voltar para o login</a></p>
+            <p class="login-link"><a href="login.html">← Voltar para o login</a></p>
         </div>
     </main>
 
