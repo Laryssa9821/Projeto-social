@@ -6,7 +6,7 @@
 **Valor Total da Entrega:** 100%    
 **Data de Entrega:** [30/08]    
 **Grupo:** Sleep Well    
-**Integrantes:** Ana Júlia Bernardes (ana50466166@edu.df.senac.br) ; Douglas Cerqueira (douglas51812666@edu.df.senac.br) ; Fabiane Sarres (fabiane61909266@edu.df.senac.br) ; Gustavo Augusto (gustavo61867136@edu.df.senac.br) ; Hannah Raposo (hannah46570966@edu.df.senac.br) ; Laryssa Almeida (laryssa59158836@edu.df.senac.br);[cite: 1]
+**Integrantes:** Ana Júlia Bernardes (ana50466166@edu.df.senac.br) ; Douglas Cerqueira (douglas51812666@edu.df.senac.br) ; Fabiane Sarres (fabiane61909266@edu.df.senac.br) ; Gustavo Augusto (gustavo61867136@edu.df.senac.br) ; Hannah Raposo (hannah46570966@edu.df.senac.br) ; Laryssa Almeida (laryssa59158836@edu.df.senac.br);
 
 ---
 
@@ -34,10 +34,10 @@ sleep-well-arquitetura/
 │   │   └── ... (SEMANA-XX)
 ```
 **Localização deste arquivo:**
-`docs/requisitos-semanais/SEMANA-01/RF-001-autenticacao-cadastro.md`[cite: 1]
+`docs/requisitos-semanais/SEMANA-01/RF-001-autenticacao-cadastro.md`
 
 **Localização do Protótipo HTML+CSS:**
-`src/prototipos/SEMANA-01/RF-001-autenticacao-cadastro/index.html` ⚠️ **OBRIGATÓRIO**[cite: 1]
+`src/prototipos/SEMANA-01/RF-001-autenticacao-cadastro/index.html` ⚠️ **OBRIGATÓRIO**
 
 
 ## 1️⃣ IDENTIFICAÇÃO DO REQUISITO (10%)
@@ -50,7 +50,7 @@ sleep-well-arquitetura/
 **Prioridade:** ALTA (bloqueia o acesso a todas as demais funcionalidades administrativas do sistema)  
 **Complexidade:** MÉDIA-ALTA (estimado 8 story points)  
 **Status:** EM DESENVOLVIMENTO  
-**Data de Criação:** [Data]  
+**Data de Criação:** [25/08/2026]  
 **Última Atualização:** 28/08/2026  
 
 **Breve Descrição:**  
@@ -64,11 +64,11 @@ O sistema Sleep Well deve permitir que usuários internos (perfis Gerente, Admin
 
 **Por que este requisito existe?**
 O sistema precisa controlar o acesso ao painel administrativo da Sleep Well para:
-- Restringir a área de cadastro de produtos, pedidos e doações a pessoal autorizado[cite: 1]
-- Diferenciar o nível de permissão entre Gerente, Administrativo e Financeiro[cite: 1]
-- Garantir que apenas usuários com credenciais válidas alterem dados sensíveis[cite: 1]
-- Permitir a recuperação de acesso de forma segura, sem expor dados de terceiros[cite: 1]
-- Manter rastreabilidade de quem cadastra e altera informações do sistema[cite: 1]
+- Restringir a área de cadastro de produtos, pedidos e doações a pessoal autorizado
+- Diferenciar o nível de permissão entre Gerente, Administrativo e Financeiro
+- Garantir que apenas usuários com credenciais válidas alterem dados sensíveis
+- Permitir a recuperação de acesso de forma segura, sem expor dados de terceiros
+- Manter rastreabilidade de quem cadastra e altera informações do sistema
 
 **Contexto do Negócio:**
 A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso Credenciado** (perfil padrão, cor verde) e **Acesso Gerente** (cor azul escuro). A troca de aba altera dinamicamente o texto do botão de login, a cor do botão e a visibilidade do link **"CADASTRE-SE"**, que só é exibido quando a aba **Gerente** está selecionada — refletindo a regra de que apenas o perfil Gerente pode cadastrar novos usuários administrativos (`cadastre-se.html`). Caso o usuário esqueça a senha, ele é direcionado para `senha_esquecida.html`, onde informa o e-mail cadastrado e redefine a sua senha diretamente na tela.
@@ -81,28 +81,28 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 - **Papel:** Autenticar-se pela aba "Acesso Gerente" e cadastrar novos usuários (Administrativo/Financeiro)[cite: 1]
 - **Responsabilidade:** Validar os dados do novo colaborador antes de submeter o cadastro; gerenciar quem tem acesso ao sistema[cite: 1]
 - **Permissões (tabela `permissoes`):**
-  - ✅ CREATE (cadastrar novo usuário em `usuarios`)[cite: 1]
-  - ✅ READ (visualizar usuários e perfis)[cite: 1]
-  - ✅ UPDATE (corrigir dados cadastrais)[cite: 1]
-  - ✅ DELETE (inativar usuários — campo `ativo`)[cite: 1]
+  - ✅ CREATE (cadastrar novo usuário em `usuarios`)
+  - ✅ READ (visualizar usuários e perfis)
+  - ✅ UPDATE (corrigir dados cadastrais)
+  - ✅ DELETE (inativar usuários — campo `ativo`)
 
 ### 2. USUÁRIO CREDENCIADO — Administrativo/Financeiro (Ator Secundário)
 - **Papel:** Autenticar-se pela aba "Acesso Credenciado" para operar os módulos liberados ao seu perfil[cite: 1]
 - **Responsabilidade:** Manter suas credenciais em sigilo e solicitar recuperação de senha quando necessário[cite: 1]
 - **Permissões:**
-  - ✅ READ (conforme `recurso_id` liberado ao seu `perfil_id`)[cite: 1]
-  - ❌ Sem acesso à tela de cadastro de novos usuários (link "CADASTRE-SE" fica oculto nesta aba)[cite: 1]
+  - ✅ READ (conforme `recurso_id` liberado ao seu `perfil_id`)
+  - ❌ Sem acesso à tela de cadastro de novos usuários (link "CADASTRE-SE" fica oculto nesta aba)
 
 ### 3. SISTEMA (Ator Automático)
 - **Papel:** Validar credenciais, aplicar hash de senha, controlar sessão e checar permissões por perfil[cite: 1]
-- **Responsabilidade:** Consultar `usuarios`/`perfis`/`permissoes`, gerar e expirar tokens de recuperação de senha (`recuperacao_senha`), impedir e-mails duplicados[cite: 1]
+- **Responsabilidade:** Consultar `usuarios`/`perfis`/`permissoes`, gerar e expirar tokens de recuperação de senha (`recuperacao_senha`), impedir e-mails duplicados
 - **Permissões:**
-  - ✅ Todas as operações de leitura e escrita necessárias à autenticação[cite: 1]
+  - ✅ Todas as operações de leitura e escrita necessárias à autenticação
 
 **Benefícios por ator:**
-- **Gerente:** controla com segurança quem acessa o sistema administrativo[cite: 1]
-- **Credenciado:** acessa rapidamente apenas os módulos relevantes ao seu trabalho[cite: 1]
-- **Negócio:** reduz risco de acesso indevido a dados de doações, pedidos e produtos[cite: 1]
+- **Gerente:** controla com segurança quem acessa o sistema administrativo
+- **Credenciado:** acessa rapidamente apenas os módulos relevantes ao seu trabalho[
+- **Negócio:** reduz risco de acesso indevido a dados de doações, pedidos e produtos
 
 ---
 
@@ -111,32 +111,32 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 ## UC-001: Autenticar Usuário e Selecionar Tipo de Acesso
 
 ### Pré-Condições
-- ✅ Sistema disponível e banco de dados MySQL operacional[cite: 1]
-- ✅ Usuário possui registro ativo na tabela `usuarios` (`ativo = TRUE`)[cite: 1]
-- ✅ Usuário possui `perfil_id` válido vinculado à tabela `perfis`[cite: 1]
+- ✅ Sistema disponível e banco de dados MySQL operacional
+- ✅ Usuário possui registro ativo na tabela `usuarios` (`ativo = TRUE`)
+- ✅ Usuário possui `perfil_id` válido vinculado à tabela `perfis`
 
 ### Pós-Condições (Sucesso)
-- ✅ Sessão autenticada é criada para o usuário[cite: 1]
-- ✅ Usuário é redirecionado à área correspondente ao seu perfil[cite: 1]
-- ✅ Tentativa de login bem-sucedida pode ser registrada em log[cite: 1]
+- ✅ Sessão autenticada é criada para o usuário
+- ✅ Usuário é redirecionado à área correspondente ao seu perfil
+- ✅ Tentativa de login bem-sucedida pode ser registrada em log
 
 ### Pós-Condições (Falha)
-- ✅ Mensagem de erro exibida sem detalhar qual campo está incorreto (e-mail ou senha)[cite: 1]
+- ✅ Mensagem de erro exibida sem detalhar qual campo está incorreto (e-mail ou senha)
 - ✅ Sessão não é criada[cite: 1]
-- ✅ Tentativa de login registrada em log para auditoria[cite: 1]
+- ✅ Tentativa de login registrada em log para auditoria
 
 ### Fluxo Principal (Login)
-1. Usuário acessa a tela inicial (`index.html`)[cite: 1]
-2. Sistema exibe as abas "Acesso Credenciado" (ativa por padrão) e "Acesso Gerente"[cite: 1]
-3. Usuário seleciona a aba correspondente ao seu tipo de acesso[cite: 1]
-4. Sistema atualiza o campo oculto `tipo_acesso`, o texto e a cor do botão "ENTRAR" (verde para Credenciado, azul para Gerente)[cite: 1]
-5. Usuário informa e-mail/usuário e senha nos campos obrigatórios[cite: 1]
-6. Usuário clica no botão "ENTRAR"[cite: 1]
-7. Sistema valida se os campos obrigatórios foram preenchidos[cite: 1]
-8. Sistema consulta a tabela `usuarios` pelo e-mail informado[cite: 1]
-9. Sistema compara o hash bcrypt da senha informada com o campo `senha` armazenado[cite: 1]
-10. Sistema verifica se o `perfil_id` do usuário é compatível com o `tipo_acesso` selecionado e se `ativo = TRUE`[cite: 1]
-11. Sistema cria a sessão de autenticação e redireciona o usuário à área correspondente ao seu perfil[cite: 1]
+1. Usuário acessa a tela inicial (`index.html`)
+2. Sistema exibe as abas "Acesso Credenciado" (ativa por padrão) e "Acesso Gerente"
+3. Usuário seleciona a aba correspondente ao seu tipo de acesso
+4. Sistema atualiza o campo oculto `tipo_acesso`, o texto e a cor do botão "ENTRAR" (verde para Credenciado, azul para Gerente)
+5. Usuário informa e-mail/usuário e senha nos campos obrigatórios
+6. Usuário clica no botão "ENTRAR"
+7. Sistema valida se os campos obrigatórios foram preenchidos
+8. Sistema consulta a tabela `usuarios` pelo e-mail informado
+9. Sistema compara o hash bcrypt da senha informada com o campo `senha` armazenado
+10. Sistema verifica se o `perfil_id` do usuário é compatível com o `tipo_acesso` selecionado e se `ativo = TRUE`
+11. Sistema cria a sessão de autenticação e redireciona o usuário à área correspondente ao seu perfil
 
 ### Fluxo Alternativo A1: Cadastro de Novo Usuário (Gerente)
 1a.1. Usuário seleciona a aba "Acesso Gerente", tornando visível o link "CADASTRE-SE"  
@@ -213,7 +213,7 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 │                                       │
 └─────────────────────────────────────┘
 ```
-*Aba ativa por padrão; botão em verde (`--earth-green`); link "CADASTRE-SE" oculto (`visibility: hidden`).*[cite: 1]
+*Aba ativa por padrão; botão em verde (`--earth-green`); link "CADASTRE-SE" oculto (`visibility: hidden`).*
 
 ### Tela 2: Login — Aba "Acesso Gerente" Selecionada
 ```
@@ -232,7 +232,7 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 └─────────────────────────────────────┘
 ```
 
-*Botão muda para azul escuro (`--dark-blue`); link de cadastro torna-se visível (regra RN-06), implementado via `mudarAcesso()` em JavaScript.*[cite: 1]
+*Botão muda para azul escuro (`--dark-blue`); link de cadastro torna-se visível (regra RN-06), implementado via `mudarAcesso()` em JavaScript.*
 
 ### Tela 3: Cadastro de Usuário (`cadastre-se.html`)
 ```
@@ -253,7 +253,7 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 └─────────────────────────────────────┘
 ```
 
-*Campos obrigatórios marcados com `*`; `select` "Tipo de conta" mapeia para `perfil_id` (Administrativo/Financeiro) na tabela `perfis`.*[cite: 1]
+*Campos obrigatórios marcados com `*`; `select` "Tipo de conta" mapeia para `perfil_id` (Administrativo/Financeiro) na tabela `perfis`.*
 
 ### Tela 4: Recuperação de Senha (`senha_esquecida.html`)
 ```
@@ -274,17 +274,17 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 *Identificação e validação via E-mail; campos "Nova senha"/"Confirme a senha" validados pela RN-04 e RN-03.*
 
 **CRITÉRIOS ATENDIDOS:**
-- ✅ HTML semanticamente correto (`header`, `nav`, `main`, `form`, `label`)[cite: 1]
-- ✅ CSS responsivo (media query `max-width: 768px` em `style.css`)[cite: 1]
-- ✅ 4 telas representadas (login credenciado, login gerente, cadastro, recuperação de senha)[cite: 1]
-- ✅ Estados diferentes via classes (`.active`, `.active-link`) e JavaScript (`mudarAcesso`)[cite: 1]
-- ✅ Descrição de cada elemento das telas[cite: 1]
+- ✅ HTML semanticamente correto (`header`, `nav`, `main`, `form`, `label`)
+- ✅ CSS responsivo (media query `max-width: 768px` em `style.css`)
+- ✅ 4 telas representadas (login credenciado, login gerente, cadastro, recuperação de senha)
+- ✅ Estados diferentes via classes (`.active`, `.active-link`) e JavaScript (`mudarAcesso`)
+- ✅ Descrição de cada elemento das telas
 
 ---
 
 ## 5️⃣ ARQUITETURA E ADR (20%)
 
-**Objetivo:** Descrever como o requisito será implementado.[cite: 1]
+**Objetivo:** Descrever como o requisito será implementado.
 
 ## Arquitetura da Solução
 
@@ -317,38 +317,38 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 ### ADR-001: MySQL como Banco de Dados
 
 **Status:** ACEITO  
-**Contexto:** O sistema precisa de armazenamento relacional estruturado e consistente de dados (ACID) para garantir que as credenciais e permissões de diferentes níveis de acesso sejam gerenciadas de forma segura.[cite: 1]  
-**Decisão:** Utilizar **MySQL** como banco de dados relacional.[cite: 1]  
-**Alternativas consideradas:** PostgreSQL, SQLite[cite: 1]  
+**Contexto:** O sistema precisa de armazenamento relacional estruturado e consistente de dados (ACID) para garantir que as credenciais e permissões de diferentes níveis de acesso sejam gerenciadas de forma segura. 
+**Decisão:** Utilizar **MySQL** como banco de dados relacional. 
+**Alternativas consideradas:** PostgreSQL, SQLite  
 **Consequências:**  
-- Garantia de integridade ACID para os dados sensíveis.[cite: 1]  
-- Familiaridade técnica da equipe, agilizando o desenvolvimento.[cite: 1]  
-- Adequado para crescimento futuro do sistema.[cite: 1]  
-- Necessita de gestão de esquema das tabelas.[cite: 1]  
+- Garantia de integridade ACID para os dados sensíveis.  
+- Familiaridade técnica da equipe, agilizando o desenvolvimento.  
+- Adequado para crescimento futuro do sistema.  
+- Necessita de gestão de esquema das tabelas. 
 
 ### ADR-002: Bcrypt para Senhas
 
 **Status:** ACEITO  
 
-**Contexto:** Senhas de usuários (`usuarios.senha`) devem ser armazenadas de forma segura e irreversível, conforme RN-02 e o Dicionário de Dados ("hash irreversível (Bcrypt)").[cite: 1]  
+**Contexto:** Senhas de usuários (`usuarios.senha`) devem ser armazenadas de forma segura e irreversível, conforme RN-02 e o Dicionário de Dados ("hash irreversível (Bcrypt)"). 
 
-**Decisão:** Usar bcrypt com 12 rounds de salt.[cite: 1]  
+**Decisão:** Usar bcrypt com 12 rounds de salt.  
 
-**Alternativas:** Scrypt, PBKDF2[cite: 1]  
+**Alternativas:** Scrypt, PBKDF2  
 
-**Consequências:** ✅ OWASP recomendado, ✅ Adaptativo, ⚠️ Custo de CPU maior por login[cite: 1]  
+**Consequências:** ✅ OWASP recomendado, ✅ Adaptativo, ⚠️ Custo de CPU maior por login  
 
 ### ADR-003: REST API com Express.js
 
 **Status:** ACEITO  
 
-**Contexto:** API escalável e simples para servir as telas de login, cadastro e recuperação de senha do frontend.[cite: 1]  
+**Contexto:** API escalável e simples para servir as telas de login, cadastro e recuperação de senha do frontend. 
 
-**Decisão:** Usar Express.js 4.18+ com Node.js 18 LTS.[cite: 1]  
+**Decisão:** Usar Express.js 4.18+ com Node.js 18 LTS. 
 
-**Alternativas:** Django, Rails[cite: 1]  
+**Alternativas:** Django, Rails  
 
-**Consequências:** ✅ Rápido, ✅ JavaScript full-stack[cite: 1]  
+**Consequências:** ✅ Rápido, ✅ JavaScript full-stack  
 
 ---
 
@@ -365,10 +365,10 @@ A tela inicial do site (`index.html`) apresenta duas abas de acesso — **Acesso
 ---
 
 **CRITÉRIOS ATENDIDOS (20%):**
-- ✅ Diagrama de componentes claro[cite: 1]
-- ✅ 3 ADRs com Status, Contexto, Decisão, Alternativas, Consequências[cite: 1]
-- ✅ Tecnologias justificadas[cite: 1]
-- ✅ Fluxo de dados documentado[cite: 1]
+- ✅ Diagrama de componentes claro
+- ✅ 3 ADRs com Status, Contexto, Decisão, Alternativas, Consequências
+- ✅ Tecnologias justificadas
+- ✅ Fluxo de dados documentado
 
 ---
 
