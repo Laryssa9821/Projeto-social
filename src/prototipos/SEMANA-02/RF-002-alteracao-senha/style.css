@@ -634,7 +634,7 @@ nav ul li a:hover {
 
 .btn-register {
     width: 100%;
-    background-color:var(--earth-green)
+    background-color:var(--earth-green);
     color: var(--white);
     border: none;
     padding: 12px; /* Botão ligeiramente mais fino */
