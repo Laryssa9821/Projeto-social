@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Well - Recuperação de Senha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <div class="logo-text">Sleep Well</div>
+                <div class="logo-sub">Colchonetes Recicláveis</div>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="sobre_nos.html">SOBRE NÓS</a></li>
+                <li><a href="compre_e_ajude.html">COMPRE E AJUDE</a></li>
+                <li><a href="impacto_social.html">IMPACTO SOCIAL</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="recovery-section">
+        <div class="recovery-box">
+            
+            <div class="recovery-header">
+                <h2>Recuperação de Senha</h2>
+                <p>Digite seu e-mail cadastrado para receber as instruções de recuperação.</p>
+            </div>
+
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <!-- Mantive a função de máscara de e-mail que criamos antes! -->
+                    <input type="email" id="email" placeholder="seuemail@exemplo.com" required oninput="formatarEmail(this)">
+                </div>
+
+                <!-- Mudei o texto do botão para fazer mais sentido com a ação -->
+                <button type="submit" class="btn-recovery">ENVIAR INSTRUÇÕES</button>
+            </form>
+
+            <p class="login-link"><a href="#" onclick="document.querySelector('form').reset(); return false;">Limpar</a></p>
+            <p class="login-link"><a href="index.html">← Voltar para o login</a></p>
+        </div>
+    </main>
+
+    <!-- Adicionei o script da máscara de e-mail aqui embaixo para funcionar nesta tela também -->
+    <script>
+        function formatarEmail(campo) {
+            let texto = campo.value.toLowerCase();
+            texto = texto.replace(/\s/g, '');
+            campo.value = texto;
+        }
+    </script>
+
+</body>
+</html>
