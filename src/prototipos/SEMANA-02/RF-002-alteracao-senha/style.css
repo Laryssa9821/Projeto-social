@@ -723,23 +723,46 @@ nav ul li a:hover {
     line-height: 1.5;
 }
 
-.btn-recovery {
-    width: 100%;
-    background-color: var(--dark-blue); /* Botão azul escuro */
-    color: var(--white);
-    border: none;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 10px;
-}
+/* Botão */
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0066cc;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
 
-.btn-recovery:hover {
-    background-color: var(--earth-green); /* Fica verde ao passar o mouse */
-}
+    button:hover {
+      background-color: #0052a3;
+    }
+
+    /* Mensagem de confirmação */
+    .mensagem {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      background-color: #e6f4ea;
+      color: #137333;
+      display: none; /* Escondido por padrão */
+    }
+
+    /* Link de navegação */
+    .voltar-login {
+      display: inline-block;
+      margin-top: 20px;
+      color: #0066cc;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+ 
+
 /* Transforma a caixa da senha em um ponto de referência */
 .senha-group {
     position: relative; 
