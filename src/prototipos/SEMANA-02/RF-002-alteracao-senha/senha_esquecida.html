@@ -25,38 +25,62 @@
         </nav>
     </header>
 
-    <main class="recovery-section">
+   <main class="recovery-section">
         <div class="recovery-box">
             
             <div class="recovery-header">
-                <h2>Recuperação de Senha</h2>
-                <p>Digite seu e-mail cadastrado para receber as instruções de recuperação.</p>
-            </div>
+                <h2>Recuperar Senha</h2>
+    <p>Digite o seu e-mail cadastrado. Enviaremos um link para você redefinir sua senha.</p>
 
-            <form action="#" method="POST">
-                <div class="input-group">
-                    <label for="email">E-mail</label>
-                    <!-- Mantive a função de máscara de e-mail que criamos antes! -->
-                    <input type="email" id="email" placeholder="seuemail@exemplo.com" required oninput="formatarEmail(this)">
-                </div>
+    <form id="formRecuperacao">
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="seu@email.com" 
+          required
+        >
+      </div>
 
-                <!-- Mudei o texto do botão para fazer mais sentido com a ação -->
-                <button type="submit" class="btn-recovery">ENVIAR INSTRUÇÕES</button>
-            </form>
+      <button type="submit">Enviar link de recuperação</button>
+    </form>
 
-            <p class="login-link"><a href="#" onclick="document.querySelector('form').reset(); return false;">Limpar</a></p>
-            <p class="login-link"><a href="index.html">← Voltar para o login</a></p>
-        </div>
-    </main>
+    <!-- Mensagem exibida via JavaScript ao enviar -->
+    <div id="mensagemSucesso" class="mensagem">
+      Se o e-mail estiver cadastrado, você receberá as instruções em instantes!
+    </div>
 
-    <!-- Adicionei o script da máscara de e-mail aqui embaixo para funcionar nesta tela também -->
-    <script>
-        function formatarEmail(campo) {
-            let texto = campo.value.toLowerCase();
-            texto = texto.replace(/\s/g, '');
-            campo.value = texto;
-        }
-    </script>
+    <a href="index.html" class="voltar-login">← Voltar para o Login</a>
+  </div>
+
+ <script>
+  const form = document.getElementById('formRecuperacao');
+  const mensagem = document.getElementById('mensagemSucesso');
+  const emailInput = document.getElementById('email');
+
+  // Função movida para o escopo principal
+  function formatarEmail(campo) {
+    let texto = campo.value.toLowerCase();
+    campo.value = texto.replace(/\s/g, '');
+  }
+
+  // Formata o e-mail em tempo real enquanto o usuário digita
+  emailInput.addEventListener('input', function() {
+    formatarEmail(emailInput);
+  });
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o recarregamento da página
+
+    // Exibe a mensagem de sucesso
+    mensagem.style.display = 'block';
+
+    // Limpa o campo de e-mail após a submissão
+    emailInput.value = '';
+  });
+</script>
 
 </body>
 </html>
