@@ -1106,3 +1106,150 @@ body, html {
         width: 100%;
     }
 }
+
+/* =========================================
+   RODAPÉ INSTITUCIONAL (ESTILO ACNUR)
+   ========================================= */
+.acnur-style-footer {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 50px 5% 25px 5%;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 60px;
+}
+
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-brand {
+    flex: 1;
+    min-width: 260px;
+    max-width: 350px;
+}
+
+.footer-brand .logo-text {
+    color: var(--white);
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.footer-brand .logo-sub {
+    color: #a0aec0;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.brand-desc {
+    font-size: 13px;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    flex: 2;
+    justify-content: space-around;
+    min-width: 280px;
+}
+
+.link-group h4 {
+    color: var(--bg-cream);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.link-group ul {
+    list-style: none;
+}
+
+.link-group ul li {
+    margin-bottom: 10px;
+}
+
+.link-group ul li a {
+    color: #cbd5e1;
+    font-size: 13px;
+    transition: color 0.2s ease;
+}
+
+.link-group ul li a:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+.trust-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #e2e8f0;
+}
+
+.footer-divider {
+    max-width: 1200px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+    margin: 35px auto 20px auto;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.legal-info p {
+    margin-bottom: 4px;
+}
+
+.payment-methods span {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-left: 5px;
+    font-size: 12px;
+    color: var(--white);
+}
+
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
