@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Well - Login</title>
+    <!-- Fonte do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Conexão com o arquivo CSS externo que criei com nome Style-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- nosso cabeçalho -->
+    <header>
+        <div class="logo-container">
+            <div>
+                <div class="logo-text">Sleep Well</div>
+                <div class="logo-sub">Colchonetes Recicláveis</div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="sobre_nos.html">SOBRE NÓS</a></li>
+                <li><a href="compre_e_ajude.html">COMPRE E AJUDE</a></li>
+                <li><a href="impacto_social.html">IMPACTO SOCIAL</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção Principal com o Login -->
+    <main class="hero-section">
+        <div class="login-box">
+            <h2>ACESSE SUA CONTA</h2>
+            
+            <!-- Abas de Seleção de Acesso -->
+            <div class="tabs-container">
+                <button class="tab-btn credenciado-tab active" onclick="mudarAcesso('credenciado', this)">Acesso Credenciado</button>
+                <button class="tab-btn gerente-tab" onclick="mudarAcesso('gerente', this)">Acesso Gerente</button>
+            </div>
+            
+            <form action="#" method="POST" onsubmit="fazerLogin(event)">
+                <!-- Campo oculto informando qual acesso foi escolhido -->
+                <input type="hidden" name="tipo_acesso" id="tipo_acesso" value="credenciado">
+
+                <div class="form-group">
+    <!-- Adicionamos o ID e o evento oninput para a máscara -->
+    <input type="text" name="usuario" id="usuario" placeholder="E-mail ou Usuário" required oninput="formatarEmail(this)">
+</div>
+
+<div class="form-group senha-group">
+    <!-- Adicionamos o ID no input -->
+    <input type="password" name="senha" id="senha" placeholder="Senha" required>
+    
+    <!-- Este é o ícone do olhinho que será clicável -->
+    <span class="toggle-password" onclick="toggleSenha()" title="Mostrar senha">
+        <span id="icone-senha">👁️</span>
+    </span>
+</div>
+                
+    <div class="form-options">
+    <label class="remember-me">
+        <input type="checkbox" id="lembrar_me">
+        <span>Lembrar-me</span>
+    </label>
+    <a href="senha_esquecida.html" class="forgot-password">Esqueceu a senha?</a>
+</div>
+                
+                <button type="submit" class="btn-login" id="btn-entrar">ENTRAR - CREDENCIADO</button>
+            </form>
+
+            <div class="social-login">
+                <p>Ou entre com:</p>
+                <div class="social-icons">
+                    
+                    <a href="https://accounts.google.com" target="_blank" class="social-btn" style="color: #DB4437;">G</a>
+                    
+                    <a href="https://www.facebook.com/login" target="_blank" class="social-btn" style="color: #4267B2;">f</a>
+                </div>
+            </div>
+
+            <!-- Botão de cadastro escondido por padrão no acesso credenciado -->
+            <p class="register-link" id="area-cadastro" style="visibility: hidden;">Ainda não tem conta? <a href="cadastre-se.html"><span>CADASTRE-SE</span></a></p>
+        </div>
+    </main>
+<footer class="acnur-style-footer">
+    <div class="footer-top">
+        <!-- Coluna da Marca e Missão -->
+        <div class="footer-brand">
+            <div class="logo-text">Sleep Well</div>
+            <div class="logo-sub">Colchonetes Recicláveis</div>
+            <p class="brand-desc">
+                Transformando resíduos plásticos em conforto e dignidade. Cada produto adquirido fortalece a economia circular e o apoio social.
+            </p>
+        </div>
+
+        <!-- Links de Navegação e Transparência -->
+        <div class="footer-links">
+            <div class="link-group">
+                <h4>Institucional</h4>
+                <ul>
+                    <li><a href="sobre_nos.html">Sobre Nós</a></li>
+                    <li><a href="impacto_social.html">Impacto Social</a></li>
+                    <li><a href="compre_e_ajude.html">Compre e Ajude</a></li>
+                </ul>
+            </div>
+
+            <div class="link-group">
+                <h4>Transparência</h4>
+                <ul>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Trocas e Devoluções</a></li>
+                    <li><a href="rastreio.html">Rastrear Pedido</a></li>
+                </ul>
+            </div>
+
+            <!-- Selos de Segurança e Certificados -->
+            <div class="link-group">
+                <h4>Segurança</h4>
+                <div class="trust-badges">
+                    <span class="badge"> Conexão Criptografada SSL</span>
+                    <span class="badge"> Processamento Seguro</span>
+                    <span class="badge"> Certificado Socioambiental</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <!-- Rodapé Inferior: Direitos e Pagamento -->
+    <div class="footer-bottom">
+        <div class="legal-info">
+            <p>Sleep Well Brasil • CNPJ: 00.000.000/0001-00</p>
+            <p>© 2026 Sleep Well. Todos os direitos reservados.</p>
+        </div>
+        <div class="payment-methods">
+            <span>Pix</span>
+            <span> Cartão de Crédito</span>
+            <span>Boleto</span>
+        </div>
+    </div>
+</footer>
+
+    <!-- parte do javaScript -->
+    <script>
+    // 1. Ao carregar a página, verifica se há algum e-mail salvo no localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+        const usuarioSalvo = localStorage.getItem('usuario_salvo');
+        if (usuarioSalvo) {
+            document.getElementById('usuario').value = usuarioSalvo;
+            document.getElementById('lembrar_me').checked = true;
+        }
+    });
+
+    // 2. Função para processar o Login e Salvar/Remover o usuário
+    function fazerLogin(event) {
+        event.preventDefault();
+
+        const usuario = document.getElementById('usuario').value.trim();
+        const senha = document.getElementById('senha').value;
+        const lembrar = document.getElementById('lembrar_me').checked;
+
+        const usuarioCorreto = "admin@sleepwell.com";
+        const senhaCorreta = "123456";
+
+        if (usuario === usuarioCorreto && senha === senhaCorreta) {
+            // Se "Lembrar-me" estiver marcado, grava no navegador
+            if (lembrar) {
+                localStorage.setItem('usuario_salvo', usuario);
+            } else {
+                localStorage.removeItem('usuario_salvo');
+            }
+
+            window.location.href = "tela_de_cadastro.html";
+        } else {
+            alert("E-mail/Usuário ou senha incorretos! Tente novamente.");
+        }
+    }
+
+    // 3. Mudar as abas de acesso
+    function mudarAcesso(tipo, elementoClicado) {
+        const botoes = document.querySelectorAll('.tab-btn');
+        botoes.forEach(botao => botao.classList.remove('active'));
+        
+        elementoClicado.classList.add('active');
+        document.getElementById('tipo_acesso').value = tipo;
+        
+        const btnEntrar = document.getElementById('btn-entrar');
+        
+        if(tipo === 'credenciado') {
+            btnEntrar.innerText = 'ENTRAR - CREDENCIADO';
+            btnEntrar.style.backgroundColor = 'var(--earth-green)';
+        } else if (tipo === 'gerente') {
+            btnEntrar.innerText = 'ENTRAR - GERENTE';
+            btnEntrar.style.backgroundColor = 'var(--dark-blue)'; 
+        }
+    }
+
+    // 4. Máscara do E-mail/Usuário
+    function formatarEmail(campo) {
+        let texto = campo.value.toLowerCase();
+        texto = texto.replace(/\s/g, '');
+        campo.value = texto;
+    }
+
+    // 5. Mostrar/Ocultar Senha
+    function toggleSenha() {
+        const inputSenha = document.getElementById('senha');
+        const iconeSenha = document.getElementById('icone-senha');
+        
+        if (inputSenha.type === 'password') {
+            inputSenha.type = 'text';
+            iconeSenha.innerText = '🙈';
+        } else {
+            inputSenha.type = 'password';
+            iconeSenha.innerText = '👁️';
+        }
+    }
+</script>
+
+</body>
+</html>

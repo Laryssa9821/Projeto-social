@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISTEMA DE CADASTRO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- CABEÇALHO NO TOPO DE TUDO -->
+    <header class="topbar">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div class="logo-icon" style="color: #3b82f6; font-size: 1.5rem;"><i class="fas fa-bed"></i></div>
+            <h2 id="titulo-cabecalho" style="margin: 0; border-left: 2px solid #e2e8f0; padding-left: 15px;">Cadastrar Produto</h2>
+        </div>
+        
+        <div class="user-profile">
+            <i class="fas fa-user-circle"></i>
+            <span>José Henrique (Administrador)</span>
+            <i class="fas fa-cog"></i>
+        </div>
+    </header>
+
+    <!-- CONTAINER QUE SEGURA A BARRA LATERAL E OS FORMULÁRIOS -->
+    <div class="conteudo-inferior">
+        
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav" style="margin-top: 10px;">
+                <ul>
+                    <li><a href="#" class="menu-link active" onclick="trocarTela('tela-produtos', this)"><i class="fas fa-box"></i> Produtos</a></li>
+                    <li><a href="#" class="menu-link" onclick="trocarTela('tela-parceiros', this)"><i class="fas fa-handshake"></i> Parceiros</a></li>
+                    <li><a href="#" class="menu-link" onclick="trocarTela('tela-fornecedores', this)"><i class="fas fa-truck"></i> Fornecedores</a></li>
+                    <li><a href="#" class="menu-link" onclick="trocarTela('tela-clientes', this)"><i class="fas fa-users"></i> Clientes</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Sair do Sistema</a>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL (Formulários) -->
+        <main class="main-content">
+            <section class="form-section">
+                <!-- Caixa Central (Todas as telas ficam protegidas aqui dentro) -->
+                <div class="form-box">
+                    
+                    <!-- ========================================== -->
+                    <!-- TELA 1: CADASTRO DE PRODUTOS -->
+                    <!-- ========================================== -->
+                    <div id="tela-produtos" class="tela-conteudo">
+                        <h3 class="form-title">Cadastrar Novo Produto</h3>
+                        <form id="form-produto" onsubmit="simularSalvamento(event, 'Produto')">
+                            <div class="form-grid">
+                                <div class="left-col">
+                                    <div class="input-group">
+                                        <label for="codigo">Código do Produto:</label>
+                                        <input type="text" id="codigo" name="codigo" value="PROD-1023" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="data_cadastro">Data de cadastro:</label>
+                                        <input type="date" id="data_cadastro" name="data_cadastro" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="nome_produto">Nome do Produto:</label>
+                                        <select id="nome_produto" name="nome_produto" required>
+                                            <option value="">Selecione o produto...</option>
+                                            
+                                                <option value="colchao-ortopedico">Colchão</option>
+                                                <option value="colchao-molas">Colchonete</option>
+                                            
+                                            
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="tipo_colchao">Tipo de Colchão:</label>
+                                        <select id="tipo_colchao" name="tipo_colchao" required>
+                                            <option value="">Selecione o Tipo do Produto...</option>
+                                            <optgroup label="Solteiro">
+                                                
+                                            </optgroup>
+                                            <optgroup label="Casal">
+                                                
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="fornecedor">Fornecedor:</label>
+                                        <select id="fornecedor" name="fornecedor" required>
+                                            <option value="">Selecione o fornecedor...</option>
+                                            <optgroup label="Fornecedor">
+                                                <option value="empresa-alpha">Empresa Alpha</option>
+                                                <option value="empresa-alpha">Empresa Beta</option>
+                                                <option value="empresa-alpha">Empresa Gama</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="right-col" style="display: flex; flex-direction: column; justify-content: flex-end;">
+                                    <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+                                        <button type="submit" class="btn-save-blue">Cadastrar Produto</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- ========================================== -->
+                    <!-- TELA 2: CADASTRO DE PARCEIROS (ONGs) -->
+                    <!-- ========================================== -->
+                    <div id="tela-parceiros" class="tela-conteudo" style="display: none;">
+                        <h3 class="form-title">Cadastrar Novo Parceiro (ONG/Instituição)</h3>
+                        <form id="form-parceiro" onsubmit="simularSalvamento(event, 'Parceiro')">
+                            <div class="form-grid">
+                                
+                                <!-- COLUNA ESQUERDA -->
+                                <div class="left-col">
+                                    <h4 style="margin-top: 0; margin-bottom: 20px; color: #475569; font-size: 0.95rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
+                                        <i class="fas fa-building"></i> Dados Institucionais
+                                    </h4>
+
+                                    <div class="input-group">
+                                        <label for="nome_ong">Nome da Instituição:</label>
+                                        <input type="text" id="nome_ong" name="nome_ong" placeholder="Ex: Instituto Esperança" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="cnpj_ong">CNPJ da ONG:</label>
+                                        <input type="text" id="cnpj_ong" name="cnpj_ong" placeholder="00.000.000/0000-00" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="data_cadastro_ong">Data de cadastro:</label>
+                                        <input type="date" id="data_cadastro_ong" name="data_cadastro_ong" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="tipo_ong">Tipo de organização:</label>
+                                        <select id="tipo_ong" name="tipo_ong" required>
+                                            <option value="">Selecione o tipo...</option>
+                                            <option value="associacao">Associação</option>
+                                            <option value="fundacao">Fundação</option>
+                                            <option value="instituto">Instituto</option>
+                                            <option value="organizacao_social">Organização Social (OS/OSCIP)</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="area_atuacao">Área de atuação:</label>
+                                        <select id="area_atuacao" name="area_atuacao" required>
+                                            <option value="">Selecione a área principal...</option>
+                                            <option value="educacao">Educação</option>
+                                            <option value="saude">Saúde</option>
+                                            <option value="causa_animal">Causa Animal</option>
+                                            <option value="meio_ambiente">Meio Ambiente</option>
+                                            <option value="assistencia_social">Assistência Social</option>
+                                            
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="email_ong">E-mail Institucional:</label>
+                                        <input type="email" id="email_ong" name="email_ong" placeholder="contato@ong.org.br" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="telefone_ong">Telefone de Contato:</label>
+                                        <input type="text" id="telefone_ong" name="telefone_ong" placeholder="(00) 0000-0000" required>
+                                    </div>
+                                </div>
+
+                                <!-- COLUNA DIREITA -->
+                                <div class="right-col">
+                                    <h4 style="margin-top: 0; margin-bottom: 20px; color: #475569; font-size: 0.95rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
+                                        <i class="fas fa-map-marker-alt"></i> Endereço
+                                    </h4>
+
+                                    <div class="input-group">
+                                        <label for="cep_parceiro">CEP:</label>
+                                        <input type="text" id="cep_parceiro" name="cep_parceiro" placeholder="00000-000" onblur="buscarCEPParceiro(this.value)" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="rua_parceiro">Rua / Logradouro:</label>
+                                        <input type="text" id="rua_parceiro" name="rua_parceiro" required>
+                                    </div>
+                                    
+                                    <div style="display: flex; gap: 15px;">
+                                        <div class="input-group" style="flex: 1;">
+                                            <label for="numero_parceiro">Número:</label>
+                                            <input type="text" id="numero_parceiro" name="numero_parceiro" required>
+                                        </div>
+                                        <div class="input-group" style="flex: 2;">
+                                            <label for="bairro_parceiro">Bairro:</label>
+                                            <input type="text" id="bairro_parceiro" name="bairro_parceiro" required>
+                                        </div>
+                                    </div>
+
+                                    <div style="display: flex; gap: 15px;">
+                                        <div class="input-group" style="flex: 2;">
+                                            <label for="cidade_parceiro">Cidade:</label>
+                                            <input type="text" id="cidade_parceiro" name="cidade_parceiro" required>
+                                        </div>
+                                        <div class="input-group" style="flex: 1;">
+                                            <label for="uf_parceiro">Estado (UF):</label>
+                                            <select id="uf_parceiro" name="uf_parceiro" required>
+                                                <option value="">UF</option>
+                                                <option value="AC">AC</option><option value="AL">AL</option><option value="AP">AP</option><option value="AM">AM</option><option value="BA">BA</option><option value="CE">CE</option><option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option><option value="MA">MA</option><option value="MT">MT</option><option value="MS">MS</option><option value="MG">MG</option><option value="PA">PA</option><option value="PB">PB</option><option value="PR">PR</option><option value="PE">PE</option><option value="PI">PI</option><option value="RJ">RJ</option><option value="RN">RN</option><option value="RS">RS</option><option value="RO">RO</option><option value="RR">RR</option><option value="SC">SC</option><option value="SP">SP</option><option value="SE">SE</option><option value="TO">TO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div style="display: flex; justify-content: flex-end; margin-top: 35px;">
+                                        <button type="submit" class="btn-save-blue">Cadastrar Parceiro</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- ========================================== -->
+                    <!-- TELA 3: CADASTRO DE CLIENTES -->
+                    <!-- ========================================== -->
+                    <div id="tela-clientes" class="tela-conteudo" style="display: none;">
+                        <h3 class="form-title">Cadastrar Novo Cliente</h3>
+                        <form id="form-cliente" onsubmit="simularSalvamento(event, 'Cliente')">
+                            <div class="form-grid">
+                                <div class="left-col">
+                                    <div class="input-group">
+                                        <label for="nome_cliente">Nome Completo:</label>
+                                        <input type="text" id="nome_cliente" name="nome_cliente" placeholder="Ex: João da Silva" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="documento">CPF ou CNPJ:</label>
+                                        <input type="text" id="documento" name="documento" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="email">E-mail:</label>
+                                        <input type="email" id="email" name="email" placeholder="joao@email.com" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="whatsapp">Telefone (WhatsApp):</label>
+                                        <input type="text" id="whatsapp" name="whatsapp" placeholder="(00) 90000-0000" required>
+                                    </div>
+                                </div>
+
+                                <div class="right-col">
+                                    <div class="input-group">
+                                        <label for="cep">CEP:</label>
+                                        <input type="text" id="cep" name="cep" placeholder="00000-000" onblur="buscarCEP(this.value)" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="rua">Rua / Logradouro:</label>
+                                        <input type="text" id="rua" name="rua" required>
+                                    </div>
+                                    
+                                    <div style="display: flex; gap: 15px;">
+                                        <div class="input-group" style="flex: 1;">
+                                            <label for="numero">Número:</label>
+                                            <input type="text" id="numero" name="numero" required>
+                                        </div>
+                                        <div class="input-group" style="flex: 2;">
+                                            <label for="bairro">Bairro:</label>
+                                            <input type="text" id="bairro" name="bairro" required>
+                                        </div>
+                                    </div>
+
+                                    <div style="display: flex; gap: 15px;">
+                                        <div class="input-group" style="flex: 2;">
+                                            <label for="cidade">Cidade:</label>
+                                            <input type="text" id="cidade" name="cidade" required>
+                                        </div>
+                                        <div class="input-group" style="flex: 1;">
+                                            <label for="uf">Estado (UF):</label>
+                                            <select id="uf" name="uf" required>
+                                                <option value="">UF</option>
+                                                <option value="AC">AC</option><option value="AL">AL</option><option value="AP">AP</option><option value="AM">AM</option><option value="BA">BA</option><option value="CE">CE</option><option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option><option value="MA">MA</option><option value="MT">MT</option><option value="MS">MS</option><option value="MG">MG</option><option value="PA">PA</option><option value="PB">PB</option><option value="PR">PR</option><option value="PE">PE</option><option value="PI">PI</option><option value="RJ">RJ</option><option value="RN">RN</option><option value="RS">RS</option><option value="RO">RO</option><option value="RR">RR</option><option value="SC">SC</option><option value="SP">SP</option><option value="SE">SE</option><option value="TO">TO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div style="display: flex; justify-content: flex-end; margin-top: 15px;">
+                                        <button type="submit" class="btn-save-blue">Cadastrar Cliente</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- ========================================== -->
+                    <!-- TELA 4: CADASTRO DE FORNECEDORES -->
+                    <!-- ========================================== -->
+                    <div id="tela-fornecedores" class="tela-conteudo" style="display: none;">
+                        <h3 class="form-title">Cadastrar Novo Fornecedor</h3>
+                        <form id="form-fornecedor" onsubmit="simularSalvamento(event, 'Fornecedor')">
+                            <div class="form-grid">
+                                <div class="left-col">
+                                    <h4 style="margin-top: 0; margin-bottom: 20px; color: #475569; font-size: 0.95rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
+                                        <i class="fas fa-building"></i> Dados da Empresa
+                                    </h4>
+
+                                    <div class="input-group">
+                                        <label for="nome_fornecedor">Nome da Empresa (Razão Social):</label>
+                                        <input type="text" id="nome_fornecedor" name="nome_fornecedor" placeholder="Ex: Indústria Alfa Ltda" required>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="cnpj_fornecedor">CNPJ:</label>
+                                        <input type="text" id="cnpj_fornecedor" name="cnpj_fornecedor" placeholder="00.000.000/0000-00" required>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="ramo_fornecedor">Ramo / Atuação / Categoria:</label>
+                                        <select id="ramo_fornecedor" name="ramo_fornecedor" onchange="verificarRamo(this.value)" required>
+                                            <option value="">Selecione a categoria...</option>
+                                            <option value="materia-prima">Matéria-Prima (Espumas, Tecidos, Molas)</option>
+                                            <option value="embalagens">Embalagens e Plásticos</option>
+                                            <option value="logistica">Logística e Transporte</option>
+                                            <option value="servicos">Prestação de Serviços</option>
+                                            <option value="outros">Outros</option>
+                                        </select>
+                                        <input type="text" id="ramo_outro_fornecedor" name="ramo_outro_fornecedor" placeholder="Especifique qual é o ramo..." style="display: none; margin-top: 10px;">
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="telefone_fornecedor">Telefone Comercial:</label>
+                                        <input type="text" id="telefone_fornecedor" name="telefone_fornecedor" placeholder="(00) 0000-0000" required>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="email_fornecedor">E-mail de Contato:</label>
+                                        <input type="email" id="email_fornecedor" name="email_fornecedor" placeholder="contato@empresa.com" required>
+                                    </div>
+                                </div>
+
+                                <div class="right-col">
+                                    <h4 style="margin-top: 0; margin-bottom: 20px; color: #475569; font-size: 0.95rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
+                                        <i class="fas fa-map-marker-alt"></i> Endereço e Documentação
+                                    </h4>
+
+                                    <div class="input-group">
+                                        <label for="cep_fornecedor">CEP:</label>
+                                        <input type="text" id="cep_fornecedor" name="cep_fornecedor" placeholder="00000-000" onblur="buscarCEPFornecedor(this.value)" required>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="rua_fornecedor">Rua / Logradouro:</label>
+                                        <input type="text" id="rua_fornecedor" name="rua_fornecedor" required>
+                                    </div>
+                                    
+                                    <div style="display: flex; gap: 15px;">
+                                        <div class="input-group" style="flex: 1;">
+                                            <label for="numero_fornecedor">Número:</label>
+                                            <input type="text" id="numero_fornecedor" name="numero_fornecedor" required>
+                                        </div>
+                                        <div class="input-group" style="flex: 2;">
+                                            <label for="bairro_fornecedor">Bairro:</label>
+                                            <input type="text" id="bairro_fornecedor" name="bairro_fornecedor" required>
+                                        </div>
+                                    </div>
+
+                                    <div style="display: flex; gap: 15px;">
+                                        <div class="input-group" style="flex: 2;">
+                                            <label for="cidade_fornecedor">Cidade:</label>
+                                            <input type="text" id="cidade_fornecedor" name="cidade_fornecedor" required>
+                                        </div>
+                                        <div class="input-group" style="flex: 1;">
+                                            <label for="uf_fornecedor">Estado (UF):</label>
+                                            <select id="uf_fornecedor" name="uf_fornecedor" required>
+                                                <option value="">UF</option>
+                                                <option value="AC">AC</option><option value="AL">AL</option><option value="AP">AP</option><option value="AM">AM</option><option value="BA">BA</option><option value="CE">CE</option><option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option><option value="MA">MA</option><option value="MT">MT</option><option value="MS">MS</option><option value="MG">MG</option><option value="PA">PA</option><option value="PB">PB</option><option value="PR">PR</option><option value="PE">PE</option><option value="PI">PI</option><option value="RJ">RJ</option><option value="RN">RN</option><option value="RS">RS</option><option value="RO">RO</option><option value="RR">RR</option><option value="SC">SC</option><option value="SP">SP</option><option value="SE">SE</option><option value="TO">TO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label>Arquivos e Certidões (PDF, Imagens):</label>
+                                        <div class="image-actions" style="margin-top: 5px;">
+                                            <label for="arquivos_fornecedor" class="btn-add-img">
+                                                <i class="fas fa-paperclip"></i> Anexar Arquivos
+                                            </label>
+                                            <input type="file" id="arquivos_fornecedor" name="arquivos_fornecedor" multiple accept=".pdf, .jpg, .png, .doc, .docx" onchange="atualizarNomeArquivos(this)" hidden>
+                                            <span class="file-name" id="texto-arquivos-fornecedor">Nenhum arquivo...</span>
+                                        </div>
+                                    </div>
+
+                                    <div style="display: flex; justify-content: flex-end; margin-top: 15px;">
+                                        <button type="submit" class="btn-save-blue">Cadastrar Fornecedor</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div> <!-- Fim da Form Box -->
+            </section>
+        </main>
+    </div> <!-- Fim do Conteúdo Inferior -->
+
+    <!-- Scripts JavaScript -->
+    <script>
+        function trocarTela(idTela, linkClicado) {
+            const telas = document.querySelectorAll('.tela-conteudo');
+            telas.forEach(tela => {
+                tela.style.display = 'none';
+            });
+
+            document.getElementById(idTela).style.display = 'block';
+
+            const links = document.querySelectorAll('.menu-link');
+            links.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            linkClicado.classList.add('active');
+
+            const nomeMenu = linkClicado.innerText.trim();
+            document.getElementById('titulo-cabecalho').innerText = "Cadastrar " + nomeMenu;
+        }
+
+        function simularSalvamento(event, tipo) {
+            event.preventDefault(); 
+            alert('Sucesso! ' + tipo + ' foi cadastrado no sistema.');
+            event.target.reset(); 
+        }
+        
+        async function buscarCEP(cep) {
+            const cepLimpo = cep.replace(/\D/g, '');
+            if (cepLimpo.length === 8) {
+                document.getElementById('rua').value = '...';
+                document.getElementById('bairro').value = '...';
+                document.getElementById('cidade').value = '...';
+                try {
+                    const resposta = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+                    const dados = await resposta.json();
+                    if (!dados.erro) {
+                        document.getElementById('rua').value = dados.logradouro;
+                        document.getElementById('bairro').value = dados.bairro;
+                        document.getElementById('cidade').value = dados.localidade;
+                        document.getElementById('uf').value = dados.uf;
+                        document.getElementById('numero').focus();
+                    } else {
+                        alert("CEP não encontrado!");
+                        limparCamposCep();
+                    }
+                } catch (error) {
+                    alert("Erro ao conectar com o servidor de CEPs.");
+                    limparCamposCep();
+                }
+            } else if (cepLimpo.length > 0) {
+                alert("Formato de CEP inválido. Digite 8 números.");
+                limparCamposCep();
+            }
+        }
+
+        function limparCamposCep() {
+            document.getElementById('rua').value = '';
+            document.getElementById('bairro').value = '';
+            document.getElementById('cidade').value = '';
+            document.getElementById('uf').value = '';
+        }
+        
+        async function buscarCEPFornecedor(cep) {
+            const cepLimpo = cep.replace(/\D/g, '');
+            if (cepLimpo.length === 8) {
+                document.getElementById('rua_fornecedor').value = '...';
+                document.getElementById('bairro_fornecedor').value = '...';
+                document.getElementById('cidade_fornecedor').value = '...';
+                try {
+                    const resposta = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+                    const dados = await resposta.json();
+                    if (!dados.erro) {
+                        document.getElementById('rua_fornecedor').value = dados.logradouro;
+                        document.getElementById('bairro_fornecedor').value = dados.bairro;
+                        document.getElementById('cidade_fornecedor').value = dados.localidade;
+                        document.getElementById('uf_fornecedor').value = dados.uf;
+                        document.getElementById('numero_fornecedor').focus();
+                    } else {
+                        alert("CEP não encontrado!");
+                        limparCamposCepFornecedor();
+                    }
+                } catch (error) {
+                    alert("Erro ao conectar com o servidor de CEPs.");
+                    limparCamposCepFornecedor();
+                }
+            } else if (cepLimpo.length > 0) {
+                alert("Formato de CEP inválido. Digite 8 números.");
+                limparCamposCepFornecedor();
+            }
+        }
+
+        function limparCamposCepFornecedor() {
+            document.getElementById('rua_fornecedor').value = '';
+            document.getElementById('bairro_fornecedor').value = '';
+            document.getElementById('cidade_fornecedor').value = '';
+            document.getElementById('uf_fornecedor').value = '';
+        }
+
+        async function buscarCEPParceiro(cep) {
+            const cepLimpo = cep.replace(/\D/g, '');
+            if (cepLimpo.length === 8) {
+                document.getElementById('rua_parceiro').value = '...';
+                document.getElementById('bairro_parceiro').value = '...';
+                document.getElementById('cidade_parceiro').value = '...';
+                try {
+                    const resposta = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+                    const dados = await resposta.json();
+                    if (!dados.erro) {
+                        document.getElementById('rua_parceiro').value = dados.logradouro;
+                        document.getElementById('bairro_parceiro').value = dados.bairro;
+                        document.getElementById('cidade_parceiro').value = dados.localidade;
+                        document.getElementById('uf_parceiro').value = dados.uf;
+                        document.getElementById('numero_parceiro').focus();
+                    } else {
+                        alert("CEP não encontrado!");
+                        limparCamposCepParceiro();
+                    }
+                } catch (error) {
+                    alert("Erro ao conectar com o servidor de CEPs.");
+                    limparCamposCepParceiro();
+                }
+            } else if (cepLimpo.length > 0) {
+                alert("Formato de CEP inválido. Digite 8 números.");
+                limparCamposCepParceiro();
+            }
+        }
+
+        function limparCamposCepParceiro() {
+            document.getElementById('rua_parceiro').value = '';
+            document.getElementById('bairro_parceiro').value = '';
+            document.getElementById('cidade_parceiro').value = '';
+            document.getElementById('uf_parceiro').value = '';
+        }
+
+        function atualizarNomeArquivos(input) {
+            const textoArquivos = document.getElementById('texto-arquivos-fornecedor');
+            if (input.files && input.files.length > 0) {
+                if (input.files.length === 1) {
+                    textoArquivos.innerText = input.files[0].name;
+                } else {
+                    textoArquivos.innerText = input.files.length + ' arquivos selecionados';
+                }
+            } else {
+                textoArquivos.innerText = 'Nenhum arquivo...';
+            }
+        }
+
+        function verificarRamo(valorSelecionado) {
+            const campoOutros = document.getElementById('ramo_outro_fornecedor');
+            if (valorSelecionado === 'outros') {
+                campoOutros.style.display = 'block';
+                campoOutros.required = true;
+            } else {
+                campoOutros.style.display = 'none';
+                campoOutros.required = false;
+                campoOutros.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
