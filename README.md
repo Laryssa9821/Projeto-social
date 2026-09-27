@@ -4,7 +4,7 @@
 **Laboratório de Inovação -** Prof. Edilberto Silva — 2026  
 **Formato:** Markdown  
 **Valor Total da Entrega:** 100%  
-**Data de Entrega:** 26/09/2026  
+**Data de Entrega:** 27/09/2026  
 **Grupo:** Sleep Well — Projeto Social  
 **Integrantes:** Ana Júlia Bernardes (ana50466166@edu.df.senac.br) ; Douglas Cerqueira (douglas51812666@edu.df.senac.br) ; Fabiane Sarres (fabiane61909266@edu.df.senac.br) ; Gustavo Augusto (gustavo61867136@edu.df.senac.br) ; Hannah Raposo (hannah46570966@edu.df.senac.br) ; Laryssa Almeida (laryssa59158836@edu.df.senac.br)
 
@@ -57,10 +57,6 @@ Projeto-social/
 **Localização do Protótipo HTML+CSS:**  
 `src/prototipos/SEMANA-03/RF-003-telas_dashboard/tela_de_cadastro.html` — painel administrativo  
 `src/prototipos/SEMANA-03/RF-003-telas_dashboard/index.html` — login e rodapé institucional
-
-> **Pendência de organização herdada da Semana 2:** a reorganização em `Backend/`, `Frontend/`, `Dados/`, `Imagens/` e `MD/` ainda não foi implementada. Os arquivos continuam em `docs/` e `src/`.
->
-> Caso existam cópias dos arquivos HTML, CSS ou imagens dentro de `docs/requisitos-semanais/SEMANA-03/RF-003-telas_dashboard/`, essa duplicação deve ser removida. O documento de requisitos deve permanecer em `docs/`, enquanto os arquivos do protótipo devem permanecer em `src/`.
 
 ---
 
