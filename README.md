@@ -479,7 +479,7 @@ Caso o destino ainda não exista, a ausência permanece registrada como pendênc
 
 ### Continuidade das ADRs da Semana 2
 
-- **ADR-001:** PostgreSQL como banco relacional principal.
+- **ADR-001:** MySQL como banco relacional principal.
 - **ADR-002:** recuperação de senha por token temporário.
 - **ADR-003:** práticas de segurança aplicadas ao módulo de autenticação.
 
@@ -552,3 +552,4 @@ Caso o destino ainda não exista, a ausência permanece registrada como pendênc
 *"Cada entrega vale 100%. Seja minucioso, justificado, exemplificado!"*
 
 *"Fé, Força e Foco!"*
+
