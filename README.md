@@ -55,8 +55,8 @@ Projeto-social/
 `docs/requisitos-semanais/SEMANA-03/RF-003-telas-dashboard.md`
 
 **Localização do Protótipo HTML+CSS:**  
-`src/prototipos/SEMANA-03/RF-003-telas_dashboard/tela_de_cadastro.html` — painel administrativo  
-`src/prototipos/SEMANA-03/RF-003-telas_dashboard/index.html` — login e rodapé institucional
+`src/prototipos/SEMANA-03/RF-003-telas_dashboard/tela_Adm.html` — painel administrativo  
+`src/prototipos/SEMANA-03/RF-003-telas_dashboard/login.html` — login e rodapé institucional
 
 ---
 
