@@ -1,0 +1,476 @@
+@import url("../../SEMANA-02/RF-002-alteracao-senha/style.css");
+
+/* Rodapé institucional compartilhado pelas páginas das Semanas 03 e 04 */
+.acnur-style-footer {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 50px 5% 25px;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 0;
+}
+
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-brand {
+    flex: 1;
+    min-width: 260px;
+    max-width: 350px;
+}
+
+.footer-brand .logo-text {
+    color: var(--white);
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.footer-brand .logo-sub {
+    color: #a0aec0;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.brand-desc {
+    font-size: 13px;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.footer-links {
+    display: flex;
+    flex: 2;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-around;
+    min-width: 280px;
+}
+
+.link-group h4 {
+    color: var(--bg-cream);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.link-group ul {
+    list-style: none;
+}
+
+.link-group ul li {
+    margin-bottom: 10px;
+}
+
+.link-group ul li a {
+    color: #cbd5e1;
+    font-size: 13px;
+    transition: color 0.2s ease;
+}
+
+.link-group ul li a:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+.trust-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #e2e8f0;
+}
+
+.footer-divider {
+    max-width: 1200px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+    margin: 35px auto 20px;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.legal-info p {
+    margin-bottom: 4px;
+}
+
+.payment-methods span {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin: 4px 0 4px 5px;
+    font-size: 12px;
+    color: var(--white);
+}
+
+@media (max-width: 768px) {
+    .footer-top,
+    .footer-links,
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        gap: 25px;
+    }
+
+    .footer-bottom {
+        text-align: center;
+    }
+}
+
+/* =========================================
+   ESTILOS DAS PÁGINAS DE TRANSPARÊNCIA
+   (Termos, Privacidade, Devoluções e Rastreio)
+   ========================================= */
+
+.transparency-section {
+    flex-grow: 1;
+    padding: 60px 20px;
+    background-color: var(--bg-cream);
+    display: flex;
+    justify-content: center;
+}
+
+.transparency-container {
+    max-width: 900px;
+    width: 100%;
+}
+
+.transparency-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.transparency-header h1 {
+    color: var(--dark-blue);
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.transparency-header p {
+    color: var(--earth-green);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.transparency-card {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.transparency-card h3 {
+    color: var(--dark-blue);
+    font-size: 18px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #e5e0d3;
+    padding-bottom: 5px;
+}
+
+.transparency-card h3:first-child {
+    margin-top: 0;
+}
+
+.transparency-card p {
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.transparency-card ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    color: var(--text-gray);
+}
+
+.transparency-card ul li {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+/* Formulário de Rastreamento de Pedido */
+.tracking-box {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tracking-box .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.tracking-box label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 8px;
+}
+
+.tracking-box input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background-color: var(--white);
+}
+
+.tracking-box input:focus {
+    border-color: var(--earth-green);
+}
+
+.btn-track {
+    width: 100%;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-track:hover {
+    background-color: var(--earth-green);
+}
+
+/* ==========================================================
+   SLEEP WELL - ESTILOS DO MODAL DE CHECKOUT & DOAÇÃO
+   ========================================================== */
+
+/* Overlay de Fundo */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.modal-overlay.hidden {
+  display: none !important;
+}
+
+/* Caixa Principal do Modal (Necessário position: relative para prender o botão de fechar) */
+.modal-content {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 28px;
+  max-width: 560px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative; /* Mantém o 'X' preso no canto superior direito */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.payment-modal-content {
+  max-width: 480px;
+}
+
+/* Botão de Fechar (X) - Canto Superior Direito */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: auto;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #64748b;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+.modal-close:hover {
+  color: #ef4444;
+  background-color: #f1f5f9;
+}
+
+.modal-content h2 {
+  font-size: 22px;
+  color: #1b2a4a;
+  margin-top: 0;
+  margin-bottom: 6px;
+  font-weight: 700;
+  padding-right: 30px; /* Evita que o título sobreponha o 'X' */
+}
+
+.modal-subtitle {
+  color: #2563eb;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+/* Formulários & Fieldsets */
+.form-section {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: #fafafa;
+}
+
+.form-section legend {
+  font-weight: 600;
+  color: #1b2a4a;
+  padding: 0 8px;
+  font-size: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #334155;
+}
+
+.form-group input, 
+.form-group select {
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+  border-color: #1b2a4a;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Informações de Pagamento (Pix / Boleto) */
+.pix-container {
+  background: #f0fdf4;
+  border: 1px dashed #22c55e;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #166534;
+  margin-top: 10px;
+}
+
+.payment-info {
+  background: #f0fdf4;
+  border: 1px dashed #22c55e;
+  padding: 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #166534;
+  margin: 16px 0;
+}
+
+.payment-info p {
+  margin: 0;
+}
+
+.payment-notice {
+  background: #fffbeb;
+  border-color: #f59e0b;
+  color: #92400e;
+  margin-top: 0;
+}
+
+/* Botão de Confirmação */
+.btn-confirmar {
+  width: 100%;
+  background-color: #1b2a4a;
+  color: #ffffff;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 10px;
+}
+
+.btn-confirmar:hover {
+  background-color: #0f172a;
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 520px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .span-2 {
+    grid-column: span 1;
+  }
+}
