@@ -1,0 +1,451 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Well - Compre e Ajude</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../SEMANA-03/RF-003-telas_dashboard/style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo-container">
+            <a href="../SEMANA-03/RF-003-telas_dashboard/login.html">
+                <div class="logo-text">Sleep Well</div>
+                <div class="logo-sub">Colchonetes Recicláveis</div>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../SEMANA-03/RF-003-telas_dashboard/login.html">INÍCIO</a></li>
+                <li><a href="../SEMANA-03/RF-003-telas_dashboard/sobre_nos.html">SOBRE NÓS</a></li>
+                <li><a href="compre_e_ajude.html" class="active-link">COMPRE E AJUDE</a></li>
+                <li><a href="../SEMANA-03/RF-003-telas_dashboard/impacto_social.html">IMPACTO SOCIAL</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção de Produtos -->
+    <main class="store-section">
+        <div class="store-header">
+            <h1>Faça parte da mudança</h1>
+            <p>Ao adquirir um de nossos produtos ecológicos, você financia a produção de colchonetes para pessoas em situação de vulnerabilidade.</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Produto 1: Solteiro -->
+            <div class="product-card">
+                <div class="image-slider">
+                    <img src="../SEMANA-03/RF-003-telas_dashboard/solteiro1.png" alt="Colchonete Solteiro Foto 1">
+                    <img src="../SEMANA-03/RF-003-telas_dashboard/casado_2.png" alt="Colchonete Solteiro Foto 2" class="img-top">
+                </div>
+                
+                <div class="product-info">
+                    <h3>Colchonete Solteiro Eco</h3>
+                    <p class="product-desc">Feito com 100% de material reciclado. Conforto e durabilidade para o seu dia a dia.</p>
+                    <p class="product-price">R$ 149,90</p>
+                    <button type="button" class="btn-buy" onclick="abrirModal('compra', 'Colchonete Solteiro Eco', 149.90)">COMPRAR E AJUDAR</button>
+                </div>
+            </div>
+
+            <!-- Produto 2: Casal -->
+            <div class="product-card">
+                <div class="image-slider">
+                    <img src="../SEMANA-03/RF-003-telas_dashboard/casado_1.png" alt="Colchonete Casal Foto 1">
+                    <img src="../SEMANA-03/RF-003-telas_dashboard/solteiro2.png" alt="Colchonete Casal Foto 2" class="img-top">
+                </div>
+                
+                <div class="product-info">
+                    <h3>Colchonete Casal Eco</h3>
+                    <p class="product-desc">Espaço e conforto em dobro. Sustentabilidade que abraça a sua família.</p>
+                    <p class="product-price">R$ 229,90</p>
+                    <button type="button" class="btn-buy" onclick="abrirModal('compra', 'Colchonete Casal Eco', 229.90)">COMPRAR E AJUDAR</button>
+                </div>
+            </div>
+
+            <!-- Produto 3: Doação -->
+            <div class="product-card">
+                <div class="image-slider">
+                    <img src="../SEMANA-03/RF-003-telas_dashboard/imagem_doacao_1.png" alt="Apoie o Projeto">
+                    <img src="../SEMANA-03/RF-003-telas_dashboard/imagem_doacao_2.png" alt="Apoie o Projeto Foto 2" class="img-top">
+                </div>
+                
+                <div class="product-info">
+                    <h3>Apoie o Projeto</h3>
+                    <p class="product-desc">Não precisa de um colchonete agora? Doe este valor e nós fabricamos e entregamos um para quem precisa.</p>
+                    <p class="product-price">R$ 80,00</p>
+                    <button type="button" class="btn-buy" onclick="abrirModal('doacao', 'Doação Direta - Projeto Sleep Well', 80.00)">APENAS DOAR</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Dinâmico de Checkout / Doação -->
+    <div id="checkout-modal" class="modal-overlay hidden" style="display: none;">
+        <div class="modal-content">
+            <!-- Botão X Posicionado no canto superior direito pelo CSS -->
+            <button type="button" class="modal-close" onclick="fecharModal()">&times;</button>
+            
+            <h2 id="modal-titulo">Finalizar Pedido</h2>
+            <p id="modal-subtitulo" class="modal-subtitle"></p>
+
+            <form id="checkout-form" onsubmit="processarPedido(event)">
+                <!-- Dados Pessoais -->
+                <fieldset class="form-section">
+                    <legend>Dados Pessoais</legend>
+                    
+                    <div class="form-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" required placeholder="Digite seu nome completo">
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="cpf">CPF *</label>
+                            <input type="text" id="cpf" required placeholder="000.000.000-00" maxlength="14">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" required placeholder="seu@email.com">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Endereço de Entrega (Apenas para Compras) -->
+                <fieldset id="secao-endereco" class="form-section">
+                    <legend>Endereço de Entrega</legend>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="cep">CEP *</label>
+                            <input type="text" id="cep" placeholder="00000-000" maxlength="9" onblur="buscarCEP()" oninput="mascaraEBuscaCEP(this)">
+                        </div>
+                        <div class="form-group span-2">
+                            <label for="logradouro">Rua / Avenida *</label>
+                            <input type="text" id="logradouro" placeholder="Nome da rua">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="numero">Número *</label>
+                            <input type="text" id="numero" placeholder="123">
+                        </div>
+                        <div class="form-group">
+                            <label for="complemento">Complemento</label>
+                            <input type="text" id="complemento" placeholder="Apto, Bloco, etc.">
+                        </div>
+                        <div class="form-group">
+                            <label for="bairro">Bairro *</label>
+                            <input type="text" id="bairro" placeholder="Bairro">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="cidade">Cidade *</label>
+                            <input type="text" id="cidade" placeholder="Brasília">
+                        </div>
+                        <div class="form-group">
+                            <label for="uf">UF *</label>
+                            <input type="text" id="uf" placeholder="DF" maxlength="2">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Pagamento -->
+                <fieldset class="form-section">
+                    <legend>Forma de Pagamento</legend>
+                    
+                    <div class="form-group">
+                        <label for="forma-pagamento">Selecione o método *</label>
+                        <select id="forma-pagamento" required onchange="alternarCamposPagamento(this.value)">
+                            <option value="">-- Selecione --</option>
+                            <option value="pix">⚡ Pix (Aprovação Instantânea)</option>
+                            <option value="cartao">💳 Cartão de Crédito</option>
+                            <option value="boleto">📄 Boleto Bancário</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <button type="button" id="btn-prosseguir-pagamento" class="btn-confirmar" onclick="alternarCamposPagamento(document.getElementById('forma-pagamento').value)">Continuar para pagamento</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="payment-modal" class="modal-overlay hidden" style="display: none;">
+        <div class="modal-content payment-modal-content">
+            <button type="button" class="modal-close" aria-label="Voltar para os dados do pedido" onclick="fecharPagamentoModal()">&times;</button>
+            <h2 id="payment-modal-title">Pagamento</h2>
+            <p id="payment-modal-subtitle" class="modal-subtitle"></p>
+
+            <form id="payment-form" onsubmit="processarPedido(event)">
+                <div class="payment-info payment-notice">
+                    <p>Esta tela é demonstrativa e não processa pagamentos. Não informe dados reais do cartão.</p>
+                </div>
+
+                <div id="payment-card-fields" class="hidden" style="display: none;">
+                    <div class="form-group">
+                        <label for="num-cartao">Número do Cartão *</label>
+                        <input type="text" id="num-cartao" placeholder="0000 0000 0000 0000" maxlength="19" autocomplete="cc-number" inputmode="numeric">
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="validade">Validade *</label>
+                            <input type="text" id="validade" placeholder="MM/AA" maxlength="5" autocomplete="cc-exp">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV *</label>
+                            <input type="text" id="cvv" placeholder="123" maxlength="4" autocomplete="cc-csc" inputmode="numeric">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="payment-pix-info" class="payment-info hidden" style="display: none;">
+                    <p>Este protótipo não gera QR Code Pix. É necessário integrar um provedor de pagamento para disponibilizar a cobrança.</p>
+                </div>
+
+                <div id="payment-boleto-info" class="payment-info hidden" style="display: none;">
+                    <p>Este protótipo não gera boleto. É necessário integrar um provedor de pagamento para disponibilizar a cobrança.</p>
+                </div>
+
+                <button type="submit" id="btn-confirmar-pagamento" class="btn-confirmar">Confirmar Pedido</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="acnur-style-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="logo-text">Sleep Well</div>
+                <div class="logo-sub">Colchonetes Recicláveis</div>
+                <p class="brand-desc">
+                    Transformando resíduos plásticos em conforto e dignidade. Cada produto adquirido fortalece a economia circular e o apoio social.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="../SEMANA-03/RF-003-telas_dashboard/sobre_nos.html">Sobre Nós</a></li>
+                        <li><a href="../SEMANA-03/RF-003-telas_dashboard/impacto_social.html">Impacto Social</a></li>
+                        <li><a href="compre_e_ajude.html">Compre e Ajude</a></li>
+                    </ul>
+                </div>
+
+                <div class="link-group">
+                    <h4>Transparência</h4>
+                    <ul>
+                        <li><a href="termo_de_uso.html">Termos de Uso</a></li>
+                        <li><a href="privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="trocas-devolucoes.html">Trocas e Devoluções</a></li>
+                        <li><a href="rastreio.html">Rastrear Pedido</a></li>
+                    </ul>
+                </div>
+
+                <div class="link-group">
+                    <h4>Segurança</h4>
+                    <div class="trust-badges">
+                        <span class="badge">🔒 Conexão Criptografada SSL</span>
+                        <span class="badge">🛡️ Processamento Seguro</span>
+                        <span class="badge">🌱 Certificado Socioambiental</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+            <div class="legal-info">
+                <p>Sleep Well Brasil • CNPJ: 00.000.000/0001-00</p>
+                <p>© 2026 Sleep Well. Todos os direitos reservados.</p>
+            </div>
+            <div class="payment-methods">
+                <span>⚡ Pix</span>
+                <span>💳 Cartão de Crédito</span>
+                <span>📄 Boleto</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT INTEGRADA (MODAL + BUSCA DE CEP) -->
+    <script>
+        var tipoOperacao = '';
+
+        function abrirModal(tipo, nomeItem, valor) {
+            tipoOperacao = tipo;
+            var modal = document.getElementById('checkout-modal');
+            var titulo = document.getElementById('modal-titulo');
+            var subtitulo = document.getElementById('modal-subtitulo');
+            var secaoEndereco = document.getElementById('secao-endereco');
+            var inputsEndereco = secaoEndereco.querySelectorAll('input');
+
+            document.getElementById('checkout-form').reset();
+            fecharPagamentoModal();
+            modal.style.display = 'flex';
+            modal.classList.remove('hidden');
+
+            subtitulo.innerText = nomeItem + ' — R$ ' + valor.toFixed(2).replace('.', ',');
+
+            if (tipo === 'doacao') {
+                titulo.innerText = 'Realizar Doação Direta';
+                secaoEndereco.style.display = 'none';
+                secaoEndereco.classList.add('hidden');
+                for (var i = 0; i < inputsEndereco.length; i++) {
+                    inputsEndereco[i].removeAttribute('required');
+                }
+            } else {
+                titulo.innerText = 'Finalizar Pedido';
+                secaoEndereco.style.display = 'block';
+                secaoEndereco.classList.remove('hidden');
+                document.getElementById('cep').setAttribute('required', 'true');
+                document.getElementById('logradouro').setAttribute('required', 'true');
+                document.getElementById('numero').setAttribute('required', 'true');
+                document.getElementById('bairro').setAttribute('required', 'true');
+                document.getElementById('cidade').setAttribute('required', 'true');
+                document.getElementById('uf').setAttribute('required', 'true');
+            }
+        }
+
+        function fecharModal() {
+            var modal = document.getElementById('checkout-modal');
+            fecharPagamentoModal();
+            modal.style.display = 'none';
+            modal.classList.add('hidden');
+            document.getElementById('checkout-form').reset();
+        }
+
+        function alternarCamposPagamento(metodo) {
+            if (!metodo) {
+                return;
+            }
+
+            var checkoutForm = document.getElementById('checkout-form');
+            if (!checkoutForm.reportValidity()) {
+                document.getElementById('forma-pagamento').value = '';
+                return;
+            }
+
+            var titles = {
+                cartao: 'Pagamento com Cartão de Crédito',
+                pix: 'Pagamento via Pix',
+                boleto: 'Pagamento via Boleto Bancário'
+            };
+            var paymentModal = document.getElementById('payment-modal');
+            var cardFields = document.getElementById('payment-card-fields');
+            var pixInfo = document.getElementById('payment-pix-info');
+            var boletoInfo = document.getElementById('payment-boleto-info');
+            var cardInputs = cardFields.querySelectorAll('input');
+
+            cardFields.style.display = metodo === 'cartao' ? 'block' : 'none';
+            cardFields.classList.toggle('hidden', metodo !== 'cartao');
+            pixInfo.style.display = metodo === 'pix' ? 'block' : 'none';
+            pixInfo.classList.toggle('hidden', metodo !== 'pix');
+            boletoInfo.style.display = metodo === 'boleto' ? 'block' : 'none';
+            boletoInfo.classList.toggle('hidden', metodo !== 'boleto');
+            for (var i = 0; i < cardInputs.length; i++) {
+                if (metodo === 'cartao') {
+                    cardInputs[i].setAttribute('required', 'true');
+                } else {
+                    cardInputs[i].removeAttribute('required');
+                }
+            }
+
+            document.getElementById('payment-modal-title').innerText = titles[metodo];
+            document.getElementById('payment-modal-subtitle').innerText = document.getElementById('modal-subtitulo').innerText;
+            document.getElementById('payment-form').reset();
+            paymentModal.style.display = 'flex';
+            paymentModal.classList.remove('hidden');
+        }
+
+        function fecharPagamentoModal() {
+            var paymentModal = document.getElementById('payment-modal');
+            paymentModal.style.display = 'none';
+            paymentModal.classList.add('hidden');
+            document.getElementById('payment-form').reset();
+        }
+
+        // FUNÇÃO DE MÁSCARA E BUSCA AUTOMÁTICA DE CEP (ViaCEP API)
+        function mascaraEBuscaCEP(input) {
+            var valor = input.value.replace(/\D/g, '');
+            if (valor.length > 5) {
+                input.value = valor.substring(0, 5) + '-' + valor.substring(5, 8);
+            } else {
+                input.value = valor;
+            }
+
+            if (valor.length === 8) {
+                buscarCEP();
+            }
+        }
+
+        function buscarCEP() {
+            var cepInput = document.getElementById('cep').value.replace(/\D/g, '');
+
+            if (cepInput.length !== 8) {
+                return;
+            }
+
+            var logradouro = document.getElementById('logradouro');
+            var bairro = document.getElementById('bairro');
+            var cidade = document.getElementById('cidade');
+            var uf = document.getElementById('uf');
+
+            // Feedback visual enquanto busca
+            logradouro.value = 'Buscando...';
+            bairro.value = 'Buscando...';
+            cidade.value = 'Buscando...';
+            uf.value = '...';
+
+            fetch('https://viacep.com.br/ws/' + cepInput + '/json/')
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(dados) {
+                    if (dados.erro) {
+                        alert('CEP não encontrado! Por favor, preencha o endereço manualmente.');
+                        logradouro.value = '';
+                        bairro.value = '';
+                        cidade.value = '';
+                        uf.value = '';
+                        return;
+                    }
+
+                    logradouro.value = dados.logradouro || '';
+                    bairro.value = dados.bairro || '';
+                    cidade.value = dados.localidade || '';
+                    uf.value = dados.uf || '';
+
+                    // Foco automático no número após encontrar o endereço
+                    document.getElementById('numero').focus();
+                })
+                .catch(function(error) {
+                    console.error('Erro ao buscar o CEP:', error);
+                    logradouro.value = '';
+                    bairro.value = '';
+                    cidade.value = '';
+                    uf.value = '';
+                });
+        }
+
+        function processarPedido(event) {
+            event.preventDefault();
+            var nome = document.getElementById('nome').value;
+            var metodo = document.getElementById('forma-pagamento').value;
+
+            if (tipoOperacao === 'doacao') {
+                alert('Obrigado pela sua doação, ' + nome + '! Seu apoio é fundamental para o projeto Sleep Well. Esta demonstração não processa pagamentos.');
+            } else {
+                alert('Obrigado pela sua compra, ' + nome + '! Seu pedido foi registrado nesta demonstração, mas nenhuma cobrança foi realizada (' + metodo + ').');
+            }
+
+            fecharModal();
+        }
+    </script>
+</body>
+</html>
