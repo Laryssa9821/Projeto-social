@@ -4,7 +4,7 @@
 **Laboratório de Inovação -** Prof. Edilberto Silva — 2026  
 **Formato:** Markdown  
 **Valor Total da Entrega:** 100%  
-**Data de Entrega:** 27/09/2026  
+**Data de Entrega:** 04/10/2026  
 **Grupo:** Sleep Well — Projeto Social  
 **Integrantes:** Ana Júlia Bernardes (ana50466166@edu.df.senac.br) ; Douglas Cerqueira (douglas51812666@edu.df.senac.br) ; Fabiane Sarres (fabiane61909266@edu.df.senac.br) ; Gustavo Augusto (gustavo61867136@edu.df.senac.br) ; Hannah Raposo (hannah46570966@edu.df.senac.br) ; Laryssa Almeida (laryssa59158836@edu.df.senac.br)
 
@@ -22,6 +22,8 @@ Projeto-social/
 │   │   │   ├── RF-002-melhorias-autenticacao.md
 │   │   ├── SEMANA-03/
 │   │   │   ├── RF-003-telas-dashboard.md
+│   │   ├── SEMANA-04/
+│   │   │   ├── RF-004-telas-compra-doe.md
 │   │   └── ... (SEMANA-XX)
 │
 ├── src/
@@ -37,13 +39,15 @@ Projeto-social/
 │   │   │   ├── RF-003-telas_dashboard/
 │   │   │   │   ├── login.html
 │   │   │   │   ├── tela_Adm.html
-│   │   │   │   ├── cadastre-se.html
+│   │   │   │   └── style.css (base: importa de SEMANA-02)
+│   │   ├── SEMANA-04/
+│   │   │   ├── RF-004-telas_compra_doe/
 │   │   │   │   ├── compre_e_ajude.html
-│   │   │   │   ├── impacto_social.html
-│   │   │   │   ├── sobre_nos.html
-│   │   │   │   ├── senha_esquecida.html
-│   │   │   │   ├── recuperacao_de_senha.html
-│   │   │   │   └── style.css / imagens
+│   │   │   │   ├── rastreio.html
+│   │   │   │   ├── termo_de_uso.html
+│   │   │   │   ├── privacidade.html
+│   │   │   │   ├── trocas-devolucoes.html
+│   │   │   │   └── style.css (importa de SEMANA-03)
 │   │   └── ... (SEMANA-XX)
 │
 ├── sistema/
@@ -52,32 +56,30 @@ Projeto-social/
 ```
 
 **Localização deste arquivo:**  
-`docs/requisitos-semanais/SEMANA-03/RF-003-telas-dashboard.md`
+`docs/requisitos-semanais/SEMANA-04/RF-004-telas-compra-doe.md`
 
 **Localização do Protótipo HTML+CSS:**  
-`src/prototipos/SEMANA-03/RF-003-telas_dashboard/tela_Adm.html` — painel administrativo  
-`src/prototipos/SEMANA-03/RF-003-telas_dashboard/login.html` — login e rodapé institucional
+`src/prototipos/SEMANA-04/RF-004-telas_compra_doe/compre_e_ajude.html` — vitrine de produtos, doação e checkout  
+`src/prototipos/SEMANA-04/RF-004-telas_compra_doe/rastreio.html`, `termo_de_uso.html`, `privacidade.html`, `trocas-devolucoes.html` — páginas institucionais referenciadas pelo rodapé
 
 ---
 
 ## 1️⃣ IDENTIFICAÇÃO DO REQUISITO (10%)
 
-### RF-003: Painel Administrativo de Cadastros e Rodapé Institucional
+### RF-004: Fluxo de Compra e Doação com Checkout e Páginas Institucionais
 
-**ID:** RF-003  
-**Título:** Implementação do painel administrativo com cadastro de Produtos, Parceiros (ONGs), Fornecedores e Clientes, busca automática de endereço por CEP e inclusão do rodapé institucional nas páginas públicas do site  
+**ID:** RF-004  
+**Título:** Implementação da vitrine de produtos com fluxo de compra/doação (modal de checkout, seleção de forma de pagamento e busca de CEP) e das páginas institucionais Rastrear Pedido, Termos de Uso, Política de Privacidade e Trocas e Devoluções, referenciadas pelo rodapé desde a Semana 3  
 **Tipo:** Requisito Funcional  
-**Prioridade:** ALTA  
-**Complexidade:** ALTA — estimado em 8 story points  
+**Prioridade:** ALTA — fecha o ciclo de venda/doação e resolve as pendências de links do rodapé institucional  
+**Complexidade:** ALTA — estimado em 8 story points (modal em duas etapas, três meios de pagamento, quatro páginas institucionais novas)  
 **Status:** EM DESENVOLVIMENTO  
-**Data de Criação:** 12/08/2026  
-**Última Atualização:** 25/09/2026
+**Data de Criação:** 01/10/2026  
+**Última Atualização:** 03/10/2026
 
 ### Breve Descrição
 
-O sistema deve oferecer um painel administrativo, acessível aos perfis Gerente e Administrativo, com menu lateral para cadastrar Produtos, Parceiros (ONGs), Fornecedores e Clientes. Os cadastros de Parceiros, Fornecedores e Clientes utilizam busca automática de endereço por CEP via ViaCEP, com tratamento de erros.
-
-Além disso, as páginas públicas do site — login, cadastro, “Compre e Ajude”, “Impacto Social” e “Sobre Nós” — devem apresentar um rodapé institucional com links de navegação, informações de transparência, segurança e formas de pagamento.
+O sistema deve permitir que o visitante compre um colchão/colchonete ou faça uma doação direta pela página “Compre e Ajude”, preenchendo dados pessoais, endereço de entrega (quando aplicável, com busca automática por CEP) e forma de pagamento (Pix, cartão de crédito ou boleto) em um modal de checkout com duas etapas. Além disso, o rodapé institucional — presente desde a Semana 3 — passa a apontar para quatro páginas reais: Rastrear Pedido, Termos de Uso, Política de Privacidade e Trocas e Devoluções, encerrando a pendência registrada no RNF-12 da entrega anterior.
 
 ---
 
@@ -87,42 +89,34 @@ Além disso, as páginas públicas do site — login, cadastro, “Compre e Ajud
 
 **Por que este requisito existe?**
 
-A Semana 2 corrigiu e complementou o módulo de autenticação, mas ainda não havia uma interface estruturada para os principais dados operacionais do Projeto Social. Esta entrega acrescenta:
+A Semana 3 entregou o painel administrativo e o rodapé institucional, mas deixou três pendências explícitas: (1) a página “Compre e Ajude” ainda não tinha um fluxo de compra/doação funcional; (2) os links do rodapé para Termos de Uso, Política de Privacidade, Trocas e Devoluções e Rastrear Pedido apontavam para `#` ou para uma página inexistente (`rastreio.html`); (3) não havia nenhuma etapa de pagamento simulada. Esta entrega resolve os três pontos:
 
-- cadastro de Produtos;
-- cadastro de Parceiros (ONGs);
-- cadastro de Fornecedores;
-- cadastro de Clientes;
-- consulta automática de endereço por CEP;
-- painel administrativo com navegação entre os quatro cadastros;
-- rodapé institucional nas páginas públicas.
+- vitrine de produtos (Colchonete Solteiro, Colchonete Casal e Doação Direta) com modal de checkout;
+- etapa de pagamento com campos específicos por método (Pix, cartão, boleto), sempre com aviso de que nenhuma cobrança real é processada;
+- busca automática de endereço por CEP no checkout, reaproveitando o mesmo padrão de CEP do painel administrativo (RN-12 da Semana 3);
+- quatro páginas institucionais novas, todas com o rodapé completo e links cruzados entre si.
 
 ### Contexto do Negócio
 
-A Sleep Well transforma resíduos plásticos em colchonetes recicláveis e possui uma cadeia envolvendo fornecedores, parceiros/ONGs e clientes. O painel administrativo centraliza esses dados e cria base para futuras operações de catálogo, pedidos e relatórios de impacto social.
+A Sleep Well vende colchões/colchonetes reciclados e também aceita doações diretas para financiar a produção de itens para pessoas em situação de vulnerabilidade. O checkout precisa diferenciar esses dois fluxos — a doação não exige endereço de entrega, enquanto a compra exige — e, por se tratar de um protótipo, nenhuma etapa de pagamento deve processar dados financeiros reais.
 
 ### Atores do Sistema
 
-#### 1. GERENTE — Ator Principal
+#### 1. VISITANTE/CLIENTE — Ator Principal
 
-- **Papel:** acessar o Painel Administrativo e gerenciar Produtos, Parceiros, Fornecedores e Clientes.
-- **Responsabilidade:** garantir a consistência dos dados cadastrados.
-- **Permissões:** CREATE, READ, UPDATE e DELETE nos quatro cadastros.
+- **Papel:** navegar pela vitrine, comprar um produto ou realizar uma doação direta, preencher o checkout e escolher a forma de pagamento.
+- **Responsabilidade:** informar dados pessoais e, quando aplicável, de entrega, corretos para o pedido ou doação.
+- **Permissões:** CREATE de um pedido ou de uma doação (via formulário público, sem autenticação).
 
-#### 2. ADMINISTRATIVO — Ator Secundário
+#### 2. SISTEMA — Ator Automático
 
-- **Papel:** auxiliar na gestão de Produtos e Clientes e consultar os demais cadastros.
-- **Permissões:** CREATE/READ/UPDATE em Produtos e Clientes; READ nos quatro cadastros; não possui DELETE nem gerenciamento de Parceiros e Fornecedores.
+- **Papel:** validar os campos obrigatórios do checkout, alternar a exibição da seção de endereço conforme o tipo de operação (compra ou doação), consultar o ViaCEP, alternar os campos da etapa de pagamento conforme o método escolhido e exibir a confirmação final.
+- **Responsabilidade:** impedir o avanço para a etapa de pagamento sem os campos obrigatórios preenchidos e deixar explícito, em tela, que o checkout é demonstrativo.
 
-#### 3. VISITANTE DO SITE — Ator Externo
+#### 3. GERENTE/ADMINISTRATIVO — Ator Secundário (herdado da Semana 3)
 
-- **Papel:** navegar pelas páginas públicas e visualizar o rodapé institucional.
-- **Permissões:** READ das páginas públicas.
-
-#### 4. SISTEMA — Ator Automático
-
-- **Papel:** validar formulários, consultar o ViaCEP, controlar a navegação do painel e renderizar o rodapé.
-- **Responsabilidade:** impedir envios inválidos e tratar falhas de consulta e validação.
+- **Papel:** os pedidos e doações registrados neste fluxo são os mesmos que, futuramente, alimentarão as tabelas `pedidos` e `doacoes` já previstas no dicionário de dados, geridas pelo painel administrativo.
+- **Permissões:** conforme já definido na Semana 3 (RF-003) para os cadastros do painel.
 
 ---
 
@@ -130,167 +124,150 @@ A Sleep Well transforma resíduos plásticos em colchonetes recicláveis e possu
 
 **Objetivo:** Descrever detalhadamente como o requisito é executado.
 
-### UC-004: Cadastrar Produto no Painel Administrativo
+### UC-009: Comprar Produto (Colchão ou Colchonete)
 
 #### Pré-Condições
 
-- Usuário autenticado como Gerente ou Administrativo.
-- Painel administrativo disponível.
-
-#### Pós-Condições — Sucesso
-
-- Produto cadastrado.
-- Confirmação exibida.
-- Formulário liberado para novo cadastro.
-
-#### Fluxo Principal
-
-1. Usuário acessa o Painel Administrativo.
-2. Sistema exibe “Cadastrar Produto”.
-3. Usuário informa código, data, nome, tipo e fornecedor.
-4. Usuário seleciona “Cadastrar Produto”.
-5. Sistema valida os campos obrigatórios.
-6. Sistema confirma o cadastro e limpa o formulário.
-
-#### Fluxo Alternativo A1 — Campo obrigatório vazio
-
-1. Sistema identifica o campo pendente.
-2. Sistema impede o envio e destaca o campo.
-3. Usuário corrige o formulário e tenta novamente.
-
-#### Fluxo Alternativo A2 — Troca de cadastro
-
-1. Usuário seleciona Parceiros, Fornecedores ou Clientes.
-2. Sistema troca a tela sem recarregar a página.
-3. Dados não salvos do formulário atual são descartados.
-
-### UC-005: Cadastrar Parceiro (ONG) com Busca Automática de Endereço
-
-#### Pré-Condições
-
-- Usuário autenticado como Gerente.
+- Visitante está na página “Compre e Ajude”.
 - Serviço ViaCEP disponível.
 
 #### Pós-Condições — Sucesso
 
-- Parceiro cadastrado com dados institucionais e endereço.
-- Confirmação exibida.
+- Pedido confirmado na tela, com nome do cliente e forma de pagamento informados.
+- Modal fechado e formulário limpo.
 
 #### Fluxo Principal
 
-1. Usuário seleciona “Parceiros”.
-2. Sistema exibe o formulário de ONG/instituição.
-3. Usuário informa nome, CNPJ, data, tipo, área, e-mail e telefone.
-4. Usuário informa o CEP.
-5. Sistema consulta o ViaCEP.
-6. Sistema preenche rua, bairro, cidade e UF.
-7. Usuário confirma número e complemento.
-8. Usuário seleciona “Cadastrar Parceiro”.
-9. Sistema valida e confirma o cadastro.
+1. Visitante clica em “Comprar e Ajudar” em um dos produtos (Colchonete Solteiro ou Casal).
+2. Sistema abre o modal “Finalizar Pedido”, exibindo nome do produto e valor.
+3. Visitante preenche nome completo, CPF e e-mail.
+4. Visitante preenche o CEP; sistema consulta o ViaCEP e completa rua, bairro, cidade e UF.
+5. Visitante confirma número e complemento.
+6. Visitante clica em “Continuar para pagamento”.
+7. Sistema valida os campos obrigatórios do formulário e abre o modal de pagamento.
+8. Visitante seleciona a forma de pagamento (Pix, cartão ou boleto).
+9. Sistema exibe os campos específicos do método escolhido.
+10. Visitante clica em “Confirmar Pedido”.
+11. Sistema exibe mensagem de agradecimento informando que nenhuma cobrança real foi realizada.
+12. Sistema fecha os modais e limpa os formulários.
 
-#### Fluxos Alternativos
+#### Fluxo Alternativo A1 — Campo obrigatório do checkout vazio
 
-- **CEP não encontrado:** sistema informa o erro e permite nova tentativa.
-- **CEP inválido:** sistema informa que o CEP deve conter oito dígitos numéricos.
-- **Falha no ViaCEP:** sistema informa a indisponibilidade e permite nova tentativa.
+1. Sistema impede o avanço para a etapa de pagamento enquanto houver campo obrigatório vazio.
+2. Sistema mantém o visitante no modal de dados pessoais/endereço.
 
-### UC-006: Cadastrar Fornecedor com Anexo de Documentos
+#### Fluxo Alternativo A2 — CEP inválido ou não encontrado
+
+1. Sistema aplica o mesmo tratamento definido no RN-12 da Semana 3 (CEP com 8 dígitos, consulta ao ViaCEP, mensagem de erro em caso de falha ou CEP inexistente).
+
+### UC-010: Realizar Doação Direta
 
 #### Pré-Condições
 
-- Usuário autenticado como Gerente.
-- Serviço ViaCEP disponível.
+- Visitante está na página “Compre e Ajude”.
 
 #### Pós-Condições — Sucesso
 
-- Fornecedor cadastrado com dados, endereço e arquivos selecionados.
-- Confirmação exibida.
+- Doação confirmada na tela, com nome do doador.
+- Modal fechado e formulário limpo.
 
 #### Fluxo Principal
 
-1. Usuário seleciona “Fornecedores”.
-2. Sistema exibe o formulário.
-3. Usuário informa razão social, CNPJ, telefone, e-mail e ramo.
-4. Usuário informa o CEP e o sistema consulta o ViaCEP.
-5. Usuário anexa documentos.
-6. Usuário seleciona “Cadastrar Fornecedor”.
-7. Sistema valida e confirma o cadastro.
+1. Visitante clica em “Apenas Doar” no card “Apoie o Projeto”.
+2. Sistema abre o modal “Realizar Doação Direta”, já ocultando a seção de endereço de entrega.
+3. Visitante preenche nome completo, CPF e e-mail.
+4. Visitante clica em “Continuar para pagamento”.
+5. Sistema valida os campos obrigatórios (sem exigir endereço) e abre o modal de pagamento.
+6. Visitante escolhe a forma de pagamento.
+7. Visitante clica em “Confirmar Pedido”.
+8. Sistema exibe mensagem de agradecimento específica para doação.
+9. Sistema fecha os modais e limpa os formulários.
 
-#### Fluxos Alternativos
+#### Fluxo Alternativo A1 — Alternar entre produto e doação no mesmo acesso
 
-- **Ramo “Outros”:** sistema exibe campo para especificação e o torna obrigatório.
-- **Arquivo não suportado:** navegador bloqueia formatos diferentes de PDF, JPG, PNG, DOC e DOCX.
+1. Visitante fecha o modal de doação e clica em “Comprar e Ajudar” em um produto.
+2. Sistema reabre o modal já no modo de compra, com a seção de endereço visível e obrigatória novamente (ver RN-17).
 
-### UC-007: Cadastrar Cliente com Busca Automática de Endereço
+### UC-011: Selecionar Forma de Pagamento no Checkout
 
 #### Pré-Condições
 
-- Usuário autenticado como Gerente ou Administrativo.
-- Serviço ViaCEP disponível.
+- Etapa de dados pessoais/endereço já validada (UC-009 ou UC-010).
 
 #### Pós-Condições — Sucesso
 
-- Cliente cadastrado com dados e endereço.
-- Confirmação exibida.
+- Campos específicos do método de pagamento exibidos corretamente.
 
 #### Fluxo Principal
 
-1. Usuário seleciona “Clientes”.
-2. Sistema exibe o formulário.
-3. Usuário informa nome, CPF/CNPJ, e-mail e WhatsApp.
-4. Usuário informa o CEP.
-5. Sistema consulta o ViaCEP e preenche o endereço.
-6. Usuário confirma número e demais dados.
-7. Usuário seleciona “Cadastrar Cliente”.
-8. Sistema valida e confirma o cadastro.
+1. Sistema exibe o modal de pagamento com o resumo do produto/doação.
+2. Visitante seleciona “Pix”, “Cartão de Crédito” ou “Boleto Bancário”.
+3. Sistema exibe os campos de número do cartão, validade e CVV apenas quando “Cartão” é selecionado.
+4. Sistema exibe um aviso informativo quando “Pix” ou “Boleto” é selecionado, indicando que a geração real ainda depende de um provedor de pagamento.
+5. Sistema mantém, em qualquer método, o aviso de que a tela é demonstrativa e não deve receber dados reais de cartão.
 
-#### Fluxo Alternativo A1 — CEP inválido ou não encontrado
+#### Fluxo Alternativo A1 — Trocar de forma de pagamento antes de confirmar
 
-Sistema aplica o tratamento definido no UC-005.
+1. Visitante seleciona outro método de pagamento.
+2. Sistema atualiza os campos exibidos e os campos obrigatórios correspondentes, removendo a exigência dos campos do método anterior.
 
-#### Fluxo Alternativo A2 — CPF/CNPJ
-
-A validação completa de CPF/CNPJ no backend permanece como pendência técnica desta entrega.
-
-### UC-008: Consultar Rodapé Institucional
+### UC-012: Consultar Páginas Institucionais (Termos de Uso, Política de Privacidade, Trocas e Devoluções)
 
 #### Pré-Condições
 
-- Visitante acessa uma página pública do site.
+- Visitante está em qualquer página pública do site.
 
 #### Pós-Condições — Sucesso
 
-- Rodapé institucional exibido com links, informações de segurança, transparência e formas de pagamento.
+- Página institucional correspondente exibida, com rodapé completo.
 
 #### Fluxo Principal
 
-1. Visitante acessa uma página pública.
-2. Sistema exibe o rodapé institucional.
-3. Visitante pode acessar “Sobre Nós”, “Impacto Social” e “Compre e Ajude”.
-4. Visitante visualiza informações de segurança e transparência.
-5. Visitante visualiza CNPJ, direitos autorais e formas de pagamento.
+1. Visitante clica em “Termos de Uso”, “Política de Privacidade” ou “Trocas e Devoluções” no rodapé.
+2. Sistema abre a página correspondente, dividida em seções numeradas.
+3. Visitante lê o conteúdo e pode retornar à navegação normal pelo cabeçalho ou pelo rodapé.
 
-#### Fluxo Alternativo A1 — Link ainda não implementado
+#### Fluxo Alternativo A1 — Acesso direto a partir de qualquer página do site
 
-Caso o destino ainda não exista, a ausência permanece registrada como pendência no RNF-12 para entrega futura.
+1. Como as três páginas reutilizam o mesmo rodapé e cabeçalho padrão, o visitante pode alternar entre elas e as demais páginas públicas sem precisar voltar à página inicial.
+
+### UC-013: Rastrear Pedido
+
+#### Pré-Condições
+
+- Visitante possui um código de pedido ou rastreio.
+
+#### Pós-Condições — Sucesso
+
+- Sistema reconhece o código informado e inicia a consulta (funcionalidade ainda simulada).
+
+#### Fluxo Principal
+
+1. Visitante acessa a página “Rastrear Pedido”.
+2. Visitante informa o código do pedido (ex.: `SW-123456`) no campo de busca.
+3. Visitante clica em “Buscar Pedido”.
+4. Sistema exibe uma mensagem informando que a pesquisa de rastreio está em desenvolvimento.
+
+#### Fluxo Alternativo A1 — Campo vazio
+
+1. Sistema impede o envio enquanto o campo obrigatório não for preenchido, por meio da validação nativa do formulário.
 
 ### Regras de Negócio (RN)
 
-**RN-10:** O código do produto deve ser único no sistema.  
-**RN-11:** CNPJ de Parceiros e Fornecedores deve seguir o formato `00.000.000/0000-00` e ser único.  
-**RN-12:** O CEP dos cadastros de Parceiro, Fornecedor e Cliente deve ser consultado no ViaCEP antes do preenchimento automático do endereço.  
-**RN-13:** O campo “Especifique qual é o ramo...” é obrigatório quando “Outros” for selecionado.  
-**RN-14:** Somente Gerente e Administrativo têm acesso ao Painel Administrativo; Financeiro e Credenciado não visualizam esse menu.  
-**RN-15:** Anexos do cadastro de Fornecedor devem aceitar PDF, JPG, PNG, DOC ou DOCX.  
-**RN-16:** O cadastro de Cliente deverá validar CPF/CNPJ de forma completa no backend; nesta entrega, essa validação permanece como pendência técnica.
+**RN-17:** A seção de endereço de entrega é obrigatória apenas para compra de produto; para doação direta, ela é ocultada e os campos deixam de ser obrigatórios.  
+**RN-18:** O avanço para a etapa de pagamento só é permitido após a validação de todos os campos obrigatórios da etapa de dados pessoais/endereço.  
+**RN-19:** Os campos de cartão de crédito (número, validade, CVV) só se tornam obrigatórios quando o método “Cartão de Crédito” é selecionado.  
+**RN-20:** Toda tela de pagamento deve exibir aviso de que se trata de uma demonstração e que nenhuma cobrança real é processada.  
+**RN-21:** O CEP do checkout segue a mesma validação de 8 dígitos e a mesma integração com o ViaCEP definidas no RN-12 (Semana 3), incluindo máscara automática de preenchimento.  
+**RN-22:** A busca na página “Rastrear Pedido” ainda não consulta uma base real de pedidos; o sistema deve deixar essa limitação explícita ao usuário.  
+**RN-23:** As páginas de Termos de Uso e Política de Privacidade devem referenciar a legislação aplicável (Código de Defesa do Consumidor e LGPD) nos tópicos pertinentes.
 
 ### Requisitos Não-Funcionais (RNF)
 
-**RNF-09:** A consulta ao ViaCEP deve possuir tratamento de erro e indisponibilidade sem bloquear a interface.  
-**RNF-10:** O painel administrativo deve ser responsivo para desktop e tablet.  
-**RNF-11:** O rodapé institucional deve estar presente nas páginas públicas previstas nesta entrega.  
-**RNF-12:** Links do rodapé sem destino funcional devem ser corrigidos em entrega futura.  
-**RNF-13:** A navegação entre os quatro formulários deve ocorrer sem recarregamento completo da página.
+**RNF-14:** Os modais de checkout e de pagamento devem abrir e fechar sem recarregar a página, preservando a performance da navegação.  
+**RNF-15:** O `style.css` da Semana 4 deve reaproveitar os estilos já definidos nas semanas anteriores por meio de `@import` (ver ADR-007), evitando duplicação de regras.  
+**RNF-16:** Todos os links do rodapé institucional (Sobre Nós, Impacto Social, Compre e Ajude, Termos de Uso, Política de Privacidade, Trocas e Devoluções e Rastrear Pedido) devem apontar para páginas existentes — pendência do RNF-12 (Semana 3) considerada **resolvida** nesta entrega.  
+**RNF-17:** A funcionalidade de busca da página “Rastrear Pedido” deve, em entrega futura, consumir um endpoint real de rastreamento — permanece como pendência técnica desta entrega.
 
 ---
 
@@ -298,100 +275,128 @@ Caso o destino ainda não exista, a ausência permanece registrada como pendênc
 
 **Objetivo:** Visualizar como o requisito aparece na interface por meio do protótipo HTML+CSS.
 
-### Tela 1 — Painel Administrativo: Cadastro de Produto
+### Tela 1 — Vitrine "Compre e Ajude"
 
 ```text
 ┌───────────────────────────────────────────────────────────┐
-│ 🛏  Cadastrar Produto             Usuário Administrador ⚙ │
-├──────────────┬────────────────────────────────────────────┤
-│ 📦 Produtos  │  Cadastrar Novo Produto                    │
-│ 🤝 Parceiros │  Código: [ PROD-1023              ]        │
-│ 🚚 Fornecedores│ Data: [ __/__/____ ]                     │
-│ 👥 Clientes  │  Nome: [ Selecione...             ▼]      │
-│              │  Tipo: [ Selecione...             ▼]      │
-│ ⏻ Sair       │  Fornecedor: [ Selecione...        ▼]      │
-│              │                    [ CADASTRAR PRODUTO ]   │
-└──────────────┴────────────────────────────────────────────┘
+│  Sleep Well        INÍCIO  SOBRE NÓS  COMPRE E AJUDE  ...  │
+├───────────────────────────────────────────────────────────┤
+│  Faça parte da mudança                                     │
+│  Ao adquirir um produto ecológico, você financia colchonetes│
+│  para pessoas em situação de vulnerabilidade.               │
+│                                                              │
+│  ┌───────────────┐ ┌───────────────┐ ┌───────────────┐     │
+│  │ Colchonete    │ │ Colchonete    │ │ Apoie o       │     │
+│  │ Solteiro Eco  │ │ Casal Eco     │ │ Projeto       │     │
+│  │ R$ 149,90     │ │ R$ 229,90     │ │ R$ 80,00      │     │
+│  │[COMPRAR E     │ │[COMPRAR E     │ │[APENAS DOAR]  │     │
+│  │ AJUDAR]       │ │ AJUDAR]       │ │               │     │
+│  └───────────────┘ └───────────────┘ └───────────────┘     │
+└───────────────────────────────────────────────────────────┘
 ```
 
-### Tela 2 — Cadastro de Parceiro com CEP
+### Tela 2 — Checkout de Compra (com endereço)
+
+```text
+┌───────────────────────────────────────────┐
+│  Finalizar Pedido                      [×] │
+│  Colchonete Solteiro Eco — R$ 149,90        │
+├─────────────────────────────────────────────┤
+│  Dados Pessoais                             │
+│  Nome: [ ___________________ ]              │
+│  CPF: [ _____ ]   E-mail: [ _____ ]         │
+│                                             │
+│  Endereço de Entrega                        │
+│  CEP: [ 00000-000 ]  Rua: [ ___________ ]   │
+│  Número: [ ]  Complemento: [ ]              │
+│  Bairro: [ ]  Cidade: [ ]  UF: [ ]          │
+│                                             │
+│  Forma de Pagamento                         │
+│  [ -- Selecione -- ▼ ]                      │
+│              [ CONTINUAR PARA PAGAMENTO ]   │
+└───────────────────────────────────────────┘
+```
+
+### Tela 3 — Checkout de Doação (sem endereço)
+
+```text
+┌───────────────────────────────────────────┐
+│  Realizar Doação Direta                [×] │
+│  Doação Direta - Projeto Sleep Well — R$80  │
+├─────────────────────────────────────────────┤
+│  Dados Pessoais                             │
+│  Nome: [ ___________________ ]              │
+│  CPF: [ _____ ]   E-mail: [ _____ ]         │
+│                                             │
+│  (seção de endereço oculta para doação)     │
+│                                             │
+│  Forma de Pagamento                         │
+│  [ -- Selecione -- ▼ ]                      │
+│              [ CONTINUAR PARA PAGAMENTO ]   │
+└───────────────────────────────────────────┘
+```
+
+### Tela 4 — Modal de Pagamento (Cartão de Crédito selecionado)
+
+```text
+┌───────────────────────────────────────────┐
+│  Pagamento com Cartão de Crédito       [×] │
+│  Colchonete Solteiro Eco — R$ 149,90        │
+├─────────────────────────────────────────────┤
+│  ⚠️ Tela demonstrativa. Não informe dados    │
+│     reais do cartão.                        │
+│                                             │
+│  Número do Cartão: [ 0000 0000 0000 0000 ]  │
+│  Validade: [ MM/AA ]   CVV: [ 123 ]          │
+│                                             │
+│              [ CONFIRMAR PEDIDO ]           │
+└───────────────────────────────────────────┘
+```
+
+### Tela 5 — Página "Rastrear Pedido"
 
 ```text
 ┌───────────────────────────────────────────────────────────┐
-│ 🛏  Cadastrar Parceiro            Usuário Administrador ⚙│
-├──────────────┬────────────────────────────────────────────┤
-│ 📦 Produtos  │  Cadastrar Novo Parceiro (ONG)             │
-│ 🤝*Parceiros │  Nome: [ Instituto Esperança       ]       │
-│ 🚚 Fornecedores│ CNPJ: [ 12.345.678/0001-90      ]        │
-│ 👥 Clientes  │  Tipo: [ Associação ▼] Área: [ Educação ▼]│
-│              │  E-mail: [ contato@ong.org.br      ]       │
-│ ⏻ Sair       │  CEP: [ 70000-000 ] ✅ ViaCEP             │
-│              │  Rua/Bairro/Cidade/UF preenchidos         │
-│              │                    [ CADASTRAR PARCEIRO ]  │
-└──────────────┴────────────────────────────────────────────┘
+│  Rastrear Pedido                                            │
+│  Acompanhe o status do envio do seu produto.                 │
+│                                                              │
+│  Código de Rastreio ou Pedido: [ Ex: SW-123456     ]         │
+│                                       [ BUSCAR PEDIDO ]       │
+│                                                              │
+│  (ao buscar, sistema informa: "Pesquisa de rastreio em       │
+│   desenvolvimento.")                                         │
+└───────────────────────────────────────────────────────────┘
 ```
 
-### Tela 3 — Cadastro de Fornecedor
+### Tela 6 — Páginas Institucionais (Termos de Uso / Privacidade / Trocas e Devoluções)
 
 ```text
 ┌───────────────────────────────────────────────────────────┐
-│ 🛏  Cadastrar Fornecedor          Usuário Administrador ⚙│
-├──────────────┬────────────────────────────────────────────┤
-│ 📦 Produtos  │  Cadastrar Novo Fornecedor                 │
-│ 🤝 Parceiros │  Razão Social: [ Indústria Alfa Ltda ]    │
-│ 🚚*Fornecedores│ CNPJ: [ 00.000.000/0000-00 ]            │
-│ 👥 Clientes  │  Ramo: [ Outros ▼ ]                       │
-│              │  Especifique: [____________________]       │
-│ ⏻ Sair       │  📎 Anexar Arquivos: [ Selecionar ]       │
-│              │                  [ CADASTRAR FORNECEDOR ]  │
-└──────────────┴────────────────────────────────────────────┘
+│  Termos de Uso                                               │
+│  1. Aceitação e Visão Geral                                  │
+│  2. Objeto e Propósito Social                                │
+│  3. Cadastro do Usuário e Segurança da Conta                 │
+│  4. Conduta do Usuário e Usos Proibidos                      │
+│  5. Propriedade Intelectual                                  │
+│  6. Preços, Pagamentos e Disponibilidade                     │
+│  7. Limitação de Responsabilidade                            │
+│  8. Modificações nos Termos de Uso                           │
+│  9. Foro e Legislação Aplicável                               │
+└───────────────────────────────────────────────────────────┘
 ```
 
-### Tela 4 — Cadastro de Cliente com erro de CEP
-
-```text
-┌───────────────────────────────────────────────────────────┐
-│ 🛏  Cadastrar Cliente             Usuário Administrador ⚙ │
-├──────────────┬────────────────────────────────────────────┤
-│ 📦 Produtos  │  Cadastrar Novo Cliente                    │
-│ 🤝 Parceiros │  Nome: [ João da Silva             ]       │
-│ 🚚 Fornecedores│ CPF/CNPJ: [ 123.456.789-00      ]        │
-│ 👥*Clientes  │  E-mail: [ joao@email.com         ]       │
-│              │  CEP: [ 00000-00 ]                         │
-│ ⏻ Sair       │  ⚠️ CEP não encontrado!                   │
-│              │                    [ CADASTRAR CLIENTE ]   │
-└──────────────┴────────────────────────────────────────────┘
-```
-
-### Tela 5 — Rodapé Institucional
-
-```text
-┌─────────────────────────────────────────────────────────────┐
-│  Sleep Well — Colchonetes Recicláveis                       │
-│  Transformando resíduos plásticos em conforto e dignidade.  │
-│                                                             │
-│  Institucional        Transparência        Segurança        │
-│  • Sobre Nós          • Termos de Uso      🔒 SSL            │
-│  • Impacto Social     • Política Privac.   🛡 Proc. Seguro   │
-│  • Compre e Ajude     • Trocas/Devoluções  🌱 Cert. Socio.   │
-│                       • Rastrear Pedido                      │
-├─────────────────────────────────────────────────────────────┤
-│  Sleep Well Brasil • CNPJ: 00.000.000/0001-00               │
-│  © 2026 Sleep Well. Todos os direitos reservados.           │
-│                              ⚡ Pix  💳 Cartão  📄 Boleto      │
-└─────────────────────────────────────────────────────────────┘
-```
+> As páginas "Política de Privacidade" (com seção específica sobre LGPD) e "Trocas e Devoluções" (com seção sobre direito de arrependimento) seguem o mesmo padrão visual de seções numeradas, reaproveitando o cabeçalho, o rodapé e a tipografia do restante do site.
 
 ### Critérios de Aceite
 
-- [x] `login.html` e `tela_Adm.html` previstos no protótipo.
-- [x] Quatro formulários distintos: Produtos, Parceiros, Fornecedores e Clientes.
-- [x] Navegação entre formulários sem recarregamento completo.
-- [x] Consulta ao ViaCEP com tratamento de erro.
-- [x] Campo condicional para “Outros” no cadastro de Fornecedor.
-- [x] Rodapé institucional previsto nas páginas públicas.
-- [ ] Links de páginas ainda não implementadas devem ser corrigidos em entrega futura.
-- [ ] Validação completa de CPF/CNPJ deve ser implementada no backend.
+- [x] `compre_e_ajude.html`, `rastreio.html`, `termo_de_uso.html`, `privacidade.html` e `trocas-devolucoes.html` presentes no protótipo.
+- [x] Modal de checkout distingue compra (com endereço) de doação (sem endereço).
+- [x] Três formas de pagamento com campos específicos (Pix, cartão, boleto).
+- [x] Aviso de demonstração presente em todas as etapas de pagamento.
+- [x] Busca de CEP no checkout reaproveita o padrão já validado no painel administrativo.
+- [x] Rodapé institucional com todos os links apontando para páginas existentes.
+- [ ] Busca real de pedidos na página "Rastrear Pedido" (RNF-17).
+- [ ] Processamento real de pagamento (fora do escopo deste protótipo).
 
 > Os itens não marcados representam pendências explícitas da entrega e não devem ser apresentados como concluídos.
 
@@ -407,20 +412,22 @@ Caso o destino ainda não exista, a ausência permanece registrada como pendênc
 ┌──────────────────────────────┐
 │          Frontend            │
 │ HTML + CSS + JavaScript      │
-│ Painel + Rodapé Institucional│
+│ Vitrine + Checkout + Páginas │
+│ Institucionais               │
 └──────────────┬───────────────┘
                │ HTTPS
                ▼
 ┌──────────────────────────────┐
 │       API / Backend          │
 │       Express.js / Node.js   │
-│ Validação + CRUD + regras    │
+│ Validação de pedido/doação   │
 └──────────────┬───────────────┘
                │
                ▼
 ┌──────────────────────────────┐
-│          PostgreSQL          │
-│ Dados do sistema e cadastros │
+│          MySQL                │
+│ Tabelas: produtos, pedidos,   │
+│ doacoes (já previstas)        │
 └──────────────────────────────┘
 
                ▲
@@ -432,56 +439,40 @@ Caso o destino ainda não exista, a ausência permanece registrada como pendênc
 └──────────────────────────────┘
 ```
 
-### ADR-004: Integração com ViaCEP
+### ADR-007: Modularização do CSS via `@import` entre Semanas
 
 **Status:** ACEITO
 
-**Contexto:** Parceiros, Fornecedores e Clientes precisam de endereço completo e o preenchimento manual aumenta a possibilidade de erro.
+**Contexto:** cada entrega semanal introduz novas páginas, e repetir todo o CSS a cada semana geraria duplicação e risco de inconsistência visual entre o site público e o painel administrativo.
 
-**Decisão:** utilizar a API pública ViaCEP para consultar rua, bairro, cidade e UF a partir do CEP, com tratamento para CEP inválido, inexistente ou indisponibilidade.
+**Decisão:** encadear os arquivos `style.css` por `@import`: o CSS da Semana 4 importa o CSS da Semana 3, que por sua vez importa o CSS-base da Semana 2. Cada semana adiciona apenas as regras específicas de suas novas telas (ex.: modal de checkout, páginas institucionais).
 
 **Alternativas:**
 
-- Preenchimento totalmente manual — não adotado nesta fase.
-- Base própria de CEPs — não adotada nesta fase devido à necessidade de manutenção.
+- Duplicar todo o CSS em cada pasta semanal — não adotado, por aumentar o risco de divergência visual entre as páginas.
+- Unificar todo o CSS em um único arquivo global desde já — não adotado nesta fase, para preservar o histórico de cada entrega semanal como protótipo independente.
 
-**Consequências:** menor esforço de preenchimento e maior padronização, com dependência de serviço externo.
+**Consequências:** manutenção mais simples do estilo visual entre as semanas, com a contrapartida de que o CSS de uma semana passa a depender da existência do CSS da semana anterior no mesmo caminho relativo.
 
-### ADR-005: Navegação do Painel sem Recarregamento Completo
+### ADR-008: Modal Único de Checkout para Compra e Doação
 
 **Status:** ACEITO
 
-**Contexto:** o painel precisa alternar entre quatro formulários de maneira rápida.
+**Contexto:** compra de produto e doação direta compartilham a maior parte dos campos (dados pessoais e forma de pagamento), diferindo apenas na exigência do endereço de entrega.
 
-**Decisão:** utilizar JavaScript para exibir e ocultar os blocos de cada formulário dentro do painel, atualizando o item ativo do menu e o título da tela.
-
-**Alternativas:**
-
-- Uma página independente para cada cadastro — não adotada nesta fase.
-- Framework SPA completo — não adotado nesta fase do protótipo.
-
-**Consequências:** navegação mais fluida e menor quantidade de recarregamentos, exigindo controle do estado dos formulários.
-
-### ADR-006: Estrutura de Dados dos Novos Cadastros
-
-**Status:** PROPOSTO
-
-**Contexto:** os novos formulários precisam ser compatíveis com o modelo de dados do projeto.
-
-**Decisão:** propor as entidades `parceiros`, `fornecedores` e `clientes` no dicionário de dados, mantendo os relacionamentos necessários com Produtos e Pedidos.
+**Decisão:** reaproveitar o mesmo modal e o mesmo formulário de checkout para os dois fluxos, alternando via JavaScript a exibição e a obrigatoriedade da seção de endereço conforme o tipo de operação (`compra` ou `doacao`) selecionado ao abrir o modal.
 
 **Alternativas:**
 
-- Reaproveitar `usuarios` para todas as entidades — não adotado devido às diferentes finalidades e regras de negócio.
-- Adiar a modelagem — mantido apenas como pendência até a atualização formal do dicionário.
+- Criar dois modais completamente separados para compra e doação — não adotado, por duplicar código e aumentar o esforço de manutenção.
 
-**Consequências:** alinhamento entre interface e modelo de dados, mas a persistência definitiva depende da implementação correspondente no backend.
+**Consequências:** menos duplicação de código, com a contrapartida de exigir atenção redobrada ao alternar corretamente os atributos `required` dos campos de endereço entre um fluxo e outro (ver RN-17).
 
-### Continuidade das ADRs da Semana 2
+### Continuidade das ADRs anteriores
 
-- **ADR-001:** MySQL como banco relacional principal.
-- **ADR-002:** recuperação de senha por token temporário.
-- **ADR-003:** práticas de segurança aplicadas ao módulo de autenticação.
+- **ADR-001 a ADR-003 (Semana 2):** autenticação, recuperação de senha e práticas de segurança.
+- **ADR-004 e ADR-005 (Semana 3):** integração com ViaCEP e navegação do painel sem recarregamento completo — ambas reaproveitadas integralmente nesta entrega (RN-21 e RNF-14).
+- **ADR-006 (Semana 3):** estrutura de dados de `parceiros`, `fornecedores` e `clientes` — segue como **PROPOSTO**, ainda não incorporada ao `DicionariodeDados.md` nesta entrega. As tabelas `produtos`, `pedidos` e `doacoes`, por outro lado, já existiam no dicionário e são compatíveis com os campos capturados no checkout desta semana (nome/e-mail do doador, quantia, mensagem, endereço, produto, quantidade, total, forma de pagamento).
 
 ### Tecnologias Escolhidas
 
@@ -489,13 +480,10 @@ Caso o destino ainda não exista, a ausência permanece registrada como pendênc
 |---|---|---:|---|
 | Frontend | HTML5 + CSS3 + JavaScript | ES2015+ | Web padrão e continuidade do projeto |
 | Backend | Express.js / Node.js | 4.18+ | API e regras de negócio |
-| BD | MySQL | 8.0+ | Banco de dados relacional amplamente utilizado, com bom desempenho, documentação ampla e compatibilidade com Node.js |
-| Hash | bcrypt | 5+ | Continuidade da segurança da autenticação |
+| BD | MySQL | 8.0+ | Continuidade da decisão já registrada para o projeto |
 | Validação | express-validator | 7+ | Validação no backend |
-| E-mail | Nodemailer ou equivalente | — | Continuidade da recuperação de senha |
-| CEP | ViaCEP | — | Consulta automática de endereço |
-| Ícones | Font Awesome | 6+ | Elementos visuais do painel |
-| Tipografia | Google Fonts | — | Identidade visual |
+| CEP | ViaCEP | — | Consulta automática de endereço no checkout |
+| Tipografia | Google Fonts (Montserrat) | — | Continuidade da identidade visual do site |
 
 ---
 
@@ -510,11 +498,12 @@ Caso o destino ainda não exista, a ausência permanece registrada como pendênc
 - [x] Markdown estruturado para renderização no GitHub.
 - [x] Blocos de código com linguagem definida quando aplicável.
 - [x] Diagramas ASCII legíveis.
-- [x] Referências internas consistentes: RF-003, UC-004 a UC-008, RN-10 a RN-16 e RNF-09 a RNF-13.
+- [x] Referências internas consistentes: RF-004, UC-009 a UC-013, RN-17 a RN-23 e RNF-14 a RNF-17.
 - [x] Pendências explicitamente identificadas.
-- [ ] Todos os links institucionais possuem páginas funcionais.
-- [ ] Novas entidades formalizadas no dicionário de dados.
-- [ ] Validação completa de CPF/CNPJ implementada no backend.
+- [x] Pendência do RNF-12 (Semana 3) marcada como resolvida nesta entrega.
+- [ ] Busca real de pedidos implementada.
+- [ ] Processamento real de pagamento implementado.
+- [ ] Tabelas `parceiros`, `fornecedores` e `clientes` incorporadas ao dicionário de dados (pendência herdada da Semana 3).
 
 > As pendências são mantidas visíveis para acompanhamento na próxima entrega e não são contabilizadas como funcionalidades concluídas.
 
@@ -524,11 +513,11 @@ Caso o destino ainda não exista, a ausência permanece registrada como pendênc
 
 | Tópico | Peso | Conteúdo entregue |
 |---|---:|---|
-| 1. Identificação do Requisito | 10% | RF-003, prioridade, complexidade, status e descrição |
+| 1. Identificação do Requisito | 10% | RF-004, prioridade, complexidade, status e descrição |
 | 2. Descrição e Atores | 15% | contexto, atores e permissões |
-| 3. Especificação de Casos de Uso | 25% | UC-004 a UC-008, RN e RNF |
-| 4. Protótipos/Telas (HTML+CSS) | 20% | quatro cadastros, rodapé e fluxos |
-| 5. Arquitetura e ADR | 20% | componentes, ViaCEP, navegação e dados |
+| 3. Especificação de Casos de Uso | 25% | UC-009 a UC-013, RN e RNF |
+| 4. Protótipos/Telas (HTML+CSS) | 20% | vitrine, checkout, pagamento e páginas institucionais |
+| 5. Arquitetura e ADR | 20% | componentes, CSS modular, modal único e tecnologias |
 | 6. Qualidade e Conformidade | 10% | checklist e pendências |
 | **TOTAL** | **100%** | **Estrutura completa para avaliação** |
 
@@ -536,13 +525,14 @@ Caso o destino ainda não exista, a ausência permanece registrada como pendênc
 
 ---
 
-## ✅ PENDÊNCIAS PARA A SEMANA 04
+## ✅ PENDÊNCIAS PARA A SEMANA 05
 
-1. Remover eventual duplicação de arquivos de protótipo dentro de `docs/requisitos-semanais/SEMANA-03/`.
-2. Implementar as páginas funcionais referenciadas pelo rodapé, incluindo Rastrear Pedido, Termos de Uso, Política de Privacidade e Trocas e Devoluções.
-3. Atualizar `sistema/banco-de-dados/DicionariodeDados.md` com `parceiros`, `fornecedores` e `clientes`, caso ainda não estejam formalizadas.
-4. Implementar validação completa de CPF/CNPJ no cadastro de Cliente.
-5. Avançar a reorganização de diretórios em `Backend/`, `Frontend/`, `Dados/`, `Imagens/` e `MD/`, planejada desde a Semana 2.
+1. Implementar a busca real de pedidos na página "Rastrear Pedido" (RNF-17).
+2. Integrar um provedor de pagamento real (Pix, cartão e boleto) — atualmente o checkout é apenas demonstrativo (RN-20).
+3. Atualizar `sistema/banco-de-dados/DicionariodeDados.md` com `parceiros`, `fornecedores` e `clientes` (pendência herdada da Semana 3, ADR-006).
+4. Implementar validação completa de CPF/CNPJ no cadastro de Cliente do painel (pendência herdada da Semana 3, RN-16).
+5. Conectar o checkout desta entrega às tabelas `pedidos` e `doacoes` já existentes no dicionário de dados, persistindo de fato os pedidos e doações registrados.
+6. Avançar a reorganização de diretórios em `Backend/`, `Frontend/`, `Dados/`, `Imagens/` e `MD/`, planejada desde a Semana 2.
 
 ---
 
