@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Well - Login</title>
+    <!-- Fonte do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Conexão com o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- nosso cabeçalho -->
+    <header>
+        <div class="logo-container">
+            <a href="login.html">
+                <div>
+                    <div class="logo-text">Sleep Well</div>
+                    <div class="logo-sub">Colchonetes Recicláveis</div>
+                </div>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="login.html">INÍCIO</a></li>
+                <li><a href="sobre_nos.html">SOBRE NÓS</a></li>
+                <li><a href="compre_e_ajude.html">COMPRE E AJUDE</a></li>
+                <li><a href="impacto_social.html">IMPACTO SOCIAL</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção Principal com o Login -->
+    <main class="hero-section">
+        <div class="login-box">
+            <h2>ACESSE SUA CONTA</h2>
+            
+            <!-- Abas de Seleção de Acesso -->
+            <div class="tabs-container">
+                <button class="tab-btn credenciado-tab active" onclick="mudarAcesso('credenciado', this)">Acesso Credenciado</button>
+                <button class="tab-btn gerente-tab" onclick="mudarAcesso('gerente', this)">Acesso Gerente</button>
+            </div>
+            
+            <!-- Formulário com validação via JS no submit -->
+            <form id="form-login" onsubmit="validarLogin(event)">
+                <!-- Campo oculto informando qual acesso foi escolhido -->
+                <input type="hidden" name="tipo_acesso" id="tipo_acesso" value="credenciado">
+
+                <!-- Área onde será mostrada a mensagem de erro -->
+                <div id="mensagem-erro" style="display: none; color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 10px; border-radius: 6px; font-size: 13px; font-weight: 600; text-align: center; margin-bottom: 15px;"></div>
+
+                <div class="form-group">
+                    <input type="text" name="usuario" id="usuario" placeholder="E-mail ou Usuário" required oninput="formatarEmail(this)">
+                </div>
+
+                <div class="form-group senha-group">
+                    <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                    
+                    <span class="toggle-password" onclick="toggleSenha()" title="Mostrar senha">
+                        <span id="icone-senha">👁️</span>
+                    </span>
+                </div>
+                
+                <a href="senha_esquecida.html" class="forgot-password">Esqueceu a senha?</a>
+                
+                <button type="submit" class="btn-login" id="btn-entrar">ENTRAR - CREDENCIADO</button>
+            </form>
+
+            <div class="social-login">
+                <p>Ou entre com:</p>
+                <div class="social-icons">
+                    <a href="https://accounts.google.com" target="_blank" class="social-btn" style="color: #DB4437;">G</a>
+                    <a href="https://www.facebook.com/login" target="_blank" class="social-btn" style="color: #4267B2;">f</a>
+                </div>
+            </div>
+
+            <!-- Botão de cadastro escondido por padrão no acesso credenciado -->
+            <p class="register-link" id="area-cadastro" style="visibility: hidden;">Ainda não tem conta? <a href="cadastre-se.html"><span>CADASTRE-SE</span></a></p>
+        </div>
+    </main>
+
+    <footer class="acnur-style-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="logo-text">Sleep Well</div>
+                <div class="logo-sub">Colchonetes Recicláveis</div>
+                <p class="brand-desc">
+                    Transformando resíduos plásticos em conforto e dignidade. Cada produto adquirido fortalece a economia circular e o apoio social.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="sobre_nos.html">Sobre Nós</a></li>
+                        <li><a href="impacto_social.html">Impacto Social</a></li>
+                        <li><a href="compre_e_ajude.html">Compre e Ajude</a></li>
+                    </ul>
+                </div>
+
+                <div class="link-group">
+                    <h4>Transparência</h4>
+                    <ul>
+                        <li><a href="">Termos de Uso</a></li>
+                        <li><a href="">Política de Privacidade</a></li>
+                        <li><a href="">Trocas e Devoluções</a></li>
+                        <li><a href="">Rastrear Pedido</a></li>
+                    </ul>
+                </div>
+
+                <div class="link-group">
+                    <h4>Segurança</h4>
+                    <div class="trust-badges">
+                        <span class="badge">🔒 Conexão Criptografada SSL</span>
+                        <span class="badge">🛡️ Processamento Seguro</span>
+                        <span class="badge">🌱 Certificado Socioambiental</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+            <div class="legal-info">
+                <p>Sleep Well Brasil • CNPJ: 00.000.000/0001-00</p>
+                <p>© 2026 Sleep Well. Todos os direitos reservados.</p>
+            </div>
+            <div class="payment-methods">
+                <span>⚡ Pix</span>
+                <span>💳 Cartão de Crédito</span>
+                <span>📄 Boleto</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script>
+    // Função 1: Mudar as abas de acesso
+    function mudarAcesso(tipo, elementoClicado) {
+        const botoes = document.querySelectorAll('.tab-btn');
+        botoes.forEach(botao => botao.classList.remove('active'));
+        
+        elementoClicado.classList.add('active');
+        document.getElementById('tipo_acesso').value = tipo;
+        
+        const btnEntrar = document.getElementById('btn-entrar');
+        const areaCadastro = document.getElementById('area-cadastro');
+        
+        if(tipo === 'credenciado') {
+            btnEntrar.innerText = 'ENTRAR - CREDENCIADO';
+            btnEntrar.style.backgroundColor = 'var(--earth-green)';
+            areaCadastro.style.visibility = 'hidden'; 
+        } else if (tipo === 'gerente') {
+            btnEntrar.innerText = 'ENTRAR - GERENTE';
+            btnEntrar.style.backgroundColor = 'var(--dark-blue)'; 
+            areaCadastro.style.visibility = 'visible'; 
+        }
+    }
+
+    // Função 2: Formatação do E-mail/Usuário
+    function formatarEmail(campo) {
+        let texto = campo.value.toLowerCase();
+        texto = texto.replace(/\s/g, '');
+        campo.value = texto;
+    }
+
+    // Função 3: O Olhinho da Senha
+    function toggleSenha() {
+        const inputSenha = document.getElementById('senha');
+        const iconeSenha = document.getElementById('icone-senha');
+        
+        if (inputSenha.type === 'password') {
+            inputSenha.type = 'text';
+            iconeSenha.innerText = '🙈';
+        } else {
+            inputSenha.type = 'password';
+            iconeSenha.innerText = '👁️';
+        }
+    }
+
+    // Função 4: Validação do Login sem API
+    function validarLogin(event) {
+        event.preventDefault(); // Impede o envio/recarregamento da página
+        
+        const usuarioDigitado = document.getElementById('usuario').value.trim();
+        const senhaDigitada = document.getElementById('senha').value;
+        const msgErro = document.getElementById('mensagem-erro');
+
+        // Credenciais permitidas
+        const credenciaisValidas = {
+            usuario: "admin@sleepwell.com",
+            senha: "123456"
+        };
+
+        // Verifica se o usuário é 'admin' ou 'admin@sleepwell.com' e a senha é '123456'
+        if ((usuarioDigitado === credenciaisValidas.usuario || usuarioDigitado === 'admin') && senhaDigitada === credenciaisValidas.senha) {
+            msgErro.style.display = 'none';
+            // Redireciona para o Dashboard do Administrador
+            window.location.href = 'tela_Adm.html';
+        } else {
+            // Exibe mensagem de erro na tela
+            msgErro.innerText = 'Usuário ou senha incorretos! Tente novamente.';
+            msgErro.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
