@@ -191,15 +191,41 @@
         const msgErro = document.getElementById('mensagem-erro');
 
         // Credenciais permitidas
-        const credenciaisValidas = {
-            usuario: "admin@sleepwell.com",
-            senha: "123456"
-        };
+        const credenciaisValidas = [
+        {
+            email: "admin@sleepwell.com",
+            loginCurto: "admin",
+            senha: "123456",
+            nome:"José Henrique",
+            perfil:"Administrativo"
+        },
+         {
+            email: "financeiro@sleepwell.com",
+            loginCurto: "financeiro",
+            senha: "654321",
+            nome: "Carlos Souza",
+            perfil:"Financeiro"   
+        },
+         {
+            email: "gerente@sleepwell.com",
+            loginCurto: "gerente",
+            senha: "9821",
+             nome: "Maria Silva",
+            perfil:"Gerente"
+        }
+    ];
 
-        // Verifica se o usuário é 'admin' ou 'admin@sleepwell.com' e a senha é '123456'
-        if ((usuarioDigitado === credenciaisValidas.usuario || usuarioDigitado === 'admin') && senhaDigitada === credenciaisValidas.senha) {
+        //Procura um utilizador que corresponda ao e-mail/login e à senha introduzidos
+        const usuarioEncontrado = usuarioPermitidos.find(u =>
+            (u.email === usuarioDigitado || u.loginCurto === usuarioDigitado) && u.senha === senhaDigitada
+        );
+        if (usuarioEncontrado {
             msgErro.style.display = 'none';
-            // Redireciona para o Dashboard do Administrador
+            
+            // Guarda os dados do utilizador no navegador para usar na tela_Adm.html
+            LocalStorage.setItem('usuarioLogado', JSON.stringify(usuarioEncontrado));
+
+            //Redireciona para o Painel Administrativo
             window.location.href = 'tela_Adm.html';
         } else {
             // Exibe mensagem de erro na tela
