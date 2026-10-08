@@ -554,6 +554,24 @@
                 campoOutros.value = '';
             }
         }
+
+        document.addEventListener("DomContentLoaded", function() {
+            //Recupera os dados do utlizador guardados no Login
+            const dadosSesao = localStorage.getItem('UsuarioLogado');
+
+            if (dadosSesao) {
+            const usuario = JSON.parse(dadosSessao);
+
+            //Atualiza o texto no cabeçalho (ex: "Maria Silva (Gerente)")
+                const userSpan = document.querySelector('.user-profile span');
+                if (userSpan) {
+                    userSpan.innerText = '${usuario.nome} (${usuario.perfil})';
+                }
+            }
+        });
+            
+
+    
     </script>
 </body>
 </html>
