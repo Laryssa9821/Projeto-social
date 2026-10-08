@@ -16,7 +16,7 @@ Field Name         |       Data Type       |           Description              
    nome            |       VARCHAR(150)    |            nome do produto            |        máximo 150 caracteres               |   Not Null
    descricao       |        VARCHAR(255)   |       detalhamento do produto         |           máximo 255 caracteres            |   Nullable
     preco          |      DECIMAL(10,2)    |       valor de venda do produto       |          valores monetários positivos      |   Not Null
-   image_url       |       VARCHAR(255)    |    link ou caminho da imagem          |        máximo 255 caracteres               |   Nullable
+   imagem          |       VARCHAR(255)    |    link ou caminho da imagem          |        máximo 255 caracteres               |   Nullable
   estoque          |          INT          |       quantidade física disponível    |          números inteiros(>-0)             |   Default 0
    categoria       |       VARCHAR(50)     |         classificação do produto      |        máximo 50 caracteres                |   Nullable
    ativo           |       BOOLEAN         |      status de visibilidade no site   |           TRUE ou FALSE                    |   Default TRUE
@@ -26,10 +26,12 @@ tabela: doacoes
 Field Name         |       Data Type       |           Description                 |           Allowed Values/Range             |     Notes
     id             |          INT          |       Identificador único de usuário  |            Inteiros positivos              |   Primary Key(AI)
 doador_nome        |       VARCHAR(150)    |    nome da pessoa que doou            |        máximo 150 caracteres               |   Not Null
-doador_email       |        VARCHAR(150)   |       e-mail de contato do doador     |            formato padrão de e-mail        |   Unique, Not Null
+doador_email       |        VARCHAR(150)   |       e-mail de contato do doador     |            formato padrão de e-mail        |    Not Null
     quantia        |      DECIMAL(10,2)    |       valor financeiro arrecado       |          valores monetários positivos      |   Not Null
     mensagem       |       TEXT            |        Quarda um recado do usuário    |           Usado para textos longos         |   Not null
     Status         |        Varchar(30)    |       Nome da coluna                  |     máxima de coluna de 30 característica  |  DFAULT CURRENT_TIMESTAMP
+criado_em          |        TIMESTAMP      |    data da realização da doação       |         data e hora válida do sistema      |   Default CURRENT_TIMESTAMP
+
 
 Tabela: usuarios  
 Field Name         |       Data Type       |           Description                 |           Allowed Values/Range             |     Notes
@@ -49,6 +51,7 @@ Field Name         |       Data Type       |           Description              
    expira_em       |        DATETIME       | data/hora limite de validade do link  |           data/hora futura válida          |   Not Null
   usado            |        TINYINY(1)     | indica se token já foi utilizado      |            1(sim) ou 0 (não)               |   Default
    criado_em       |        TIMESTAMP      | momento exato da solicitação          |           data/hora válida do sistema      |   Default CURRENT_TIMESTAMP
+   token           |       VARCHAR(10)     |    token de verificação               |             máximo de 10 caracteres        |   NOT NULL UNIQUE 
 
 Tabela: permissoes  
 Field Name         |       Data Type       |           Description                 |           Allowed Values/Range             |     Notes
@@ -62,14 +65,15 @@ pode_atualizar     |        BOOLEAN        |   autorização para a ação UPTAD
 tabela: pedidos
 Field Name         |       Data Type       |           Description                 |           Allowed Values/Range             |     Notes
     id             |          INT          |  Identificador único do pedido        |            Inteiros positivos              |   Primary Key(AI)
-custome_name       |        VARCHAR(150)   |      nome do cliente/comprador        |           máximo 150 caracteres            |   Not Null
-custome_email      |       VARCHAR(150)    |    e-mail do contato do cliente       |        formato padrão de e-mail            |   Not Null
-custome_cel        |        VARCHAR(50 )   |      telefone de contato do cliente   |         formato válido                     |   Nullable
+cliente_nome       |        VARCHAR(150)   |      nome do cliente/comprador        |           máximo 150 caracteres            |   Not Null
+cliente_email      |       VARCHAR(150)    |    e-mail do contato do cliente       |        formato padrão de e-mail            |   Not Null
+cliente_cel        |        VARCHAR(50 )   |      telefone de contato do cliente   |         formato válido                     |   Nullable
 endereco           |        VARCHAR(250)   |          local de entrega             |            máximo de 255 caracteres        |   Nullable
+
 produto_id         |        INT            |   referência ao produto comprado      |           IDs da tabela produtos           |   Foreign Key
 quantidade         |          INT          |   número de itens comprados           |        inteiros positivos(>0)              |   Default 1
 total              |        DECIMAL(10,2)  |      valor final da compra            |         valores monetários positivos       |   Not Null
 status             |        VARCHAR(30 )   |      situação de processamento        |         ex: pendente, pago, enviado        |   Default 'pendente'
-payment_method     |        VARCHAR(50)    |          forma de pagamento           |            cartão, pix, boleto, etc        |   Nullable
-created_at         |        TIMESTAMP      |    registro de data/hora do pedido    |       data e hora válida do sistema        |   Default CURRENT_TIMESTAMP
+metodo_pagamento   |        VARCHAR(50)    |          forma de pagamento           |            cartão, pix, boleto, etc        |   Nullable
+criado_em          |        TIMESTAMP      |    registro de data/hora do pedido    |       data e hora válida do sistema        |   Default CURRENT_TIMESTAMP
 
