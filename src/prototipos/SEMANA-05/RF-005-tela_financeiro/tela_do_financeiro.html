@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Well - Painel Financeiro Inteligente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- CABEÇALHO NO TOPO COM SELETOR DE EMPRESA E PERÍODO -->
+    <header class="topbar">
+        <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+            <div class="logo-icon" style="color: #d97706; font-size: 1.5rem;"><i class="fas fa-chart-line"></i></div>
+            <h2 id="titulo-cabecalho" style="margin: 0; border-left: 2px solid #e2e8f0; padding-left: 15px;">Painel Financeiro - Visão Geral</h2>
+        
+        </div>
+        
+        <div class="user-profile">
+            <i class="fas fa-user-circle"></i>
+            <span id="nome-usuario-logado">Financeiro (Gerente)</span>
+            <i class="fas fa-cog" style="cursor: pointer;" title="Configurações"></i>
+        </div>
+    </header>
+
+    <!-- CONTAINER INFERIOR -->
+    <div class="conteudo-inferior">
+        
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav" style="margin-top: 10px;">
+                <ul>
+                    <li><a href="#" class="menu-link active" onclick="trocarPainel('visao-geral', this)"><i class="fas fa-wallet"></i> Visão Geral</a></li>
+                    <li><a href="#" class="menu-link" onclick="trocarPainel('transacoes', this)"><i class="fas fa-file-invoice-dollar"></i> Transações</a></li>
+                    <li><a href="#" class="menu-link" onclick="trocarPainel('repasses', this)"><i class="fas fa-hand-holding-usd"></i> Repasses ONGs</a></li>
+                    <li><a href="#" class="menu-link" onclick="trocarPainel('relatorios', this)"><i class="fas fa-file-export"></i> Relatórios & Análises</a></li>
+                    <li><a href="#" class="menu-link" onclick="trocarPainel('a-pagar', this)"><i class="fas fa-file-invoice"></i> A Pagar</a></li>
+                    <li><a href="#" class="menu-link" onclick="trocarPainel('a-receber', this)"><i class="fas fa-hand-holding-medical"></i> A Receber</a></li>
+                    <li><a href="#" class="menu-link" onclick="trocarPainel('vendas', this)"><i class="fas fa-shopping-cart"></i> Vendas</a></li>
+                    <li><a href="#" class="menu-link" onclick="trocarPainel('centro-custos', this)"><i class="fas fa-sitemap"></i> Centro de Custos</a></li>
+                    <li><a href="#" class="menu-link" onclick="trocarPainel('recorrencias', this)"><i class="fas fa-sync-alt"></i> Recorrências</a></li>
+                    <li><a href="#" class="menu-link" onclick="trocarPainel('regua-cobranca', this)"><i class="fas fa-paper-plane"></i> Régua de Cobrança</a></li>
+                    <li><a href="#" class="menu-link" onclick="trocarPainel('caixa-entrada', this)"><i class="fas fa-inbox"></i> Caixa de Entrada (OCR)</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="login.html" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Sair do Sistema</a>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+            <section class="form-section" style="flex-direction: column; max-width: 1200px; margin: 0 auto; width: 100%;">
+                
+                <!-- ================= AB 1: VISÃO GERAL ================= -->
+                <div id="visao-geral" class="painel-conteudo ativo">
+                    <div class="cards-grid">
+                        <div class="card-indicador">
+                            <h4>Entradas do Mês</h4>
+                            <div id="card-entradas" class="valor" style="color: #059669;">R$ 48.350,00</div>
+                        </div>
+                        <div class="card-indicador">
+                            <h4>Saídas / Custos</h4>
+                            <div id="card-saidas" class="valor" style="color: #dc2626;">R$ 19.120,00</div>
+                        </div>
+                        <div class="card-indicador">
+                            <h4>Repasses Sociais (ONGs)</h4>
+                            <div id="card-repasses" class="valor" style="color: #2563eb;">R$ 12.500,00</div>
+                        </div>
+                        <div class="card-indicador" style="border-left-color: #059669;">
+                            <h4>Saldo em Caixa</h4>
+                            <div id="card-saldo" class="valor">R$ 16.730,00</div>
+                        </div>
+                    </div>
+
+                    <!-- ORÇADO VS REALIZADO -->
+                    <div class="tabela-container" style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 15px; color: #1e293b;"><i class="fas fa-balance-scale"></i> Orçado vs. Realizado (Mês Atual)</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                            <div style="background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
+                                    <span style="font-weight: 600; color: #475569;">Entradas / Receitas</span>
+                                    <span style="color: #059669; font-weight: 600;">96% da meta</span>
+                                </div>
+                                <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 8px;">Realizado: <b>R$ 48.350,00</b> / Orçado: R$ 50.000,00</div>
+                                <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 96%; background-color: #059669;"></div></div>
+                            </div>
+                            <div style="background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
+                                    <span style="font-weight: 600; color: #475569;">Saídas / Custos</span>
+                                    <span style="color: #dc2626; font-weight: 600;">82% do limite</span>
+                                </div>
+                                <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 8px;">Realizado: <b>R$ 19.120,00</b> / Orçado: R$ 23.000,00</div>
+                                <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 82%; background-color: #dc2626;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= AB 2: TRANSAÇÕES ================= -->
+                <div id="transacoes" class="painel-conteudo">
+                    <div class="tabela-container">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 class="form-title" style="margin: 0;">Controle Completo de Transações</h3>
+                            <button class="btn-save-blue" style="background-color: #d97706; font-size: 0.85rem; padding: 8px 15px;" onclick="abrirModal('modalTransacao')">+ Nova Transação</button>
+                        </div>
+                        <table id="tabelaTransacoes">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Descrição / Favorecido</th>
+                                    <th>Categoria</th>
+                                    <th>Valor</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>13/10/2026</td>
+                                    <td>Instituto Esperança (Repasse Parceria)</td>
+                                    <td>Impacto Social</td>
+                                    <td style="color: #dc2626; font-weight: 600;">- R$ 3.500,00</td>
+                                    <td><span class="badge-status status-pago">Pago</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ================= AB 3: REPASSES ONGS ================= -->
+                <div id="repasses" class="painel-conteudo">
+                    <div class="tabela-container">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 class="form-title" style="margin: 0;">Repasses para Instituições e ONGs Parceiras</h3>
+                            <button class="btn-save-blue" style="background-color: #2563eb; font-size: 0.85rem; padding: 8px 15px;" onclick="abrirModal('modalRepasse')">+ Novo Repasse</button>
+                        </div>
+                        <table id="tabelaRepasses">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Instituição Parceira</th>
+                                    <th>Área de Atuação</th>
+                                    <th>Valor Repassado</th>
+                                    <th>Comprovante</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>13/10/2026</td>
+                                    <td>Instituto Esperança</td>
+                                    <td>Assistência Social</td>
+                                    <td style="color: #2563eb; font-weight: 600;">R$ 3.500,00</td>
+                                    <td><a href="#" style="color: #3b82f6; text-decoration: none;"><i class="fas fa-file-pdf"></i> Ver PDF</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ================= AB 4: RELATÓRIOS & ANÁLISES ================= -->
+                <div id="relatorios" class="painel-conteudo">
+                    <div class="tabela-container">
+                        <h3 class="form-title" style="margin-bottom: 15px;">Geração de Relatórios e Análises Avançadas</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                            <div style="border: 1px solid #e2e8f0; padding: 20px; border-radius: 6px; background: #fff;">
+                                <h4 style="margin-top:0; color:#1e293b;"><i class="fas fa-file-alt"></i> Demonstrativo Mensal</h4>
+                                <p style="font-size: 0.85rem; color: #64748b;">Relatório completo de receitas e margem líquida.</p>
+                                <button class="btn-save-blue" style="font-size: 0.8rem; padding: 6px 15px; margin-top: 10px;">Baixar PDF</button>
+                            </div>
+                        </div>
+                        <h4 style="margin-top: 20px; margin-bottom: 15px; color: #1e293b;"><i class="fas fa-university"></i> Conciliação Bancária (Extrato OFX)</h4>
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; text-align: center;">
+                            <input type="file" id="arquivoExtrato" style="display: none;" onchange="simularConciliacao()">
+                            <button onclick="document.getElementById('arquivoExtrato').click()" class="btn-save-blue" style="background-color: #3b82f6;"><i class="fas fa-upload"></i> Importar Arquivo OFX</button>
+                            <div id="statusConciliacao" style="margin-top: 15px; font-size: 0.9rem; color: #059669; font-weight: 600;"></div>
+                        </div>
+                    </div>
+                </div>
+
+               <!-- ================= AB 5: A PAGAR ================= -->
+<div id="a-pagar" class="painel-conteudo">
+    <div class="tabela-container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+            <h3 class="form-title" style="margin: 0;">Contas e Obrigações a Pagar</h3>
+            <button class="btn-save-blue" style="background-color: #dc2626; font-size: 0.85rem; padding: 8px 15px;" onclick="abrirModal('modalAPagar')">+ Nova Conta a Pagar</button>
+        </div>
+
+        <!-- FILTRO POR PERÍODO -->
+        <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px; display: flex; gap: 15px; align-items: flex-end; flex-wrap: wrap;">
+            <div>
+                <label style="display: block; font-size: 0.8rem; font-weight: 600; color: #475569; margin-bottom: 5px;">Data Início:</label>
+                <input type="date" id="filtroDataInicio" style="padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.85rem; background: white;" onchange="filtrarContasPagar()">
+            </div>
+            <div>
+                <label style="display: block; font-size: 0.8rem; font-weight: 600; color: #475569; margin-bottom: 5px;">Data Fim:</label>
+                <input type="date" id="filtroDataFim" style="padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.85rem; background: white;" onchange="filtrarContasPagar()">
+            </div>
+            <button class="btn-save-blue" style="padding: 8px 15px; font-size: 0.85rem; background-color: #64748b;" onclick="limparFiltroPagar()">Limpar Filtro</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Vencimento</th>
+                    <th>Credor / Fornecedor</th>
+                    <th>Categoria</th>
+                    <th>Valor</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaAPagar">
+                <tr id="conta-1">
+                    <td>20/10/2026</td>
+                    <td>Logística Express Ltda</td>
+                    <td>Fretes e Entregas</td>
+                    <td style="color: #dc2626; font-weight: 600;">R$ 1.500,00</td>
+                    <td><button class="btn-save-blue" style="padding: 4px 10px; font-size: 0.75rem;" onclick="pagarConta('conta-1', 1500.00)">Pagar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+                <!-- ================= AB 6: A RECEBER ================= -->
+                <div id="a-receber" class="painel-conteudo">
+                    <div class="tabela-container">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 class="form-title" style="margin: 0;">Valores a Receber (Doações e Pagamentos)</h3>
+                            <button class="btn-save-blue" style="background-color: #059669; font-size: 0.85rem; padding: 8px 15px;" onclick="abrirModal('modalAReceber')">+ Novo Valor a Receber</button>
+                        </div>
+                        <table id="tabelaAReceber">
+                            <thead>
+                                <tr>
+                                    <th>Previsão</th>
+                                    <th>Origem / Parceiro</th>
+                                    <th>Tipo</th>
+                                    <th>Valor</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>18/10/2026</td>
+                                    <td>Parceiro Corporativo Eco</td>
+                                    <td>Doação / Patrocínio</td>
+                                    <td style="color: #059669; font-weight: 600;">R$ 5.000,00</td>
+                                    <td><span class="badge-status status-pendente">Aguardando</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ================= AB 7: VENDAS ================= -->
+                <div id="vendas" class="painel-conteudo">
+                    <div class="tabela-container">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 class="form-title" style="margin: 0;">Registro de Vendas de Colchonetes</h3>
+                            <button class="btn-save-blue" style="background-color: #d97706; font-size: 0.85rem; padding: 8px 15px;" onclick="abrirModal('modalVenda')">+ Nova Venda</button>
+                        </div>
+                        <table id="tabelaVendas">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Cliente / Comprador</th>
+                                    <th>Produto</th>
+                                    <th>Tipo de Pagamento</th>
+                                    <th>Total</th>
+                                    <th>Nota Fiscal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>13/10/2026</td>
+                                    <td>João da Silva</td>
+                                    <td>Colchão Ortopédico Reciclável</td>
+                                    <td>⚡ Pix</td>
+                                    <td style="color: #059669; font-weight: 600;">R$ 890,00</td>
+                                    <td><a href="#" style="color: #3b82f6; text-decoration: none;">NF #1029</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ================= AB 8: CENTRO DE CUSTOS ================= -->
+                <div id="centro-custos" class="painel-conteudo">
+                    <div class="tabela-container">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 class="form-title" style="margin: 0;">Gestão por Centro de Custos</h3>
+                            <button class="btn-save-blue" style="background-color: #2563eb; font-size: 0.85rem; padding: 8px 15px;" onclick="abrirModal('modalCentroCustos')">+ Novo Centro de Custos</button>
+                        </div>
+                        <table id="tabelaCentroCustos">
+                            <thead>
+                                <tr>
+                                    <th>Centro de Custos</th>
+                                    <th>Responsável</th>
+                                    <th>Orçamento Mensal</th>
+                                    <th>Realizado</th>
+                                    <th>Saldo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Produção de Colchonetes</b></td>
+                                    <td>Carlos Mendes</td>
+                                    <td>R$ 15.000,00</td>
+                                    <td style="color: #dc2626; font-weight: 600;">R$ 11.200,00</td>
+                                    <td style="color: #059669; font-weight: 600;">R$ 3.800,00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ================= AB 9: RECORRÊNCIAS ================= -->
+                <div id="recorrencias" class="painel-conteudo">
+                    <div class="tabela-container">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 class="form-title" style="margin: 0;">Lançamentos e Cobranças Recorrentes</h3>
+                            <button class="btn-save-blue" style="background-color: #d97706; font-size: 0.85rem; padding: 8px 15px;" onclick="abrirModal('modalRecorrencia')">+ Nova Recorrência</button>
+                        </div>
+                        <table id="tabelaRecorrencias">
+                            <thead>
+                                <tr>
+                                    <th>Descrição</th>
+                                    <th>Tipo</th>
+                                    <th>Valor</th>
+                                    <th>Frequência</th>
+                                    <th>Próxima Execução</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Repasse Mensal - Instituto Esperança</b></td>
+                                    <td>Saída / Repasse</td>
+                                    <td style="color: #2563eb; font-weight: 600;">R$ 3.500,00</td>
+                                    <td>Mensal (Dia 10)</td>
+                                    <td>10/11/2026</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ================= AB 10: RÉGUA DE COBRANÇA ================= -->
+                <div id="regua-cobranca" class="painel-conteudo">
+                    <div class="tabela-container">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 class="form-title" style="margin: 0;">Régua de Cobrança e Automação</h3>
+                            <button class="btn-save-blue" style="background-color: #059669; font-size: 0.85rem; padding: 8px 15px;" onclick="abrirModal('modalRegua')">+ Nova Regra de Notificação</button>
+                        </div>
+                        <table id="tabelaRegua">
+                            <thead>
+                                <tr>
+                                    <th>Cliente</th>
+                                    <th>Documento</th>
+                                    <th>Tipo</th>
+                                    <th>Canal</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Parceiro Corporativo Eco</td>
+                                    <td>Fatura #1029</td>
+                                    <td>Lembrete Preventivo</td>
+                                    <td>E-mail</td>
+                                    <td><span class="badge-status status-pago">Enviado e Lido</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ================= AB 11: CAIXA DE ENTRADA (OCR) ================= -->
+                <div id="caixa-entrada" class="painel-conteudo">
+                    <div class="tabela-container">
+                        <h3 class="form-title">Caixa de Entrada de Documentos (OCR)</h3>
+                        <div style="border: 2px dashed #cbd5e1; background: #f8fafc; border-radius: 8px; padding: 30px; text-align: center; margin-bottom: 20px; cursor: pointer;" onclick="document.getElementById('inputOCR').click()">
+                            <i class="fas fa-file-invoice" style="font-size: 2rem; color: #3b82f6; margin-bottom: 10px;"></i>
+                            <h4 style="margin: 0 0 5px 0;">Arraste notas fiscais ou faturas aqui</h4>
+                            <input type="file" id="inputOCR" style="display: none;" onchange="simularOCR()">
+                        </div>
+                        <div id="resultadoOCR"></div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <!-- ================= MODAIS FLUTUANTES PARA TODAS AS ABAS ================= -->
+    
+    <!-- Modal Transação -->
+    <div id="modalTransacao" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharModal('modalTransacao')">&times;</button>
+            <h2>Nova Transação</h2>
+            <form onsubmit="adicionarTransacao(event)">
+                <div class="form-group"><label>Data</label><input type="date" id="transData" required></div>
+                <div class="form-group"><label>Descrição</label><input type="text" id="transDesc" placeholder="Ex: Fornecedor Alpha" required></div>
+                <div class="form-group"><label>Categoria</label>
+                    <select id="transCat"><option>Comercialização</option><option>Fornecedores</option><option>Impacto Social</option><option>Operacional</option></select>
+                </div>
+                <div class="form-group"><label>Valor (R$)</label><input type="number" step="0.01" id="transValor" placeholder="0.00" required></div>
+                <div class="form-group"><label>Tipo</label>
+                    <select id="transTipo"><option value="entrada">Entrada (+)</option><option value="saida">Saída (-)</option></select>
+                </div>
+                <button type="submit" class="btn-confirmar">Salvar Transação</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Repasse -->
+    <div id="modalRepasse" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharModal('modalRepasse')">&times;</button>
+            <h2>Novo Repasse para ONG</h2>
+            <form onsubmit="adicionarRepasse(event)">
+                <div class="form-group"><label>Data</label><input type="date" id="repasseData" required></div>
+                <div class="form-group"><label>Instituição</label><input type="text" id="repasseInst" placeholder="Nome da ONG" required></div>
+                <div class="form-group"><label>Área de Atuação</label><input type="text" id="repasseArea" placeholder="Assistência Social" required></div>
+                <div class="form-group"><label>Valor (R$)</label><input type="number" step="0.01" id="repasseValor" placeholder="0.00" required></div>
+                <button type="submit" class="btn-confirmar">Confirmar Repasse</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal A Pagar -->
+    <div id="modalAPagar" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharModal('modalAPagar')">&times;</button>
+            <h2>Nova Conta a Pagar</h2>
+            <form onsubmit="adicionarAPagar(event)">
+                <div class="form-group"><label>Vencimento</label><input type="date" id="pagarVenc" required></div>
+                <div class="form-group"><label>Fornecedor</label><input type="text" id="pagarCredor" placeholder="Nome do Credor" required></div>
+                <div class="form-group"><label>Categoria</label><input type="text" id="pagarCat" placeholder="Ex: Fretes" required></div>
+                <div class="form-group"><label>Valor (R$)</label><input type="number" step="0.01" id="pagarValor" placeholder="0.00" required></div>
+                <button type="submit" class="btn-confirmar">Salvar Conta</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal A Receber -->
+    <div id="modalAReceber" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharModal('modalAReceber')">&times;</button>
+            <h2>Novo Valor a Receber</h2>
+            <form onsubmit="adicionarAReceber(event)">
+                <div class="form-group"><label>Previsão</label><input type="date" id="receberData" required></div>
+                <div class="form-group"><label>Origem / Parceiro</label><input type="text" id="receberOrigem" placeholder="Nome do parceiro" required></div>
+                <div class="form-group"><label>Tipo</label><input type="text" id="receberTipo" placeholder="Doação / Patrocínio" required></div>
+                <div class="form-group"><label>Valor (R$)</label><input type="number" step="0.01" id="receberValor" placeholder="0.00" required></div>
+                <button type="submit" class="btn-confirmar">Salvar Previsão</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Venda -->
+    <div id="modalVenda" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharModal('modalVenda')">&times;</button>
+            <h2>Registrar Nova Venda</h2>
+            <form onsubmit="adicionarVenda(event)">
+                <div class="form-group"><label>Data</label><input type="date" id="vendaData" required></div>
+                <div class="form-group"><label>Cliente</label><input type="text" id="vendaCliente" placeholder="Nome do cliente" required></div>
+                <div class="form-group"><label>Produto</label><input type="text" id="vendaProduto" placeholder="Colchão Ortopédico" required></div>
+                <div class="form-group"><label>Pagamento</label>
+                    <select id="vendaPagamento"><option>⚡ Pix</option><option>💳 Cartão de Crédito</option><option> boleto</option></select>
+                </div>
+                <div class="form-group"><label>Valor Total (R$)</label><input type="number" step="0.01" id="vendaValor" placeholder="0.00" required></div>
+                <button type="submit" class="btn-confirmar">Salvar Venda</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Centro de Custos -->
+    <div id="modalCentroCustos" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharModal('modalCentroCustos')">&times;</button>
+            <h2>Novo Centro de Custos</h2>
+            <form onsubmit="adicionarCentroCustos(event)">
+                <div class="form-group"><label>Nome do Departamento</label><input type="text" id="ccNome" placeholder="Ex: Logística" required></div>
+                <div class="form-group"><label>Responsável</label><input type="text" id="ccResp" placeholder="Nome do responsável" required></div>
+                <div class="form-group"><label>Orçamento Mensal (R$)</label><input type="number" step="0.01" id="ccOrcamento" placeholder="0.00" required></div>
+                <button type="submit" class="btn-confirmar">Salvar Centro de Custos</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Recorrência -->
+    <div id="modalRecorrencia" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharModal('modalRecorrencia')">&times;</button>
+            <h2>Nova Recorrência</h2>
+            <form onsubmit="adicionarRecorrencia(event)">
+                <div class="form-group"><label>Descrição</label><input type="text" id="recDesc" placeholder="Ex: Aluguel" required></div>
+                <div class="form-group"><label>Tipo</label><input type="text" id="recTipo" placeholder="Saída / Custo" required></div>
+                <div class="form-group"><label>Valor (R$)</label><input type="number" step="0.01" id="recValor" placeholder="0.00" required></div>
+                <div class="form-group"><label>Frequência</label><input type="text" id="recFreq" placeholder="Mensal (Dia 05)" required></div>
+                <button type="submit" class="btn-confirmar">Salvar Recorrência</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Régua de Cobrança -->
+    <div id="modalRegua" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharModal('modalRegua')">&times;</button>
+            <h2>Nova Regra de Notificação</h2>
+            <form onsubmit="adicionarRegua(event)">
+                <div class="form-group"><label>Cliente</label><input type="text" id="reguaCliente" placeholder="Nome do cliente" required></div>
+                <div class="form-group"><label>Documento</label><input type="text" id="reguaDoc" placeholder="Fatura #1030" required></div>
+                <div class="form-group"><label>Tipo</label><input type="text" id="reguaTipo" placeholder="Lembrete Preventivo" required></div>
+                <button type="submit" class="btn-confirmar">Salvar Regra</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts de Controle -->
+    <script>
+        let dadosFinanceiros = {
+            entradas: 48350.00,
+            saidas: 19120.00,
+            repasses: 12500.00
+        };
+
+        window.onload = function() {
+            const salvo = localStorage.getItem('sleepWellFinanceiro');
+            if (salvo) {
+                dadosFinanceiros = JSON.parse(salvo);
+            }
+            atualizarIndicadoresVisuais();
+
+            const dadosUsuario = localStorage.getItem('usuarioLogado');
+            if (dadosUsuario) {
+                const usuario = JSON.parse(dadosUsuario);
+                document.getElementById('nome-usuario-logado').innerText = usuario.nome + " (" + usuario.perfil + ")";
+            }
+        };
+
+        function salvarEstado() {
+            localStorage.setItem('sleepWellFinanceiro', JSON.stringify(dadosFinanceiros));
+        }
+
+        function atualizarIndicadoresVisuais() {
+            let saldoCaixa = dadosFinanceiros.entradas - (dadosFinanceiros.saidas + dadosFinanceiros.repasses);
+            document.getElementById('card-entradas').innerText = `R$ ${dadosFinanceiros.entradas.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+            document.getElementById('card-saidas').innerText = `R$ ${dadosFinanceiros.saidas.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+            document.getElementById('card-repasses').innerText = `R$ ${dadosFinanceiros.repasses.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+            document.getElementById('card-saldo').innerText = `R$ ${saldoCaixa.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+        }
+
+        function trocarPainel(idPainel, linkClicado) {
+            document.querySelectorAll('.painel-conteudo').forEach(p => p.classList.remove('ativo'));
+            document.getElementById(idPainel).classList.add('ativo');
+            document.querySelectorAll('.sidebar-nav .menu-link').forEach(l => l.classList.remove('active'));
+            linkClicado.classList.add('active');
+            document.getElementById('titulo-cabecalho').innerText = "Painel Financeiro - " + linkClicado.innerText.trim();
+        }
+
+        function abrirModal(idModal) { document.getElementById(idModal).style.display = 'flex'; }
+        function fecharModal(idModal) { document.getElementById(idModal).style.display = 'none'; }
+
+        // Adicionar Transação
+        function adicionarTransacao(event) {
+            event.preventDefault();
+            const data = document.getElementById('transData').value;
+            const desc = document.getElementById('transDesc').value;
+            const cat = document.getElementById('transCat').value;
+            const valor = parseFloat(document.getElementById('transValor').value);
+            const tipo = document.getElementById('transTipo').value;
+
+            const tabela = document.getElementById('tabelaTransacoes').getElementsByTagName('tbody')[0];
+            const novaLinha = tabela.insertRow(0);
+            let cor = tipo === 'entrada' ? '#059669' : '#dc2626';
+            let sinal = tipo === 'entrada' ? '+ R$' : '- R$';
+
+            novaLinha.innerHTML = `<td>${data.split('-').reverse().join('/')}</td><td>${desc}</td><td>${cat}</td><td style="color: ${cor}; font-weight: 600;">${sinal} ${valor.toFixed(2)}</td><td><span class="badge-status status-pago">Pago</span></td>`;
+
+            if (tipo === 'entrada') dadosFinanceiros.entradas += valor;
+            else dadosFinanceiros.saidas += valor;
+
+            salvarEstado();
+            atualizarIndicadoresVisuais();
+            fecharModal('modalTransacao');
+            alert('Transação cadastrada com sucesso!');
+        }
+
+        // Adicionar Repasse
+        function adicionarRepasse(event) {
+            event.preventDefault();
+            const data = document.getElementById('repasseData').value;
+            const inst = document.getElementById('repasseInst').value;
+            const area = document.getElementById('repasseArea').value;
+            const valor = parseFloat(document.getElementById('repasseValor').value);
+
+            const tabela = document.getElementById('tabelaRepasses').getElementsByTagName('tbody')[0];
+            const novaLinha = tabela.insertRow(0);
+            novaLinha.innerHTML = `<td>${data.split('-').reverse().join('/')}</td><td>${inst}</td><td>${area}</td><td style="color: #2563eb; font-weight: 600;">R$ ${valor.toFixed(2)}</td><td><a href="#" style="color: #3b82f6;"><i class="fas fa-file-pdf"></i> Ver PDF</a></td>`;
+
+            dadosFinanceiros.repasses += valor;
+            salvarEstado();
+            atualizarIndicadoresVisuais();
+            fecharModal('modalRepasse');
+            alert('Repasse cadastrado com sucesso!');
+        }
+
+        // Adicionar Conta A Pagar
+        let contadorPagar = 1;
+        function adicionarAPagar(event) {
+            event.preventDefault();
+            contadorPagar++;
+            const venc = document.getElementById('pagarVenc').value;
+            const credor = document.getElementById('pagarCredor').value;
+            const cat = document.getElementById('pagarCat').value;
+            const valor = parseFloat(document.getElementById('pagarValor').value);
+            const idLinha = `conta-${contadorPagar}`;
+
+            const tabela = document.getElementById('tabelaAPagar');
+            const novaLinha = tabela.insertRow();
+            novaLinha.id = idLinha;
+            novaLinha.innerHTML = `<td>${venc.split('-').reverse().join('/')}</td><td>${credor}</td><td>${cat}</td><td style="color: #dc2626; font-weight: 600;">R$ ${valor.toFixed(2)}</td><td><button class="btn-save-blue" style="padding: 4px 10px; font-size: 0.75rem;" onclick="pagarConta('${idLinha}', ${valor})">Pagar</button></td>`;
+
+            fecharModal('modalAPagar');
+            alert('Conta adicionada aos registros a pagar!');
+        }
+
+        // Pagar Conta
+        function pagarConta(idConta, valorConta) {
+            const linha = document.getElementById(idConta);
+            if(linha) {
+                linha.style.opacity = '0.5';
+                linha.querySelector('td:last-child').innerHTML = '<span class="badge-status status-pago">Pago</span>';
+                dadosFinanceiros.saidas += valorConta;
+                salvarEstado();
+                atualizarIndicadoresVisuais();
+                alert('Conta paga e abatida do saldo em caixa!');
+            }
+        }
+
+        // Adicionar A Receber
+        function adicionarAReceber(event) {
+            event.preventDefault();
+            const prev = document.getElementById('receberData').value;
+            const origem = document.getElementById('receberOrigem').value;
+            const tipo = document.getElementById('receberTipo').value;
+            const valor = parseFloat(document.getElementById('receberValor').value);
+
+            const tabela = document.getElementById('tabelaAReceber').getElementsByTagName('tbody')[0];
+            const novaLinha = tabela.insertRow(0);
+            novaLinha.innerHTML = `<td>${prev.split('-').reverse().join('/')}</td><td>${origem}</td><td>${tipo}</td><td style="color: #059669; font-weight: 600;">R$ ${valor.toFixed(2)}</td><td><span class="badge-status status-pendente">Aguardando</span></td>`;
+
+            fecharModal('modalAReceber');
+            alert('Previsão a receber adicionada com sucesso!');
+        }
+
+        // Adicionar Venda (Atualiza Entradas e Saldo!)
+        function adicionarVenda(event) {
+            event.preventDefault();
+            const data = document.getElementById('vendaData').value;
+            const cliente = document.getElementById('vendaCliente').value;
+            const produto = document.getElementById('vendaProduto').value;
+            const pag = document.getElementById('vendaPagamento').value;
+            const valor = parseFloat(document.getElementById('vendaValor').value);
+
+            const tabela = document.getElementById('tabelaVendas').getElementsByTagName('tbody')[0];
+            const novaLinha = tabela.insertRow(0);
+            novaLinha.innerHTML = `<td>${data.split('-').reverse().join('/')}</td><td>${cliente}</td><td>${produto}</td><td>${pag}</td><td style="color: #059669; font-weight: 600;">R$ ${valor.toFixed(2)}</td><td><a href="#" style="color: #3b82f6;">NF #1030</a></td>`;
+
+            dadosFinanceiros.entradas += valor;
+            salvarEstado();
+            atualizarIndicadoresVisuais();
+            fecharModal('modalVenda');
+            alert('Venda registrada e entradas atualizadas no caixa!');
+        }
+
+        // Adicionar Centro de Custos
+        function adicionarCentroCustos(event) {
+            event.preventDefault();
+            const nome = document.getElementById('ccNome').value;
+            const resp = document.getElementById('ccResp').value;
+            const orc = parseFloat(document.getElementById('ccOrcamento').value);
+
+            const tabela = document.getElementById('tabelaCentroCustos').getElementsByTagName('tbody')[0];
+            const novaLinha = tabela.insertRow();
+            novaLinha.innerHTML = `<td><b>${nome}</b></td><td>${resp}</td><td>R$ ${orc.toFixed(2)}</td><td style="color: #dc2626; font-weight: 600;">R$ 0,00</td><td style="color: #059669; font-weight: 600;">R$ ${orc.toFixed(2)}</td>`;
+
+            fecharModal('modalCentroCustos');
+            alert('Centro de custos cadastrado com sucesso!');
+        }
+
+        // Adicionar Recorrência
+        function adicionarRecorrencia(event) {
+            event.preventDefault();
+            const desc = document.getElementById('recDesc').value;
+            const tipo = document.getElementById('recTipo').value;
+            const valor = parseFloat(document.getElementById('recValor').value);
+            const freq = document.getElementById('recFreq').value;
+
+            const tabela = document.getElementById('tabelaRecorrencias').getElementsByTagName('tbody')[0];
+            const novaLinha = tabela.insertRow();
+            novaLinha.innerHTML = `<td><b>${desc}</b></td><td>${tipo}</td><td style="color: #2563eb; font-weight: 600;">R$ ${valor.toFixed(2)}</td><td>${freq}</td><td>05/11/2026</td>`;
+
+            fecharModal('modalRecorrencia');
+            alert('Recorrência programada com sucesso!');
+        }
+
+        // Adicionar Régua
+        function adicionarRegua(event) {
+            event.preventDefault();
+            const cliente = document.getElementById('reguaCliente').value;
+            const doc = document.getElementById('reguaDoc').value;
+            const tipo = document.getElementById('reguaTipo').value;
+
+            const tabela = document.getElementById('tabelaRegua').getElementsByTagName('tbody')[0];
+            const novaLinha = tabela.insertRow();
+            novaLinha.innerHTML = `<td>${cliente}</td><td>${doc}</td><td>${tipo}</td><td>E-mail</td><td><span class="badge-status status-pendente">Agendado</span></td>`;
+
+            fecharModal('modalRegua');
+            alert('Regra de notificação adicionada!');
+        }
+
+        function filtrarPorPeriodo() { alert('Filtro de período atualizado.'); }
+        function mudarEmpresa() { alert('Empresa alterada.'); }
+        function simularConciliacao() { document.getElementById('statusConciliacao').innerText = "✅ Extrato conciliar com sucesso!"; }
+        function simularOCR() { document.getElementById('resultadoOCR').innerHTML = `<div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 15px; border-radius: 6px; color: #166534;">✅ Nota fiscal lida com IA!</div>`; }
+    // Filtrar Contas a Pagar por Período
+function filtrarContasPagar() {
+    const dataInicio = document.getElementById('filtroDataInicio').value;
+    const dataFim = document.getElementById('filtroDataFim').value;
+    const tabela = document.getElementById('tabelaAPagar');
+    const linhas = tabela.getElementsByTagName('tr');
+
+    for (let i = 0; i < linhas.length; i++) {
+        const celulaData = linhas[i].getElementsByTagName('td')[0];
+        if (celulaData) {
+            const textoData = celulaData.innerText.trim(); // Formato DD/MM/AAAA da tabela
+            const partes = textoData.split('/');
+            const dataFormatada = `${partes[2]}-${partes[1]}-${partes[0]}`; // Converte para AAAA-MM-DD
+
+            let mostrar = true;
+            if (dataInicio && dataFormatada < dataInicio) mostrar = false;
+            if (dataFim && dataFormatada > dataFim) mostrar = false;
+
+            linhas[i].style.display = mostrar ? '' : 'none';
+        }
+    }
+}
+
+// Limpar o Filtro de Contas a Pagar
+function limparFiltroPagar() {
+    document.getElementById('filtroDataInicio').value = '';
+    document.getElementById('filtroDataFim').value = '';
+    
+    const tabela = document.getElementById('tabelaAPagar');
+    const linhas = tabela.getElementsByTagName('tr');
+    for (let i = 0; i < linhas.length; i++) {
+        linhas[i].style.display = '';
+    }
+}
+document.addEventListener("DOMContentLoaded", function() {
+    // Recupera os dados do utilizador guardados no Login
+    const dadosSessao = localStorage.getItem('usuarioLogado');
+
+    if (dadosSessao) {
+        const usuario = JSON.parse(dadosSessao);
+
+        // Atualiza o texto no cabeçalho (ex: "Maria Silva (Gerente)")
+        const userSpan = document.querySelector('.user-profile span');
+        if (userSpan) {
+            userSpan.innerText = `${usuario.nome} (${usuario.perfil})`;
+        }
+    }
+});
+    </script>
+</body>
+</html>
