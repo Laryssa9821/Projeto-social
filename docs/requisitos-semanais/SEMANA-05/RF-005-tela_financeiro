@@ -12,7 +12,7 @@
 
 ## ⚙️ ESTRUTURA DE DIRETÓRIOS
 
-```
+```text
 Projeto-social/
 ├── docs/
 │   ├── requisitos-semanais/
@@ -79,14 +79,14 @@ Projeto-social/
 
 ### RF-005: Painel Financeiro e Redirecionamento de Login por Perfil
 
-**ID:** RF-005  
-**Título:** Implementação da tela do Painel Financeiro (visão geral, transações, repasses para ONGs, relatórios, contas a pagar, contas a receber e vendas) e ajuste do login para direcionar cada tipo de acesso à sua tela correspondente  
-**Tipo:** Requisito Funcional  
-**Prioridade:** ALTA — viabiliza o perfil Financeiro previsto no dicionário de dados e dá visibilidade ao destino dos recursos (vendas, doações e repasses sociais)  
-**Complexidade:** MÉDIA — estimado em 5 story points (uma tela nova com sete abas de navegação sem recarregamento e ajuste da regra de login por perfil)  
-**Status:** EM DESENVOLVIMENTO  
-**Data de Criação:** 14/10/2026  
-**Última Atualização:** 18/10/2026
+- **ID:** RF-005  
+- **Título:** Implementação da tela do Painel Financeiro (visão geral, transações, repasses para ONGs, relatórios, contas a pagar, contas a receber e vendas) e ajuste do login para direcionar cada tipo de acesso à sua tela correspondente  
+- **Tipo:** Requisito Funcional  
+- **Prioridade:** ALTA — viabiliza o perfil Financeiro previsto no dicionário de dados e dá visibilidade ao destino dos recursos (vendas, doações e repasses sociais)  
+- **Complexidade:** MÉDIA — estimado em 5 story points (uma tela nova com sete abas de navegação sem recarregamento e ajuste da regra de login por perfil)  
+- **Status:** EM DESENVOLVIMENTO  
+- **Data de Criação:** 14/10/2026  
+- **Última Atualização:** 18/10/2026
 
 ### Breve Descrição
 
@@ -98,7 +98,7 @@ O sistema passa a contar com o **Painel Financeiro** (`tela_do_financeiro.html`)
 
 ### Descrição Detalhada
 
-**Por que este requisito existe?**
+#### Por que este requisito existe?
 
 Até a Semana 4, o sistema tinha um único painel interno (cadastros de produtos, parceiros, fornecedores e clientes) e um fluxo público de compra e doação. Faltava a área que acompanha o dinheiro que entra e sai do projeto. Esta entrega resolve três pontos:
 
@@ -260,21 +260,21 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 
 ### Regras de Negócio (RN)
 
-**RN-24:** O tipo de acesso escolhido no login define o destino: “Acesso Gerente” leva ao painel financeiro (`tela_do_financeiro.html`) e “Acesso Credenciado” leva ao painel administrativo (`tela_Adm.html`).  
-**RN-25:** No protótipo, a autenticação aceita apenas o usuário `admin` e a senha `admin`; essa regra é provisória e deve ser substituída por autenticação real com senha criptografada (tabela `usuarios`).  
-**RN-26:** Ao autenticar, o sistema grava no navegador o nome e o perfil do usuário, e o painel financeiro exibe “nome (perfil)” no cabeçalho.  
-**RN-27:** O painel financeiro exibe uma aba por vez; ao trocar de aba, o item do menu é destacado e o título do cabeçalho passa a mostrar o nome da aba escolhida.  
-**RN-28:** Valores de entrada são exibidos em verde com sinal “+” e valores de saída em vermelho com sinal “-”; status “Pago” usa cor verde e “Aguardando” usa cor amarela.  
-**RN-29:** Todos os dados do painel financeiro são fictícios e estáticos. Os botões “+ Nova Transação”, “+ Novo Repasse”, “+ Nova Venda”, “Pagar”, “Baixar PDF”, “Ver PDF” e os links de nota fiscal são apenas visuais, sem ação associada.  
-**RN-30:** A aba “Vendas” registra a forma de pagamento (Pix ou Cartão de Crédito) e a nota fiscal de cada venda, coerente com as formas de pagamento do checkout da Semana 4 (RF-004).  
-**RN-31:** O botão “Sair do Sistema” retorna à tela de login.
+- **RN-24:** O tipo de acesso escolhido no login define o destino: “Acesso Gerente” leva ao painel financeiro (`tela_do_financeiro.html`) e “Acesso Credenciado” leva ao painel administrativo (`tela_Adm.html`).  
+- **RN-25:** No protótipo, a autenticação aceita apenas o usuário `admin` e a senha `admin`; essa regra é provisória e deve ser substituída por autenticação real com senha criptografada (tabela `usuarios`).  
+- **RN-26:** Ao autenticar, o sistema grava no navegador o nome e o perfil do usuário, e o painel financeiro exibe “nome (perfil)” no cabeçalho.  
+- **RN-27:** O painel financeiro exibe uma aba por vez; ao trocar de aba, o item do menu é destacado e o título do cabeçalho passa a mostrar o nome da aba escolhida.  
+- **RN-28:** Valores de entrada são exibidos em verde com sinal “+” e valores de saída em vermelho com sinal “-”; status “Pago” usa cor verde e “Aguardando” usa cor amarela.  
+- **RN-29:** Todos os dados do painel financeiro são fictícios e estáticos. Os botões “+ Nova Transação”, “+ Novo Repasse”, “+ Nova Venda”, “Pagar”, “Baixar PDF”, “Ver PDF” e os links de nota fiscal são apenas visuais, sem ação associada.  
+- **RN-30:** A aba “Vendas” registra a forma de pagamento (Pix ou Cartão de Crédito) e a nota fiscal de cada venda, coerente com as formas de pagamento do checkout da Semana 4 (RF-004).  
+- **RN-31:** O botão “Sair do Sistema” retorna à tela de login.
 
 ### Requisitos Não-Funcionais (RNF)
 
-**RNF-18:** A troca de abas do painel financeiro deve ocorrer sem recarregar a página, no mesmo padrão adotado no painel administrativo (ADR-005, Semana 3).  
-**RNF-19:** Os cartões de indicadores devem se reorganizar automaticamente conforme a largura da tela (grade com colunas de no mínimo 220 px).  
-**RNF-20:** O acesso direto à URL do painel financeiro deve, em entrega futura, ser bloqueado para usuários não autenticados ou sem perfil adequado — permanece como pendência técnica desta entrega.  
-**RNF-21:** Os dados das abas financeiras devem, em entrega futura, ser carregados a partir de tabelas reais do banco de dados — permanece como pendência técnica desta entrega.
+- **RNF-18:** A troca de abas do painel financeiro deve ocorrer sem recarregar a página, no mesmo padrão adotado no painel administrativo (ADR-005, Semana 3).  
+- **RNF-19:** Os cartões de indicadores devem se reorganizar automaticamente conforme a largura da tela (grade com colunas de no mínimo 220 px).  
+- **RNF-20:** O acesso direto à URL do painel financeiro deve, em entrega futura, ser bloqueado para usuários não autenticados ou sem perfil adequado — permanece como pendência técnica desta entrega.  
+- **RNF-21:** Os dados das abas financeiras devem, em entrega futura, ser carregados a partir de tabelas reais do banco de dados — permanece como pendência técnica desta entrega.
 
 ---
 
@@ -284,7 +284,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 
 ### Tela 1 — Login com Seleção de Tipo de Acesso
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ Sleep Well          INÍCIO   SOBRE NÓS   COMPRE E AJUDE   ...                        │
 ├──────────────────────────────────────────────────────────────────────────────────────┤
@@ -306,7 +306,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 
 ### Tela 2 — Painel Financeiro: Visão Geral
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ Painel Financeiro - Visão Geral                            Administrador (Gerente)   │
 ├────────────────────┬─────────────────────────────────────────────────────────────────┤
@@ -324,7 +324,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 
 ### Tela 3 — Painel Financeiro: Transações
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ Painel Financeiro - Transações                             Administrador (Gerente)   │
 ├────────────────────┬─────────────────────────────────────────────────────────────────┤
@@ -360,7 +360,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 
 ### Tela 5 — Painel Financeiro: Relatórios
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ Painel Financeiro - Relatórios                             Administrador (Gerente)   │
 ├────────────────────┬─────────────────────────────────────────────────────────────────┤
@@ -378,7 +378,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 
 ### Tela 6 — Painel Financeiro: A Pagar, A Receber e Vendas
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ A PAGAR                                                                              │
 │  Vencimento | Credor            | Categoria       | Valor | Ação                     │
@@ -421,7 +421,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 
 ### Arquitetura da Solução
 
-```
+```text
 ┌──────────────────────────────┐
 │          Frontend            │
 │ HTML + CSS + JavaScript      │
