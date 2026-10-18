@@ -1,20 +1,18 @@
 # 📋 ENTREGA SEMANAL DE REQUISITOS
 
----
-
 **Versão:** 12.2  
-**Laboratório de Inovação - Prof. Edilberto Silva — 2026**  
+**Laboratório de Inovação -** Prof. Edilberto Silva — 2026  
 **Formato:** Markdown  
 **Valor Total da Entrega:** 100%  
 **Data de Entrega:** 18/10/2026  
 **Grupo:** Sleep Well — Projeto Social  
-**Integrantes:** Ana Júlia Bernardes ( [ana50466166@edu.df.senac.br](mailto:ana50466166@edu.df.senac.br) ) ; Douglas Cerqueira ( [douglas51812666@edu.df.senac.br](mailto:douglas51812666@edu.df.senac.br) ) ; Fabiane Sarres ( [fabiane61909266@edu.df.senac.br](mailto:fabiane61909266@edu.df.senac.br) ) ; Gustavo Augusto ( [gustavo61867136@edu.df.senac.br](mailto:gustavo61867136@edu.df.senac.br) ) ; Hannah Raposo ( [hannah46570966@edu.df.senac.br](mailto:hannah46570966@edu.df.senac.br) ) ; Laryssa Almeida ( [laryssa59158836@edu.df.senac.br](mailto:laryssa59158836@edu.df.senac.br) )
+**Integrantes:** Ana Júlia Bernardes (ana50466166@edu.df.senac.br) ; Douglas Cerqueira (douglas51812666@edu.df.senac.br) ; Fabiane Sarres (fabiane61909266@edu.df.senac.br) ; Gustavo Augusto (gustavo61867136@edu.df.senac.br) ; Hannah Raposo (hannah46570966@edu.df.senac.br) ; Laryssa Almeida (laryssa59158836@edu.df.senac.br)
 
 ---
 
 ## ⚙️ ESTRUTURA DE DIRETÓRIOS
 
-```
+```text
 Projeto-social/
 ├── docs/
 │   ├── requisitos-semanais/
@@ -286,7 +284,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 
 ### Tela 1 — Login com Seleção de Tipo de Acesso
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ Sleep Well          INÍCIO   SOBRE NÓS   COMPRE E AJUDE   ...                        │
 ├──────────────────────────────────────────────────────────────────────────────────────┤
@@ -308,7 +306,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 
 ### Tela 2 — Painel Financeiro: Visão Geral
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ Painel Financeiro - Visão Geral                            Administrador (Gerente)   │
 ├────────────────────┬─────────────────────────────────────────────────────────────────┤
@@ -326,7 +324,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 
 ### Tela 3 — Painel Financeiro: Transações
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ Painel Financeiro - Transações                             Administrador (Gerente)   │
 ├────────────────────┬─────────────────────────────────────────────────────────────────┤
@@ -344,7 +342,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 
 ### Tela 4 — Painel Financeiro: Repasses para ONGs
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ Painel Financeiro - Repasses ONGs                          Administrador (Gerente)   │
 ├────────────────────┬─────────────────────────────────────────────────────────────────┤
@@ -362,7 +360,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 
 ### Tela 5 — Painel Financeiro: Relatórios
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ Painel Financeiro - Relatórios                             Administrador (Gerente)   │
 ├────────────────────┬─────────────────────────────────────────────────────────────────┤
@@ -380,7 +378,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 
 ### Tela 6 — Painel Financeiro: A Pagar, A Receber e Vendas
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ A PAGAR                                                                              │
 │  Vencimento | Credor            | Categoria       | Valor | Ação                     │
@@ -423,7 +421,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 
 ### Arquitetura da Solução
 
-```
+```text
 ┌──────────────────────────────┐
 │          Frontend            │
 │ HTML + CSS + JavaScript      │
@@ -489,7 +487,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 ### Tecnologias Escolhidas
 
 | Camada | Tecnologia | Versão | Justificativa |
-|---|---|---|---|
+|---|---|---:|---|
 | Frontend | HTML5 + CSS3 + JavaScript | ES2015+ | Web padrão e continuidade do projeto |
 | Backend | Express.js / Node.js | 4.18+ | API, autenticação e regras de negócio |
 | BD | MySQL | 8.0+ | Continuidade da decisão já registrada para o projeto |
@@ -533,7 +531,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 ## 📊 RESUMO DE PONTUAÇÃO
 
 | Tópico | Peso | Conteúdo entregue |
-|---|---|---|
+|---|---:|---|
 | 1. Identificação do Requisito | 10% | RF-005, prioridade, complexidade, status e descrição |
 | 2. Descrição e Atores | 15% | contexto, atores e permissões |
 | 3. Especificação de Casos de Uso | 25% | UC-014 a UC-020, RN e RNF |
@@ -561,5 +559,6 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 **Template v12.2 — Entrega Semanal de Requisitos**  
 **Laboratório de Inovação Prof. Edilberto Silva — 2026**
 
-*"Cada entrega vale 100%. Seja minucioso, justificado, exemplificado!"*  
+*"Cada entrega vale 100%. Seja minucioso, justificado, exemplificado!"*
+
 *"Fé, Força e Foco!"*
