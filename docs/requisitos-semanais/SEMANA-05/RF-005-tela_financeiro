@@ -12,7 +12,7 @@
 
 ## ⚙️ ESTRUTURA DE DIRETÓRIOS
 
-
+```
 Projeto-social/
 ├── docs/
 │   ├── requisitos-semanais/
@@ -64,7 +64,7 @@ Projeto-social/
 ├── sistema/
 │   └── banco-de-dados/
 │       └── DicionariodeDados.md
-
+```
 
 **Localização deste arquivo:**  
 `docs/requisitos-semanais/SEMANA-05/RF-005-tela-financeiro.md`
@@ -284,7 +284,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 
 ### Tela 1 — Login com Seleção de Tipo de Acesso
 
-
+```
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ Sleep Well          INÍCIO   SOBRE NÓS   COMPRE E AJUDE   ...                        │
 ├──────────────────────────────────────────────────────────────────────────────────────┤
@@ -302,11 +302,11 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 │     Gerente     -> tela_do_financeiro.html                                           │
 │                                                                                      │
 └──────────────────────────────────────────────────────────────────────────────────────┘
-
+```
 
 ### Tela 2 — Painel Financeiro: Visão Geral
 
-
+```
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ Painel Financeiro - Visão Geral                            Administrador (Gerente)   │
 ├────────────────────┬─────────────────────────────────────────────────────────────────┤
@@ -320,11 +320,11 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 │                    │ Bem-vindo ao painel gerencial financeiro da                     │
 │ [Sair do Sistema]  │ Sleep Well. Use o menu lateral para navegar.                    │
 └────────────────────┴─────────────────────────────────────────────────────────────────┘
-
+```
 
 ### Tela 3 — Painel Financeiro: Transações
 
-
+```
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ Painel Financeiro - Transações                             Administrador (Gerente)   │
 ├────────────────────┬─────────────────────────────────────────────────────────────────┤
@@ -338,11 +338,11 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 │                    │                                                                 │
 │ [Sair do Sistema]  │                                                                 │
 └────────────────────┴─────────────────────────────────────────────────────────────────┘
-
+```
 
 ### Tela 4 — Painel Financeiro: Repasses para ONGs
 
-
+```text
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ Painel Financeiro - Repasses ONGs                          Administrador (Gerente)   │
 ├────────────────────┬─────────────────────────────────────────────────────────────────┤
@@ -356,11 +356,11 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 │                    │                                                                 │
 │ [Sair do Sistema]  │                                                                 │
 └────────────────────┴─────────────────────────────────────────────────────────────────┘
-
+```
 
 ### Tela 5 — Painel Financeiro: Relatórios
 
-
+```
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ Painel Financeiro - Relatórios                             Administrador (Gerente)   │
 ├────────────────────┬─────────────────────────────────────────────────────────────────┤
@@ -374,11 +374,11 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 │                    │ | [BAIXAR PDF]       | | [BAIXAR PDF]       |                   │
 │ [Sair do Sistema]  │ +--------------------+ +--------------------+                   │
 └────────────────────┴─────────────────────────────────────────────────────────────────┘
-
+```
 
 ### Tela 6 — Painel Financeiro: A Pagar, A Receber e Vendas
 
-
+```
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │ A PAGAR                                                                              │
 │  Vencimento | Credor            | Categoria       | Valor | Ação                     │
@@ -396,7 +396,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 │  13/10/2026 | João da Silva  | Colchão Ortop. Recic. | Pix    | 890   | NF #1029     │
 │  12/10/2026 | Maria Oliveira | Colchonete Simples    | Cartão | 350   | NF #1028     │
 └──────────────────────────────────────────────────────────────────────────────────────┘
-
+```
 
 ### Critérios de Aceite
 
@@ -421,7 +421,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 
 ### Arquitetura da Solução
 
-
+```
 ┌──────────────────────────────┐
 │          Frontend            │
 │ HTML + CSS + JavaScript      │
@@ -446,7 +446,7 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 │ repasses, contas a pagar e   │
 │ a receber, vendas            │
 └──────────────────────────────┘
-
+```
 
 ### ADR-009: Painel Financeiro em Página Única com Abas
 
@@ -562,4 +562,3 @@ A Sleep Well comercializa colchões e colchonetes reciclados e recebe doações,
 *"Cada entrega vale 100%. Seja minucioso, justificado, exemplificado!"*
 
 *"Fé, Força e Foco!"*
-
